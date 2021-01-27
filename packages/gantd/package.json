@@ -1,0 +1,46 @@
+{
+  "name": "gantd",
+  "version": "2.0.0-alpha",
+  "description": "react gantd library",
+  "keywords": [
+    "gantd",
+    "umi gantd",
+    "react gantd"
+  ],
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./lib/index.d.ts",
+  "unpkg": "dist/gantd.js",
+  "sideEffects": false,
+  "authors": {
+    "name": "brickspert",
+    "email": "brickspert.fjl@alipay.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/"
+  },
+  "repository": "https://github.com/alibaba/gantd",
+  "homepage": "https://github.com/alibaba/gantd",
+  "scripts": {
+    "build": "gulp && webpack-cli"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "antd": "^4.11.2",
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "license": "MIT",
+  "gitHead": "561ebf0c820fa5fd6f1a8e83d6a8de3474254921"
+}
