@@ -5,8 +5,8 @@ const path = require('path');
 module.exports = merge(common, {
   entry: './es/index.js',
   output: {
-    filename: 'gantd.js',
-    library: 'gantd',
+    filename: 'tantd.js',
+    library: 'tantd',
     path: path.resolve(__dirname, './dist'),
   },
 });

@@ -1,26 +1,26 @@
 {
-  "name": "gantd",
-  "version": "2.0.0-alpha",
-  "description": "react gantd library",
+  "name": "tantd",
+  "version": "1.0.0",
+  "description": "react tantd library",
   "keywords": [
-    "gantd",
-    "umi gantd",
-    "react gantd"
+    "tantd",
+    "antd",
+    "react tantd"
   ],
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
-  "unpkg": "dist/gantd.js",
+  "unpkg": "dist/tantd.js",
   "sideEffects": false,
   "authors": {
-    "name": "brickspert",
-    "email": "brickspert.fjl@alipay.com"
+    "name": "favori",
+    "email": "yuangd@gantsoftware.com"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
-  "repository": "https://github.com/alibaba/gantd",
-  "homepage": "https://github.com/alibaba/gantd",
+  "repository": "https://github.com/gantFDT/gant-design-2",
+  "homepage": "https://github.com/gantFDT/gant-design-2",
   "scripts": {
     "build": "gulp && webpack-cli"
   },

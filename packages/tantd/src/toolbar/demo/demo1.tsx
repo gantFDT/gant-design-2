@@ -1,5 +1,5 @@
 import React from 'react'
-import { Toolbar } from 'gantd'
+import { Toolbar } from 'tantd'
 import { Button, Tooltip } from 'antd'
 import { LeftOutlined } from '@ant-design/icons';
 

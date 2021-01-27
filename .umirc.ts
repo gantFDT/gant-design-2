@@ -24,7 +24,7 @@ export default {
   manifest: {},
   hash: true,
   resolve: {
-    includes: ['docs', 'packages/gantd/src'],
+    includes: ['docs', 'packages/tantd/src'],
   },
   links: [],
   navs: [

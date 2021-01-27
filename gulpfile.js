@@ -52,7 +52,7 @@ gulp.task('declaration', function () {
 });
 
 gulp.task('copyReadme', async function () {
-  await gulp.src('../../README.md').pipe(gulp.dest('../../packages/gantd'));
+  await gulp.src('../../README.md').pipe(gulp.dest('../../packages/tantd'));
 });
 
 exports.default = gulp.series(
