@@ -2,6 +2,9 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const ts = require('gulp-typescript');
 const del = require('del');
+const less = require('gulp-less');
+const sourcemaps = require('gulp-sourcemaps');
+const through2 = require('through2');
 
 gulp.task('clean', async function () {
   await del('lib/**');
@@ -39,6 +42,34 @@ gulp.task('es', function () {
     .pipe(gulp.dest('es/'));
 });
 
+const less2css = () => {
+  return through2.obj(function (file, encoding, next) {
+    this.push(file.clone());
+    // if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
+    const content = file.contents.toString(encoding);
+    file.contents = Buffer.from(content.replace(/\.less/g, '.css'));
+    // file.path = file.path.replace(/index\.js/, 'css.js');
+    this.push(file);
+    next();
+  });
+};
+
+gulp.task('less', function () {
+  return gulp
+    .src('src/**/*.less')
+    .pipe(less())
+    .pipe(less2css())
+    .pipe(gulp.dest('es/'))
+    .pipe(gulp.dest('lib/'));
+
+  // gulp.src('src/**/*.less')
+  //   .pipe(sourcemaps.init())
+  //   .pipe(less())
+  //   .pipe(sourcemaps.write())
+  //   .pipe(gulp.dest('style'));
+  // gulp.watch('src/**/*.less', ['Less']); //当所有less文件发生改变时，调用Less任务
+});
+
 gulp.task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     declaration: true,
@@ -59,6 +90,7 @@ exports.default = gulp.series(
   'clean',
   'cjs',
   'es',
+  'less',
   'declaration',
   'copyReadme',
 );

@@ -1,17 +1,17 @@
-@import '../../../../style/index.less';
+// @import '../../../../style/index.less';
 
 .toolbar {
-  width: 100%;
-  background: var(--component-background);
-  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  background: var(--component-background);
 
   &:after {
-    content: '';
     display: block;
     clear: both;
+    content: '';
   }
 
   .left {
@@ -31,21 +31,20 @@
   }
 
   .space {
-    -webkit-box-flex: 1;
     flex: auto;
+    height: 1px;
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    height: 1px;
+    -webkit-box-flex: 1;
   }
 
   .fixed {
     position: fixed;
-    bottom: 0;
     right: 0;
-    box-shadow: 0 -1px 2px rgba(128, 128, 128, 0.03);
-    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    bottom: 0;
     z-index: 9;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    box-shadow: 0 -1px 2px rgba(128, 128, 128, 0.03);
   }
-
 }

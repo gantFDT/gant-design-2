@@ -5,7 +5,7 @@ module.exports = {
   },
   mode: 'production',
   resolve: {
-    extensions: ['.json', '.js'],
+    extensions: ['.json', '.js', 'less'],
   },
   // module: {
   //   rules: [
@@ -17,6 +17,18 @@ module.exports = {
   //     }
   //   ],
   // },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+    ],
+  },
   externals: [
     {
       react: 'React',

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import styles from './index.less'
+import styles from './style/index.less';
 
 export interface ToolBarPropsIF {
   extraLeft?: React.ReactNode;
@@ -11,15 +11,27 @@ export interface ToolBarPropsIF {
 }
 
 export default function Toolbar(props: ToolBarPropsIF) {
-  const { extraLeft, extraRight, fixed, className, style, ...restProps } = props;
+  const {
+    extraLeft,
+    extraRight,
+    fixed,
+    className,
+    style,
+    ...restProps
+  } = props;
   return (
-    <div className={classnames(styles.toolbar, fixed ? styles.fixed : '', className)} style={style} {...restProps}>
+    <div
+      className={classnames(
+        styles.toolbar,
+        fixed ? styles.fixed : '',
+        className,
+      )}
+      style={style}
+      {...restProps}
+    >
       <div className={styles.left}>{extraLeft}</div>
       <div className={styles.space}></div>
       <div className={styles.right}>{extraRight}</div>
     </div>
   );
 }
-
-
-

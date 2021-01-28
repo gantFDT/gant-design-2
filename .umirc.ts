@@ -15,6 +15,14 @@ export default {
       },
       'antd',
     ],
+    [
+      'import',
+      {
+        libraryName: 'tantd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+    ],
   ],
   mode: 'site',
   title: 'GantD',
@@ -24,7 +32,7 @@ export default {
   manifest: {},
   hash: true,
   resolve: {
-    includes: ['docs', 'packages/tantd/src'],
+    includes: ['docs', 'packages/tantd/src', 'style'],
   },
   links: [],
   navs: [
