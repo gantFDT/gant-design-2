@@ -1,6 +1,6 @@
-// @import '../../../../style/index.less';
+@import '../../../../../style/index.less';
 
-.toolbar {
+.gant-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
     content: '';
   }
 
-  .left {
+  &-left {
     float: left;
 
     button {
@@ -22,7 +22,7 @@
     }
   }
 
-  .right {
+  &-right {
     float: right;
 
     button {
@@ -30,7 +30,7 @@
     }
   }
 
-  .space {
+  &-space {
     flex: auto;
     height: 1px;
     margin: 0 !important;
@@ -39,7 +39,7 @@
     -webkit-box-flex: 1;
   }
 
-  .fixed {
+  &-fixed {
     position: fixed;
     right: 0;
     bottom: 0;

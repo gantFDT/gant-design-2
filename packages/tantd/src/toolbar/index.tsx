@@ -1,7 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
-import styles from './style/index.less';
-
+import classNames from 'classnames';
 export interface ToolBarPropsIF {
   extraLeft?: React.ReactNode;
   extraRight?: React.ReactNode;
@@ -10,7 +8,9 @@ export interface ToolBarPropsIF {
   fixed?: boolean;
 }
 
-export default function Toolbar(props: ToolBarPropsIF) {
+const prefixCls = 'gant-toolbar';
+
+const Toolbar = (props: ToolBarPropsIF) => {
   const {
     extraLeft,
     extraRight,
@@ -21,17 +21,19 @@ export default function Toolbar(props: ToolBarPropsIF) {
   } = props;
   return (
     <div
-      className={classnames(
-        styles.toolbar,
-        fixed ? styles.fixed : '',
+      className={classNames(
+        prefixCls,
+        fixed ? prefixCls + '-fixed' : '',
         className,
       )}
       style={style}
       {...restProps}
     >
-      <div className={styles.left}>{extraLeft}</div>
-      <div className={styles.space}></div>
-      <div className={styles.right}>{extraRight}</div>
+      <div className={prefixCls + `-left`}>{extraLeft}</div>
+      <div className={prefixCls + '-space'}></div>
+      <div className={prefixCls + `-right`}>{extraRight}</div>
     </div>
   );
-}
+};
+
+export default Toolbar;
