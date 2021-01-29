@@ -1,40 +1,19 @@
-export default {
-  // ssr: {},
-  exportStatic: {},
-  nodeModulesTransform: {
-    type: 'none',
-    exclude: [],
-  },
-  extraBabelPlugins: [
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-      'antd',
-    ],
-    [
-      'import',
-      {
-        libraryName: 'tantd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
+import { defineConfig } from 'dumi';
+
+const repo = 'dumi-template';
+
+export default defineConfig({
+  title: repo,
+  favicon:
+    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  logo:
+    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  outputPath: 'docs-dist',
   mode: 'site',
-  title: 'GantD',
-  favicon: '/logo.png',
-  logo: '/logo.png',
-  dynamicImport: {},
-  manifest: {},
   hash: true,
-  resolve: {
-    includes: ['docs', 'packages/tantd/src', 'style'],
-  },
-  links: [],
+  // Because of using GitHub Pages
+  base: `/${repo}/`,
+  publicPath: `/${repo}/`,
   navs: [
     null,
     {
@@ -42,5 +21,5 @@ export default {
       path: 'https://github.com/umijs/dumi-template',
     },
   ],
-  headScripts: [],
-};
+  // more config: https://d.umijs.org/config
+});
