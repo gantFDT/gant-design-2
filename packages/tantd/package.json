@@ -1,6 +1,6 @@
 {
   "name": "tantd",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "react tantd library",
   "keywords": [
     "tantd",
@@ -12,13 +12,7 @@
   "types": "./lib/index.d.ts",
   "unpkg": "dist/tantd.js",
   "sideEffects": false,
-  "authors": {
-    "name": "favori",
-    "email": "yuangd@gantsoftware.com"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
-  },
+  "author": "favori",
   "repository": "https://github.com/gantFDT/gant-design-2",
   "homepage": "https://github.com/gantFDT/gant-design-2",
   "scripts": {
@@ -42,7 +36,6 @@
     "node": ">=8.0.0"
   },
   "license": "MIT",
-  "gitHead": "8c6968f58989ba9e45085cc781900891d54be34f",
   "devDependencies": {
     "less": "^3.9.0"
   }
