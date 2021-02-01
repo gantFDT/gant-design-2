@@ -47,34 +47,27 @@ gulp.task('es', function () {
     .pipe(gulp.dest('es/'));
 });
 
-//
+//把流中的less后缀改为css
 const less2css = () => {
   return through2.obj(function (file, encoding, next) {
     this.push(file.clone());
-    // if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
     const content = file.contents.toString(encoding);
     file.contents = Buffer.from(content.replace(/\.less/g, '.css'));
-    // file.path = file.path.replace(/index\.js/, 'css.js');
     this.push(file);
     next();
   });
 };
 
+//处理less样式文件
 gulp.task('less', function () {
   return gulp
     .src('src/**/*.less')
     .pipe(less())
     .pipe(gulp.dest('es/'))
     .pipe(gulp.dest('lib/'));
-
-  // gulp.src('src/**/*.less')
-  //   .pipe(sourcemaps.init())
-  //   .pipe(less())
-  //   .pipe(sourcemaps.write())
-  //   .pipe(gulp.dest('style'));
-  // gulp.watch('src/**/*.less', ['Less']); //当所有less文件发生改变时，调用Less任务
 });
 
+//处理ts声明
 gulp.task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     declaration: true,
@@ -83,10 +76,12 @@ gulp.task('declaration', function () {
   return tsProject
     .src()
     .pipe(tsProject())
+    .pipe(less2css())
     .pipe(gulp.dest('es/'))
     .pipe(gulp.dest('lib/'));
 });
 
+//拷贝readme
 gulp.task('copyReadme', async function () {
   await gulp.src('../../README.md').pipe(gulp.dest('../../packages/tantd'));
 });
