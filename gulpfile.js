@@ -6,12 +6,14 @@ const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const through2 = require('through2');
 
+//清除编译制品
 gulp.task('clean', async function () {
   await del('lib/**');
   await del('es/**');
   await del('dist/**');
 });
 
+//生成lib包
 gulp.task('cjs', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     module: 'CommonJS',
@@ -24,9 +26,11 @@ gulp.task('cjs', function () {
         configFile: '../../.babelrc',
       }),
     )
+    .pipe(less2css())
     .pipe(gulp.dest('lib/'));
 });
 
+//生成es module
 gulp.task('es', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     module: 'ESNext',
@@ -39,9 +43,11 @@ gulp.task('es', function () {
         configFile: '../../.babelrc',
       }),
     )
+    .pipe(less2css())
     .pipe(gulp.dest('es/'));
 });
 
+//
 const less2css = () => {
   return through2.obj(function (file, encoding, next) {
     this.push(file.clone());
@@ -58,7 +64,6 @@ gulp.task('less', function () {
   return gulp
     .src('src/**/*.less')
     .pipe(less())
-    .pipe(less2css())
     .pipe(gulp.dest('es/'))
     .pipe(gulp.dest('lib/'));
 
