@@ -6,6 +6,32 @@ const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const through2 = require('through2');
 
+//给组件中追加引入css
+const pushCss = () => {
+  return through2.obj(function (file, encoding, next) {
+    this.push(file.clone());
+    if (file.path.match(/(\/|\\)src(\/|\\)(\w+)(\/|\\)index\.js/)) {
+      let content = file.contents.toString(encoding);
+      file.contents = Buffer.from(
+        (content += `\nrequire('./style/index.css');`),
+      );
+    }
+    this.push(file);
+    next();
+  });
+};
+
+//把流中的less后缀改为css
+const less2css = () => {
+  return through2.obj(function (file, encoding, next) {
+    this.push(file.clone());
+    const content = file.contents.toString(encoding);
+    file.contents = Buffer.from(content.replace(/\.less/g, '.css'));
+    this.push(file);
+    next();
+  });
+};
+
 //清除编译制品
 gulp.task('clean', async function () {
   await del('lib/**');
@@ -47,34 +73,6 @@ gulp.task('es', function () {
     .pipe(pushCss())
     .pipe(gulp.dest('es/'));
 });
-
-//给流中添加字符串
-const pushCss = () => {
-  return through2.obj(function (file, encoding, next) {
-    this.push(file.clone());
-
-    // console.log('file.path', file.path)
-    if (file.path.match(/(\/|\\)src(\/|\\)(\w+)(\/|\\)index\.js/)) {
-      let content = file.contents.toString(encoding);
-      file.contents = Buffer.from(
-        (content += `\nrequire('./style/index.css');`),
-      );
-    }
-    this.push(file);
-    next();
-  });
-};
-
-//把流中的less后缀改为css
-const less2css = () => {
-  return through2.obj(function (file, encoding, next) {
-    this.push(file.clone());
-    const content = file.contents.toString(encoding);
-    file.contents = Buffer.from(content.replace(/\.less/g, '.css'));
-    this.push(file);
-    next();
-  });
-};
 
 //处理less样式文件
 gulp.task('less', function () {

@@ -1,29 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const merge = require('webpack-merge');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
-// const WebpackBar = require('webpackbar');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
+// const WebpackBar = require('webpackbar');
 
-// const pkg = require('./package.json');
-
-// const entry = ['./index'];
-const libName = 'tantd';
-const exts = ['.ts', '.tsx', '.js', '.jsx', '.css'];
+const packageInfo = require(path.join(process.cwd(), './package.json'));
 
 module.exports = {
   mode: 'production',
-  // entry: {
-  //     [`${libName}.min`]: entry,
-  // },
-  // output: {
-  //     path: path.resolve(__dirname, 'dist'),
-  //     filename: '[name].js',
-  //     library: libName,
-  //     libraryTarget: 'umd',
-  // },
   externals: {
     react: {
       root: 'React',
@@ -45,7 +30,7 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: exts,
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css'],
   },
   devtool: 'source-map',
   devServer: {
@@ -62,25 +47,7 @@ module.exports = {
             loader: 'babel-loader',
           },
         ],
-        // exclude: __dirname + 'node_modules',
-        // include: __dirname + 'src',
-        // options: { presets: ['env'] }
       },
-      // {
-      //     test: /\.tsx?$/,
-      //     exclude: /node_modules/,
-      //     use: [
-      //         {
-      //             loader: 'babel-loader',
-      //         },
-      //         {
-      //             loader: 'ts-loader',
-      //             options: {
-      //                 configFile: 'tsconfig.json',
-      //             },
-      //         },
-      //     ],
-      // },
       {
         test: /\.css$/i,
         exclude: /node_modules/,
@@ -88,11 +55,8 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-
             options: {
               importLoaders: 1,
-              // sourceMap: true,
-              // modules: true,
             },
           },
           {
@@ -100,39 +64,18 @@ module.exports = {
           },
         ],
       },
-      // {
-      //     test: /\.less$/,
-      //     exclude: /node_modules/,
-      //     use: [
-      //         MiniCssExtractPlugin.loader,
-      //         {
-      //             loader: 'css-loader',
-      //             options: {
-      //                 sourceMap: true,
-      //                 modules: true,
-      //             },
-      //         },
-      //         {
-      //             loader: 'postcss-loader',
-      //         },
-      //         {
-      //             loader: 'less-loader',
-      //         },
-      //     ],
-      // },
     ],
   },
   plugins: [
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new MiniCssExtractPlugin({
-      filename: `${libName}.css`,
+      filename: `${packageInfo.name}.css`,
     }),
-
-    // new BundleAnalyzerPlugin({
-    //     analyzerMode: 'static',
-    //     openAnalyzer: false,
-    //     reportFilename: '../report.html',
-    // }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: '../report.html',
+    }),
   ],
 };
