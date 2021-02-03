@@ -2,8 +2,11 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const webpack = require('webpack');
-// const WebpackBar = require('webpackbar');
+const WebpackBar = require('webpackbar');
 
 const packageInfo = require('./package.json');
 
@@ -67,7 +70,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.ProgressPlugin(),
+    // new webpack.ProgressPlugin(),
+
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new MiniCssExtractPlugin({
       filename: `${packageInfo.name}.css`,
@@ -77,5 +81,15 @@ module.exports = {
       openAnalyzer: false,
       reportFilename: '../report.html',
     }),
+    new WebpackBar({
+      name: ' 🎸  TantD',
+      color: 'green',
+    }),
+    new FilterWarningsPlugin({
+      exclude: /mini-css-extract-plugin[^]*Conflicting order between:/,
+    }),
   ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin(), new OptimizeCSSAssetsPlugin({})],
+  },
 };
