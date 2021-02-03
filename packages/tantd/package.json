@@ -44,6 +44,6 @@
     "webpack-merge": "^5.7.3"
   },
   "extraModule": [
-    "utils_t"
+    "utils"
   ]
 }
