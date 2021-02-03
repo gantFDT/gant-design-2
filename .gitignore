@@ -16,3 +16,4 @@ page
 lerna-debug.log
 tsconfig.tsbuildinfo
 packages/hooks/README.md
+**/report.html

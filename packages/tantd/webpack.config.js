@@ -1,9 +1,9 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('../../webpack.common.js');
 const path = require('path');
 
 module.exports = merge(common, {
-  entry: './es/index.js',
+  entry: path.resolve(__dirname, 'es/index.js'),
   output: {
     filename: 'tantd.js',
     library: 'tantd',

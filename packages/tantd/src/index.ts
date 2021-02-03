@@ -3,8 +3,6 @@
 // import Submenu from '../../submenu-g/src'
 
 //内置的包
-import Toolbar from './toolbar'
+import Toolbar from './toolbar';
 
-export {
-  Toolbar
-}
+export { Toolbar };

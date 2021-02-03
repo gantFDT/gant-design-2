@@ -16,7 +16,8 @@
   "repository": "https://github.com/gantFDT/gant-design-2",
   "homepage": "https://github.com/gantFDT/gant-design-2",
   "scripts": {
-    "build": "gulp && webpack-cli"
+    "build": "gulp && webpack-cli",
+    "build1": "cross-env NODE_ENV=production webpack"
   },
   "files": [
     "dist",
@@ -37,6 +38,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "less": "^3.9.0"
+    "less": "^3.9.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-merge": "^5.7.3"
   }
 }
