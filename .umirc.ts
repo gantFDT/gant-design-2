@@ -19,7 +19,7 @@ export default {
       'import',
       {
         libraryName: 'tantd',
-        libraryDirectory: 'es',
+        libraryDirectory: 'lib',
         style: true,
       },
     ],
