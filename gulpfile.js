@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+const { task, series, src, dest } = require('gulp');
 const babel = require('gulp-babel');
 const ts = require('gulp-typescript');
 const del = require('del');
@@ -33,14 +33,14 @@ const less2css = () => {
 };
 
 //清除编译制品
-gulp.task('clean', async function () {
+task('clean', async function () {
   await del('lib/**');
   await del('es/**');
   await del('dist/**');
 });
 
 //生成lib包
-gulp.task('cjs', function () {
+task('cjs', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     module: 'CommonJS',
   });
@@ -53,11 +53,11 @@ gulp.task('cjs', function () {
       }),
     )
     .pipe(less2css())
-    .pipe(gulp.dest('lib/'));
+    .pipe(dest('lib/'));
 });
 
 //生成es module
-gulp.task('es', function () {
+task('es', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     module: 'ESNext',
   });
@@ -71,20 +71,16 @@ gulp.task('es', function () {
     )
     .pipe(less2css())
     .pipe(pushCss())
-    .pipe(gulp.dest('es/'));
+    .pipe(dest('es/'));
 });
 
 //处理less样式文件
-gulp.task('less', function () {
-  return gulp
-    .src('src/**/*.less')
-    .pipe(less())
-    .pipe(gulp.dest('es/'))
-    .pipe(gulp.dest('lib/'));
+task('less', function () {
+  return src('src/**/*.less').pipe(less()).pipe(dest('es/')).pipe(dest('lib/'));
 });
 
 //处理ts声明
-gulp.task('declaration', function () {
+task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     declaration: true,
     emitDeclarationOnly: true,
@@ -93,16 +89,16 @@ gulp.task('declaration', function () {
     .src()
     .pipe(tsProject())
     .pipe(less2css())
-    .pipe(gulp.dest('es/'))
-    .pipe(gulp.dest('lib/'));
+    .pipe(dest('es/'))
+    .pipe(dest('lib/'));
 });
 
 //拷贝readme
-gulp.task('copyReadme', async function () {
-  await gulp.src('../../README.md').pipe(gulp.dest('../../packages/tantd'));
+task('copyReadme', async function () {
+  await src('../../README.md').pipe(dest('../../packages/tantd'));
 });
 
-exports.default = gulp.series(
+exports.default = series(
   'clean',
   'cjs',
   'es',
