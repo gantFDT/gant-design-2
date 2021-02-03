@@ -14,11 +14,11 @@ nav:
 
 ### 生成 UUID
 
-<code src="./demo/generateUuid.tsx" />
+<code src="../demo/generateUuid.tsx" />
 
 ### 获取 IE 版本
 
-<code src="./demo/IEVersion.tsx" />
+<code src="../demo/IEVersion.tsx" />
 
 ## API
 
