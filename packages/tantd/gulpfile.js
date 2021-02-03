@@ -6,8 +6,8 @@ task('extraModule', async function () {
   for (let module of packageInfo.extraModule) {
     const moduleLib = `../${module}/lib/**`;
     await src(moduleLib).pipe(dest(`./lib/${module}`));
-    // const moduleES = `../${module}/es/**`
-    // await src(moduleES).pipe(dest(`./es/${module}`));
+    const moduleES = `../${module}/es/**`;
+    await src(moduleES).pipe(dest(`./es/${module}`));
   }
 });
 
