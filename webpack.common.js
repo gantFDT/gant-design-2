@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
 // const WebpackBar = require('webpackbar');
 
-const packageInfo = require(path.join(process.cwd(), './package.json'));
+const packageInfo = require('./package.json');
 
 module.exports = {
   mode: 'production',

@@ -10,7 +10,7 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
-  "unpkg": "dist/tantd.js",
+  "unpkg": "./dist/tantd.js",
   "sideEffects": false,
   "author": "favori",
   "repository": "https://github.com/gantFDT/gant-design-2",
@@ -38,6 +38,7 @@
   "license": "MIT",
   "devDependencies": {
     "less": "^3.9.0",
+    "utils_t": "^0.0.2",
     "webpack-cli": "^4.4.0",
     "webpack-merge": "^5.7.3"
   }

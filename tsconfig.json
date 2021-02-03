@@ -9,7 +9,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./packages/*"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
@@ -21,8 +21,44 @@
     "lib",
     "es",
     "dist",
+    "**/lib",
+    "**/es",
+    "**/dist",
     "**/__tests__",
     "**/__test__",
     "**/demo"
   ]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "ES5",
+//     "module": "commonjs",
+//     "moduleResolution": "node",
+//     "allowJs": true,
+//     "sourceMap": true,
+//     "downlevelIteration": true,
+//     "skipLibCheck": true,
+//     "strictNullChecks": true,
+//     // "strict": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "declaration": true,
+//     "jsx": "react",
+//     "rootDir": "./",
+//     "baseUrl": "./",
+//     "paths": {
+//       "@/*": ["./packages/*","./docs/*"]
+//     },
+//     "lib": [
+//       "ESNext",
+//       "DOM",
+//       "DOM.Iterable",
+//       "ScriptHost",
+//     ],
+//   },
+//   "include": [
+//     "packages/**/*",
+//     "docs/**/*"
+//   ]
+// }

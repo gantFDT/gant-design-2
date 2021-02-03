@@ -1,8 +1,6 @@
-//单独发的包
-// import Header from '../../header-g/src'
-// import Submenu from '../../submenu-g/src'
+import Utils from 'utils_t';
 
 //内置的包
 import Toolbar from './toolbar';
 
-export { Toolbar };
+export { Toolbar, Utils };

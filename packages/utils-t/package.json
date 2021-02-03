@@ -1,0 +1,29 @@
+{
+  "name": "utils_t",
+  "version": "0.0.2",
+  "description": "Gant utilities.",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./lib/index.d.ts",
+  "unpkg": "./dist/utils_t.js",
+  "scripts": {
+    "build": "gulp && webpack-cli"
+  },
+  "keywords": [
+    "modules",
+    "util"
+  ],
+  "homepage": "http://www.gant.design",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gantFDT/GantD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gantFDT/GantD/issues"
+  },
+  "author": "GantFDT",
+  "license": "MIT",
+  "devDependencies": {
+    "lodash": "^4.17.20"
+  }
+}
