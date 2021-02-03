@@ -1,6 +1,6 @@
 {
   "name": "tantd",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "react tantd library",
   "keywords": [
     "tantd",
@@ -39,7 +39,7 @@
   "license": "MIT",
   "devDependencies": {
     "less": "^3.9.0",
-    "utils_t": "^0.0.7",
+    "utils_t": "^0.0.8",
     "webpack-cli": "^4.4.0",
     "webpack-merge": "^5.7.3"
   },
