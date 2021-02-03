@@ -32,7 +32,7 @@ export default {
   manifest: {},
   hash: true,
   resolve: {
-    includes: ['docs', 'packages/tantd/src', 'style'],
+    includes: ['docs', 'packages/tantd/src', 'packages/utils_t/src', 'style'],
   },
   links: [],
   navs: [

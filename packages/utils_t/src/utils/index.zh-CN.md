@@ -13,5 +13,3 @@ group:
 # 工具条
 
 一个可吸附在底部的工具条
-
-<code src="./demo/demo1.tsx" />

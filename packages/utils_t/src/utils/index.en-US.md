@@ -1,13 +1,9 @@
 ---
-title: Toolbar
-order: 2
+title: Utils
+order: 20
 nav:
   title: Component
   path: /component
-group:
-  title: Layout
-  path: /layout
-  order: 3
 ---
 
 # Toolbar
