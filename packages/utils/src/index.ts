@@ -37,21 +37,21 @@ const Utils = {
 
   // 获取cookie、
   getCookie(name: string): string | null {
-    let arr: any = [];
-    const reg: RegExp = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
-    if ((arr = document.cookie.match(reg))) {
+    let arr: any = null;
+    const reg: RegExp = new RegExp(`(^| )${name}=([^;]*)(;|$)`);
+    arr = document.cookie.match(reg);
+    if (arr) {
       return unescape(arr[2]);
-    } else {
-      return null;
     }
+    return null;
   },
 
   // 删除cookie
   delCookie(name: string): void {
-    var exp = new Date();
+    let exp = new Date();
     exp.setTime(exp.getTime() - 1000000);
     // 这里需要判断一下cookie是否存在
-    var c = Utils.getCookie(name);
+    let c = Utils.getCookie(name);
     if (c != null) {
       document.cookie =
         name + '=' + c + ';expires=' + exp.toUTCString() + ';path=/';
@@ -66,8 +66,8 @@ const Utils = {
     path: string = '',
   ): void {
     if (time && path) {
-      var strsec = time * 1000;
-      var exp = new Date();
+      let strsec = time * 1000;
+      let exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
       document.cookie =
         name +
@@ -78,8 +78,8 @@ const Utils = {
         ';path=' +
         path;
     } else if (time) {
-      var strsec = time * 1000;
-      var exp = new Date();
+      let strsec = time * 1000;
+      let exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
       document.cookie =
         name + '=' + escape(value) + ';expires=' + exp.toUTCString();
@@ -327,13 +327,13 @@ const Utils = {
    * @returns 计算后的分析数据
    */
   getPerformanceTiming() {
-    var performance = window.performance;
+    let performance = window.performance;
     if (!performance) {
       console.log('您的浏览器不支持performance属性');
       return;
     }
-    var t = performance.timing;
-    var obj: any = {};
+    let t = performance.timing;
+    let obj: any = {};
     // 重定向耗时
     obj['redirectTime'] = t.redirectEnd - t.redirectStart;
     // DNS查询耗时
