@@ -1,5 +1,3 @@
-import { get as _get } from 'lodash';
-
 import _ from 'lodash';
 
 const Utils = {
@@ -14,16 +12,16 @@ const Utils = {
       const reIE = new RegExp('MSIE (\\d+\\.\\d+);');
       reIE.test(userAgent);
       const fIEVersion = parseFloat(RegExp.$1);
-      if (fIEVersion == 7) {
+      if (fIEVersion === 7) {
         return 7;
       }
-      if (fIEVersion == 8) {
+      if (fIEVersion === 8) {
         return 8;
       }
-      if (fIEVersion == 9) {
+      if (fIEVersion === 9) {
         return 9;
       }
-      if (fIEVersion == 10) {
+      if (fIEVersion === 10) {
         return 10;
       }
       return 6; // IE版本<=7
@@ -39,7 +37,7 @@ const Utils = {
 
   // 获取cookie、
   getCookie(name: string): string | null {
-    var arr,
+    let arr,
       reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
     if ((arr = document.cookie.match(reg))) {
       return unescape(arr[2]);
@@ -116,12 +114,12 @@ const Utils = {
       uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
       uuid[14] = '4';
 
-      // Fill in random data.  At i==19 set the high bits of clock sequence as
+      // Fill in random data.  At i===19 set the high bits of clock sequence as
       // per rfc4122, sec. 4.1.5
       for (i = 0; i < 36; i++) {
         if (!uuid[i]) {
           r = 0 | (Math.random() * 16);
-          uuid[i] = chars[i == 19 ? (r & 0x3) | 0x8 : r];
+          uuid[i] = chars[i === 19 ? (r & 0x3) | 0x8 : r];
         }
       }
     }
@@ -154,7 +152,7 @@ const Utils = {
    * 判断参数是不是空的 // {xxxx:undefined} => 空的
    */
   isParamsEmpty(value: object) {
-    if (Utils.getType(value) !== 'Object') throw '只能判断Object类型';
+    if (Utils.getType(value) != 'Object') throw '只能判断Object类型';
     const entries = Object.entries(value);
     return (
       !entries.length ||
@@ -220,7 +218,7 @@ const Utils = {
           [keyName]: node.id,
           children,
         };
-        if (children.length == 0) {
+        if (children.length === 0) {
           delete newNode.children;
         }
         itemArr.push(newNode);
@@ -310,7 +308,7 @@ const Utils = {
         return;
       }
       if (
-        typeof _target['className'] !== 'object' &&
+        typeof _target['className'] != 'object' &&
         _target['className'].indexOf(className) >= 0
       ) {
         result = _target;
