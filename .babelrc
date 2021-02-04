@@ -12,15 +12,6 @@
   "include": "**/*.js",
   "exclude": "**/*.ts",
   "plugins": [
-    "babel-plugin-transform-async-to-promises",
-    [
-      "babel-plugin-import",
-      {
-        "libraryName": "tantd",
-        "libraryDirectory": "lib",
-        "style": true
-      },
-      "tantd"
-    ]
+    "babel-plugin-transform-async-to-promises"
   ]
 }
