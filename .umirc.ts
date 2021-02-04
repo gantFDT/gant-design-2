@@ -1,4 +1,7 @@
-export default {
+import { defineConfig } from 'dumi';
+import path from 'path';
+
+export default defineConfig({
   // ssr: {},
   mode: 'site',
   title: 'GantD',
@@ -24,16 +27,11 @@ export default {
       },
       'antd',
     ],
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'tantd',
-        libraryDirectory: 'lib',
-        style: true,
-      },
-      'tantd',
-    ],
   ],
+  extraPostCSSPlugins: [require('postcss-preset-env')()],
+  alias: {
+    tantd: path.resolve(__dirname, 'packages/tantd'),
+  },
   resolve: {
     includes: ['docs', 'packages/tantd/src', 'packages/utils/src', 'style'],
   },
@@ -46,4 +44,4 @@ export default {
     },
   ],
   headScripts: [],
-};
+});
