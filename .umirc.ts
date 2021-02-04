@@ -29,6 +29,7 @@ export default {
   title: 'GantD',
   favicon: '/logo.png',
   logo: '/logo.png',
+  publicPath: '/gant-design-2/',
   dynamicImport: {},
   manifest: {},
   hash: true,
