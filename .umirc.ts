@@ -5,6 +5,7 @@ export default {
   favicon: '/logo.png',
   logo: '/logo.png',
   publicPath: '/gant-design-2/',
+  base: '/gant-design-2/',
   exportStatic: {},
   nodeModulesTransform: {
     type: 'none',
