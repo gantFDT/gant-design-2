@@ -16,12 +16,13 @@ export default {
       'antd',
     ],
     [
-      'import',
+      'babel-plugin-import',
       {
         libraryName: 'tantd',
         libraryDirectory: 'lib',
         style: true,
       },
+      'tantd',
     ],
   ],
   mode: 'site',
