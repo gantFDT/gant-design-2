@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Utils } from 'tantd';
+import Utils from 'utils_t';
 
 const styles = {
   'm-5': {
@@ -13,7 +13,7 @@ export default () => {
     <div>
       {res && <div style={styles['m-5']}>输出:{res}</div>}
       <button style={styles['m-5']} onClick={() => setRes(Utils.IEVersion())}>
-        Utils.IEVersion()
+        IEVersion()
       </button>
     </div>
   );

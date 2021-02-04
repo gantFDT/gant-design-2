@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Utils } from 'tantd';
+import Utils from 'utils_t';
 
 const styles = {
   'm-5': {

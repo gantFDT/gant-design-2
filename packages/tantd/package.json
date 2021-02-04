@@ -31,8 +31,8 @@
     "utils_t": "^0.0.9"
   },
   "peerDependencies": {
-    "react": "17.x",
-    "react-dom": "17.x"
+    "react": "16.x",
+    "react-dom": "16.x"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -40,7 +40,7 @@
   "license": "MIT",
   "devDependencies": {
     "less": "^3.9.0",
-    "webpack-cli": "^4.4.0",
+    "webpack-cli": "^3.x",
     "webpack-merge": "^5.7.3"
   },
   "extraModule": [

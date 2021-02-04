@@ -33,5 +33,11 @@ jobs:
         run: npm run bootstrap
 
       # Runs a set of commands using the runners shell
-      - name: build
-        run: npm run build
+      - name: build:doc
+        run: npm run build:doc
+      # 部署到github pages
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./dist
