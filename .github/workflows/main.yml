@@ -27,10 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: install
-        run: npm i
-      # Runs a single command using the runners shell
-      - name: bootstrap
-        run: npm run bootstrap
+        run: npm run init
 
       # Runs a set of commands using the runners shell
       - name: build:doc
