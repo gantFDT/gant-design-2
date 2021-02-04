@@ -37,7 +37,6 @@ export default defineConfig({
       'tantd',
     ],
   ],
-  extraPostCSSPlugins: [require('postcss-preset-env')()],
   alias: {
     tantd: path.resolve(__dirname, 'packages/tantd'),
   },
