@@ -1,10 +1,18 @@
 export default {
   // ssr: {},
+  mode: 'site',
+  title: 'GantD',
+  favicon: '/logo.png',
+  logo: '/logo.png',
+  publicPath: '/gant-design-2/',
   exportStatic: {},
   nodeModulesTransform: {
     type: 'none',
     exclude: [],
   },
+  dynamicImport: {},
+  manifest: {},
+  hash: true,
   extraBabelPlugins: [
     [
       'babel-plugin-import',
@@ -25,14 +33,6 @@ export default {
       'tantd',
     ],
   ],
-  mode: 'site',
-  title: 'GantD',
-  favicon: '/logo.png',
-  logo: '/logo.png',
-  publicPath: '/gant-design-2/',
-  dynamicImport: {},
-  manifest: {},
-  hash: true,
   resolve: {
     includes: ['docs', 'packages/tantd/src', 'packages/utils/src', 'style'],
   },
