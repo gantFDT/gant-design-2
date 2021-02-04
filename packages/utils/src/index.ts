@@ -37,8 +37,8 @@ const Utils = {
 
   // 获取cookie、
   getCookie(name: string): string | null {
-    let arr,
-      reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
+    let arr: any = [];
+    const reg: RegExp = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
     if ((arr = document.cookie.match(reg))) {
       return unescape(arr[2]);
     } else {
