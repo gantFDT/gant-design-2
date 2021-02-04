@@ -27,6 +27,15 @@ export default defineConfig({
       },
       'antd',
     ],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'tantd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'tantd',
+    ],
   ],
   extraPostCSSPlugins: [require('postcss-preset-env')()],
   alias: {
