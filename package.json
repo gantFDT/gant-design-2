@@ -75,6 +75,7 @@
     "rucksack-css": "^1.0.2",
     "style-loader": "^2.0.0",
     "surge": "^0.21.3",
+    "tantd": "^1.0.13",
     "through2": "^4.0.2",
     "ts-jest": "^26.1.0",
     "typescript": "^3.3.3",
