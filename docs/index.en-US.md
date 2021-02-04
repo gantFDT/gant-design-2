@@ -1,15 +1,15 @@
 ---
-title: ahooks - React Hooks Library
+title: tantds - React Hooks Library
 hero:
-  title: a hooks library
-  desc: Born for React Hooks
+  title: Gantd
+  desc: react components
   actions:
     - text: Getting Started
       link: /docs/getting-started
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/813f5ed9-6bc4-43d4-9f74-ec81ecf35733/k7htg6n4_w144_h144.png
     title: Rich Collection
-    desc: ahooks contains a large set of essential react hooks, with demos and examples for each one of them.
+    desc: tantds contains a large set of essential react hooks, with demos and examples for each one of them.
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/7659205c-6637-4fa2-8529-d32e5818304b/k7htflfb_w144_h144.png
     title: Detailed Tutorial
     desc: Providing tutorials about using hooks in practice. An all-in-one place to learn for pro coders and newcomers.
@@ -23,10 +23,10 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by [du
 
 ```bash
 // Install dependency
-npm i ahooks --save
+npm i tantds --save
 
 // Use Hooks
-import { useRequest } from 'ahooks';
+import { useRequest } from 'tantds';
 ```
 
 ## Core Team

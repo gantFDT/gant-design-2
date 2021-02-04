@@ -1,6 +1,6 @@
-# 从 Umi Hooks 到 ahooks
+# 从 Umi Hooks 到 tantds
 
-ahooks 是 Umi Hooks 的 2.0 版本，本文档将帮助你快速的从 Umi Hooks 升级到 ahooks。
+tantds 是 Umi Hooks 的 2.0 版本，本文档将帮助你快速的从 Umi Hooks 升级到 tantds。
 
 ## 升级概览
 

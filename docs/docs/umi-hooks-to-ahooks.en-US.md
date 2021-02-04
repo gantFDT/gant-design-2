@@ -1,6 +1,6 @@
-# Umi Hooks to ahooks
+# Umi Hooks to tantds
 
-ahooks is version 2.0 of Umi Hooks. This document will help you quickly upgrade from Umi Hooks to ahooks.
+tantds is version 2.0 of Umi Hooks. This document will help you quickly upgrade from Umi Hooks to tantds.
 
 ## Upgrade overview
 

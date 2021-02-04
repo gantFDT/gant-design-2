@@ -23,10 +23,10 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by [du
 
 ```bash
 // 安装依赖
-npm i ahooks --save
+npm i tantds --save
 
 // 使用 Hooks
-import { useRequest } from 'ahooks';
+import { useRequest } from 'tantds';
 ```
 
 ## 开发团队

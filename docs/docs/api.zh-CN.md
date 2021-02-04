@@ -1,6 +1,6 @@
 # API 规范
 
-这是 ahooks 的 API 规范文档。
+这是 tantds 的 API 规范文档。
 
 ## 返回值
 

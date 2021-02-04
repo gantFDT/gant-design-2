@@ -1,6 +1,6 @@
 # API Standards
 
-This is ahooks API specification document.
+This is tantds API specification document.
 
 ## Return value
 

@@ -7,27 +7,27 @@ nav:
 
 # Getting Started
 
-ahooks is a React Hooks library dedicated to providing commonly used and high quality Hooks.
+tantds is a React Hooks library dedicated to providing commonly used and high quality Hooks.
 
 > Before start, you need to know the basic usage of React and React Hooks. Follow the [link](https://reactjs.org/docs/hooks-intro.html) to learn the official React Hooks documentation.
 
 ## First Example
 
-Here is a simple codesandbox example to show the usage of ahooks.
+Here is a simple codesandbox example to show the usage of tantds.
 
 <code src="./demo.tsx" inline />
 
 ### 1. Create one codesandbox
 
-Visit https://codesandbox.io/s/ahooks-template-k5l7x to create a codesandbox. Don't forget to press the save button.
+Visit https://codesandbox.io/s/tantds-template-k5l7x to create a codesandbox. Don't forget to press the save button.
 
-### 2. Using ahooks
+### 2. Using tantds
 
-Replace the content of App.js with the following code, use the [useToggle](/state/use-toggle) of ahooks.
+Replace the content of App.js with the following code, use the [useToggle](/state/use-toggle) of tantds.
 
 ```javascript
 import React from 'react';
-import { useToggle } from 'ahooks';
+import { useToggle } from 'tantds';
 
 export default () => {
   const [state, { toggle }] = useToggle();
@@ -52,13 +52,13 @@ You can look up Hooks in the side menu like useRequest, useHover etc. Our docume
 we can import individual Hooks on demand。
 
 ```javascript
-import useToggle from 'ahooks/es/useToggle';
+import useToggle from 'tantds/es/useToggle';
 ```
 
-> Note: ahooks supports ES6 tree shaking, so `import { useToggle } from 'ahooks'` will drop the js code you don't use too.
+> Note: tantds supports ES6 tree shaking, so `import { useToggle } from 'tantds'` will drop the js code you don't use too.
 
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the `import useToggle from 'ahooks/es/useToggle'` way:
+We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the `import useToggle from 'tantds/es/useToggle'` way:
 
 ```javascript
-import { useToggle } from 'ahooks';
+import { useToggle } from 'tantds';
 ```

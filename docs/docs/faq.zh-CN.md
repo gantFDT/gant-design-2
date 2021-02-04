@@ -1,8 +1,8 @@
 # FAQ
 
-以下整理了一些 ahooks 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。
+以下整理了一些 tantds 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。
 
-### 当我使用 ahooks 时，报错 `regeneratorRuntime is not defined`，如何解决？
+### 当我使用 tantds 时，报错 `regeneratorRuntime is not defined`，如何解决？
 
 ```
 // 安装 regenerator-runtime
@@ -12,9 +12,9 @@ npm i regenerator-runtime --save
 import "regenerator-runtime/runtime";
 ```
 
-### 我只想使用 `useRequest`， 但似乎我必须安装整个 `ahooks`？
+### 我只想使用 `useRequest`， 但似乎我必须安装整个 `tantds`？
 
-不是的，`useRequest` 在独立包中，可以单独通过安装 `@ahooksjs/use-request` 来使用。
+不是的，`useRequest` 在独立包中，可以单独通过安装 `@tantdsjs/use-request` 来使用。
 
 ### 我只想用其中一两个 Hooks，但是项目编译后所有的 Hooks 都编译进去了。
 
