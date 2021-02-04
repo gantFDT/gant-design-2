@@ -1,7 +1,6 @@
-import { defineConfig } from 'dumi';
 import path from 'path';
 
-export default defineConfig({
+export default {
   // ssr: {},
   mode: 'site',
   title: 'GantD',
@@ -52,4 +51,4 @@ export default defineConfig({
     },
   ],
   headScripts: [],
-});
+};
