@@ -23,7 +23,7 @@ nav:
 ## API
 
 ```typescript
-import Utils from 'utils_t';
+import { Utils } from 'tantd';
 ```
 
 ### Actions
