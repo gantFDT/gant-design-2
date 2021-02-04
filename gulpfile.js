@@ -10,7 +10,9 @@ const through2 = require('through2');
 const pushCss = () => {
   return through2.obj(function (file, encoding, next) {
     this.push(file.clone());
-    if (file.path.match(/(\/|\\)dumi(\/|\\)(\w+)(\/|\\)index\.js/)) {
+    // console.log('file.path',file.path)
+    if (file.path.match(/(\/|\\)src(\/|\\)(\w+)(\/|\\)index\.js/)) {
+      // console.log('action')
       let content = file.contents.toString(encoding);
       file.contents = Buffer.from(
         (content += `\nrequire('./style/index.css');`),
