@@ -23,7 +23,7 @@
   },
   "author": "GantFDT",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lodash": "^4.17.20"
   }
 }
