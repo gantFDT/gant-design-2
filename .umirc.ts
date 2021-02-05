@@ -4,8 +4,8 @@ export default {
   // ssr: {},
   mode: 'site',
   title: 'GantD',
-  favicon: './logo.png',
-  logo: './logo.png',
+  favicon: 'https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612508061623-resources/11026360/png/71306cd3-ca5a-41ca-9e43-5febd66c233f.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612509864&Signature=z6Kkn5sbJ01sjIAGxII4DabOLLo%3D',
+  logo: 'https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612508061623-resources/11026360/png/71306cd3-ca5a-41ca-9e43-5febd66c233f.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612509864&Signature=z6Kkn5sbJ01sjIAGxII4DabOLLo%3D',
   publicPath: '/gant-design-2/',
   base: '/gant-design-2/',
   exportStatic: {},
@@ -26,15 +26,15 @@ export default {
       },
       'antd',
     ],
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'tantd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-      'tantd',
-    ],
+    // [
+    //   'babel-plugin-import',
+    //   {
+    //     libraryName: 'tantd',
+    //     libraryDirectory: 'es',
+    //     style: true,
+    //   },
+    //   'tantd',
+    // ],
   ],
   alias: {
     tantd: path.resolve(__dirname, 'packages/tantd'),
