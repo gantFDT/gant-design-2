@@ -47,14 +47,14 @@ export default {
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/umijs/dumi-template',
+      path: 'https://github.com/gantFDT/gant-design-2',
     },
   ],
   headScripts: [],
   styles: [
     `
     .__dumi-default-layout-hero{
-      background-image:url(http://img.uecook.com/images/f3/56/01c29ee3bc3f7370de0dbbd754383b9f.png)!important;
+      background-image:url(https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612510268024-resources/11026360/png/8798cd1c-8d2c-4efe-ac42-a9331c045423.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612512072&Signature=qvXSTSsho4mB6OUo%2BdyRK1A6qXE%3D)!important;
       background-size:cover;
       background-repeat:no-repeat;
     }
