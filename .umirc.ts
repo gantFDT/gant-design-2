@@ -51,4 +51,19 @@ export default {
     },
   ],
   headScripts: [],
+  styles: [
+    `
+    .__dumi-default-layout-hero{
+      background-image:url(http://img.uecook.com/images/f3/56/01c29ee3bc3f7370de0dbbd754383b9f.png)!important;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+    .__dumi-default-layout-hero h1{
+      color:#fff!important;
+    }
+    .__dumi-default-layout-hero .markdown p{
+      color:#fff!important;
+    }
+    `
+  ]
 };
