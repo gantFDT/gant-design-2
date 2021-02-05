@@ -48,13 +48,13 @@ const Utils = {
 
   // 删除cookie
   delCookie(name: string): void {
-    let exp = new Date();
+    const exp = new Date();
     exp.setTime(exp.getTime() - 1000000);
     // 这里需要判断一下cookie是否存在
-    let c = Utils.getCookie(name);
-    if (c != null) {
+    const c = Utils.getCookie(name);
+    if (c !== null) {
       document.cookie =
-        name + '=' + c + ';expires=' + exp.toUTCString() + ';path=/';
+        `${name}=${c};expires=${exp.toUTCString()};path=/;`
     }
   },
 
@@ -66,27 +66,19 @@ const Utils = {
     path: string = '',
   ): void {
     if (time && path) {
-      let strsec = time * 1000;
-      let exp = new Date();
+      const strsec = time * 1000;
+      const exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
-      document.cookie =
-        name +
-        '=' +
-        escape(value) +
-        ';expires=' +
-        exp.toUTCString() +
-        ';path=' +
-        path;
+      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};path=${path};`
     } else if (time) {
-      let strsec = time * 1000;
-      let exp = new Date();
+      const strsec = time * 1000;
+      const exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
-      document.cookie =
-        name + '=' + escape(value) + ';expires=' + exp.toUTCString();
+      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};`
     } else if (path) {
-      document.cookie = name + '=' + escape(value) + ';path=' + path;
+      document.cookie = `${name}=${escape(value)};path=${path};`
     } else {
-      document.cookie = name + '=' + escape(value);
+      document.cookie = `${name}=${escape(value)};`
     }
   },
 
@@ -96,30 +88,31 @@ const Utils = {
   radix:number  进制
   */
   generateUuid(len: number = 32, radix: number = 10): string {
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(
-      '',
-    );
+    const chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('',);
     const uuid: string[] = [];
-    let i;
-    radix = radix || chars.length;
+    let i: number;
+    const radixFinally = radix || chars.length;
 
     if (len) {
       // Compact form
-      for (i = 0; i < len; i++) uuid[i] = chars[0 | (Math.random() * radix)];
+      for (i = 0; i < len; i++) uuid[i] = chars[0 || (Math.random() * radixFinally)];
     } else {
       // rfc4122, version 4 form
-      let r;
+      let r: number;
 
       // rfc4122 requires these characters
-      uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+      uuid[8] = '-';
+      uuid[13] = '-';
+      uuid[18] = '-';
+      uuid[23] = '-';
       uuid[14] = '4';
 
       // Fill in random data.  At i===19 set the high bits of clock sequence as
       // per rfc4122, sec. 4.1.5
       for (i = 0; i < 36; i++) {
         if (!uuid[i]) {
-          r = 0 | (Math.random() * 16);
-          uuid[i] = chars[i === 19 ? (r & 0x3) | 0x8 : r];
+          r = 0 || (Math.random() * 16);
+          uuid[i] = chars[i === 19 ? (r && 0x3) || 0x8 : r];
         }
       }
     }
@@ -144,21 +137,21 @@ const Utils = {
   /**
    * JSON数据相等
    */
-  JSONisEqual(a: object, b: object) {
+  JSONisEqual(a: Record<string, unknown>, b: Record<string, unknown>) {
     return JSON.stringify(a) === JSON.stringify(b);
   },
 
   /**
    * 判断参数是不是空的 // {xxxx:undefined} => 空的
    */
-  isParamsEmpty(value: object) {
-    if (Utils.getType(value) != 'Object') throw '只能判断Object类型';
-    const entries = Object.entries(value);
-    return (
-      !entries.length ||
-      Object.entries(value).every(([key, value]) => value === undefined)
-    );
-  },
+  // isParamsEmpty(value: object) {
+  //   if (Utils.getType(value) !== 'Object') throw '只能判断Object类型';
+  //   const entries = Object.entries(value);
+  //   return (
+  //     !entries.length ||
+  //     Object.entries(value).every(([key, value]) => value === undefined)
+  //   );
+  // },
 
   // 通过key,value查找树节点
   getTreeNode(Data: any[], childrenKey: string, key: string, value: any): any {
@@ -168,7 +161,7 @@ const Utils = {
     let Deep;
     let T;
     let F;
-    for (F = Data.length; F; ) {
+    for (F = Data.length; F;) {
       T = Data[--F];
       if (value === T[key]) {
         return T;
@@ -189,7 +182,7 @@ const Utils = {
     let V: any;
     let L: any;
     let IDs: any = [];
-    for (L = Data.length; L; ) {
+    for (L = Data.length; L;) {
       V = Data[--L];
       IDs.push(V[field]);
       if (V[childrenKey] && V[childrenKey].length) {
@@ -208,7 +201,7 @@ const Utils = {
     parentId: string | undefined = undefined,
     keyName: string = 'key',
   ): any[] {
-    const itemArr: object[] = [];
+    const itemArr: Record<string, unknown>[] = [];
     for (let i = 0; i < data.length; i++) {
       const node = data[i];
       if (node.parentId === parentId) {
@@ -226,9 +219,10 @@ const Utils = {
     }
     return itemArr;
   },
-  //树形数据扁平化
+
+  // 树形数据扁平化
   tree2Array(dataSource: any[], childrenKey: string = 'children') {
-    let arr: any[] = [];
+    const arr: any[] = [];
     const expanded = (data: any[]) => {
       if (data && data.length > 0) {
         data.forEach((item) => {
@@ -297,24 +291,25 @@ const Utils = {
   /**
    *向上递归冒泡找节点
    *
-   * @param {object} target    //当前节点
+   * @param {Record<string, unknown>} target    //当前节点
    * @param {string} className //节点class
    * @returns  //找到的节点
    */
-  findDomParentNode(target: object, className: string) {
+  findDomParentNode(target: Record<string, unknown>, className: string) {
     let result: any = null;
     const bubble = (_target: any) => {
-      if (!_target) {
+      let nextTarget = _target
+      if (!nextTarget) {
         return;
       }
       if (
-        typeof _target['className'] != 'object' &&
-        _target['className'].indexOf(className) >= 0
+        typeof nextTarget['className'] !== 'object' &&
+        nextTarget['className'].indexOf(className) >= 0
       ) {
-        result = _target;
+        result = nextTarget;
       } else {
-        _target = _target['parentElement'];
-        bubble(_target);
+        nextTarget = nextTarget['parentElement'];
+        bubble(nextTarget);
       }
     };
     bubble(target);
@@ -327,13 +322,12 @@ const Utils = {
    * @returns 计算后的分析数据
    */
   getPerformanceTiming() {
-    let performance = window.performance;
-    if (!performance) {
-      console.log('您的浏览器不支持performance属性');
-      return;
+    let Performance = window.performance;
+    if (!Performance) {
+      throw '您的浏览器不支持performance属性';
     }
-    let t = performance.timing;
-    let obj: any = {};
+    const t = Performance.timing;
+    const obj: any = {};
     // 重定向耗时
     obj['redirectTime'] = t.redirectEnd - t.redirectStart;
     // DNS查询耗时
