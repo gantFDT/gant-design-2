@@ -18,7 +18,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars':'off',
     '@typescript-eslint/no-throw-literal':'off',
     'prefer-template':'off',
-    '@typescript-eslint/dot-notation':'off'
+    '@typescript-eslint/dot-notation':'off',
+    'no-bitwise':'off'
   },
   plugins: [...fabric.default.plugins, 'react-hooks'],
   parserOptions: {

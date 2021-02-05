@@ -88,14 +88,14 @@ const Utils = {
   radix:number  进制
   */
   generateUuid(len: number = 32, radix: number = 10): string {
-    const chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('',);
+    const chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
     const uuid: string[] = [];
     let i: number;
     const radixFinally = radix || chars.length;
 
     if (len) {
       // Compact form
-      for (i = 0; i < len; i++) uuid[i] = chars[0 || (Math.random() * radixFinally)];
+      for (i = 0; i < len; i++) uuid[i] = chars[0 | (Math.random() * radixFinally)];
     } else {
       // rfc4122, version 4 form
       let r: number;
@@ -111,8 +111,8 @@ const Utils = {
       // per rfc4122, sec. 4.1.5
       for (i = 0; i < 36; i++) {
         if (!uuid[i]) {
-          r = 0 || (Math.random() * 16);
-          uuid[i] = chars[i === 19 ? (r && 0x3) || 0x8 : r];
+          r = 0 | (Math.random() * 16);
+          uuid[i] = chars[i === 19 ? (r && 0x3) | 0x8 : r];
         }
       }
     }
