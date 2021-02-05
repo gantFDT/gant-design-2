@@ -55,6 +55,7 @@ task('cjs', function () {
       }),
     )
     .pipe(less2css())
+    .pipe(pushCss())
     .pipe(dest('lib/'));
 });
 
