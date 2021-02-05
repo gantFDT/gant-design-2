@@ -322,7 +322,7 @@ const Utils = {
    * @returns 计算后的分析数据
    */
   getPerformanceTiming() {
-    let Performance = window.performance;
+    const Performance = window.performance;
     if (!Performance) {
       throw '您的浏览器不支持performance属性';
     }
