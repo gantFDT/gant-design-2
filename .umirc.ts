@@ -2,8 +2,8 @@ export default {
   // ssr: {},
   mode: 'site',
   title: 'GantD',
-  favicon: 'https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612508061623-resources/11026360/png/71306cd3-ca5a-41ca-9e43-5febd66c233f.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612509864&Signature=z6Kkn5sbJ01sjIAGxII4DabOLLo%3D',
-  logo: 'https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612508061623-resources/11026360/png/71306cd3-ca5a-41ca-9e43-5febd66c233f.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612509864&Signature=z6Kkn5sbJ01sjIAGxII4DabOLLo%3D',
+  favicon: 'https://upload.zcool.com.cn/image/12663712/3/community/015810601eaeb711013f79282623d5.png@1280w_1l_2o_100sh.png',
+  logo: 'https://upload.zcool.com.cn/image/12663712/3/community/015810601eaeb711013f79282623d5.png@1280w_1l_2o_100sh.png',
   publicPath: '/gant-design-2/',
   base: '/gant-design-2/',
   exportStatic: {},
@@ -52,7 +52,7 @@ export default {
   styles: [
     `
     .__dumi-default-layout-hero{
-      background-image:url(https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/png/133058/1612510268024-resources/11026360/png/8798cd1c-8d2c-4efe-ac42-a9331c045423.png?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1612512072&Signature=qvXSTSsho4mB6OUo%2BdyRK1A6qXE%3D)!important;
+      background-image:url(https://upload.zcool.com.cn/image/12663712/3/community/01beeb601eae6511013e3991312e0e.png)!important;
       background-size:cover;
       background-repeat:no-repeat;
     }
