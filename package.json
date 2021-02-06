@@ -55,6 +55,8 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-changed-in-place": "^2.3.0",
+    "gulp-inject-string": "^1.1.2",
     "gulp-less": "^4.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",

@@ -1,22 +1,21 @@
 
 const { task, series, src, dest } = require('gulp');
+const inject = require('gulp-inject-string');
 
-const { pushString } = require('../gulpfile.js')
-
-task('index', function () {
+task('index-inject', function () {
   var target = src('../dist/index.html');
   return target
-    .pipe(pushString('<link src="/gant-design-2/tantd.css">'))
+    .pipe(inject.after('</title>', '\n<link src="/gant-design-2/tantd.css">\n'))
     .pipe(dest('../dist'));
 });
 
-task('css', function () {
+task('css-copy', function () {
   var target = src('../packages/tantd/dist/tantd.css');
   return target
     .pipe(dest('../dist'));
 });
 
 exports.default = series(
-  'index',
-  'css'
+  'index-inject',
+  'css-copy'
 );

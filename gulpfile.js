@@ -6,27 +6,11 @@ const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const through2 = require('through2');
 
-
-//给组件中追加string
-const pushString = (string) => {
-  return through2.obj(function (file, encoding, next) {
-    this.push(file.clone());
-    let content = file.contents.toString(encoding);
-    file.contents = Buffer.from(
-      (content += `\n${string}`),
-    );
-    this.push(file);
-    next();
-  });
-};
-
 //给组件中追加引入css
 const pushCss = () => {
   return through2.obj(function (file, encoding, next) {
     this.push(file.clone());
-    // console.log('file.path',file.path)
     if (file.path.match(/(\/|\\)src(\/|\\)(\w+)(\/|\\)index\.js/)) {
-      // console.log('action')
       let content = file.contents.toString(encoding);
       file.contents = Buffer.from(
         (content += `\nrequire('./style/index.css');`),
@@ -123,4 +107,3 @@ exports.default = series(
   'declaration',
   'copyReadme',
 );
-exports.pushString = pushString
