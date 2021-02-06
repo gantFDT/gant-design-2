@@ -1,5 +1,3 @@
-import path from 'path';
-
 export default {
   // ssr: {},
   mode: 'site',
@@ -36,9 +34,9 @@ export default {
     //   'tantd',
     // ],
   ],
-  alias: {
-    tantd: path.resolve(__dirname, 'packages/tantd'),
-  },
+  // alias: {
+  //   tantd: path.resolve(__dirname, 'packages/tantd'),
+  // },
   resolve: {
     includes: ['docs', 'packages/tantd/src', 'packages/utils/src', 'style'],
   },

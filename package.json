@@ -15,7 +15,7 @@
     "test": "jest",
     "lint:fix": "eslint --fix",
     "lint": "eslint --ignore-pattern **/__tests__/* --ignore-pattern **/demo/* \"packages/*/src/**/*.{ts,tsx}\"",
-    "build:doc": "dumi build",
+    "build:doc": "dumi build && gulp --gulpfile scripts/cssindoc.js",
     "pub:doc": "surge ./dist --domain ahooks.js.org",
     "pub:doc-gitee": "cd ./dist && rm -rf .git && touch .spa && touch .nojekyll && git init && git remote add origin git@gitee.com:ahooks/ahooks.git && git add -A && git commit -m \"publish docs\" && git push origin master -f",
     "pub": "lerna publish"
