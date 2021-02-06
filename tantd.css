@@ -1,0 +1,49 @@
+:root {
+  --primary-color: #2D2DA3;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+}
+.gant-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  background: var(--component-background);
+}
+.gant-toolbar:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.gant-toolbar-left {
+  float: left;
+}
+.gant-toolbar-left button {
+  margin-right: 10px;
+}
+.gant-toolbar-right {
+  float: right;
+}
+.gant-toolbar-right button {
+  margin-left: 10px;
+}
+.gant-toolbar-space {
+  flex: auto;
+  height: 1px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  -webkit-box-flex: 1;
+}
+.gant-toolbar-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: 0 -1px 2px rgba(128, 128, 128, 0.03);
+}
+
+
+/*# sourceMappingURL=tantd.css.map*/
