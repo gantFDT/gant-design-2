@@ -24,15 +24,15 @@ export default {
       },
       'antd',
     ],
-    // [
-    //   'babel-plugin-import',
-    //   {
-    //     libraryName: 'tantd',
-    //     libraryDirectory: 'es',
-    //     style: true,
-    //   },
-    //   'tantd',
-    // ],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'tantd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'tantd',
+    ],
   ],
   // alias: {
   //   tantd: path.resolve(__dirname, 'packages/tantd'),
