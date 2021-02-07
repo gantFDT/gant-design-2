@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Header } from 'tantd';
-import { Button, Tooltip, Slider } from 'antd';
+import { Button, Slider } from 'antd';
 
 export default () => {
   const [value, setvalue] = useState(100)
@@ -15,23 +15,12 @@ export default () => {
     <div style={{ width: `${value}%` }}>
       <Header
         title="标题"
-        type="line"
         extra={<>
-          <Tooltip title='新增'>
-            <Button type="primary" size="small">新增</Button>
-          </Tooltip>
-          <Tooltip title='编辑'>
-            <Button size="small">编辑</Button>
-          </Tooltip>
-          <Tooltip title='保存'>
-            <Button size="small">保存</Button>
-          </Tooltip>
-          <Tooltip title='复制'>
-            <Button size="small">复制</Button>
-          </Tooltip>
-          <Tooltip title='删除' >
-            <Button danger size="small">删除</Button>
-          </Tooltip>
+          <Button type="primary" size="small">新增</Button>
+          <Button size="small">编辑</Button>
+          <Button size="small">保存</Button>
+          <Button size="small">复制</Button>
+          <Button danger size="small">删除</Button>
         </>}
       />
     </div>

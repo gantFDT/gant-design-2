@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState, useEffect, useMemo, useCallback, ReactElement } from 'react';
+import React, { ReactNode, useRef, useState, useEffect, useMemo, ReactElement } from 'react';
 import classnames from 'classnames';
 import ReactResizeDetector from 'react-resize-detector';
 import ResizeDetector from './ResizeDetector'
@@ -8,6 +8,7 @@ import _ from 'lodash';
 interface HeaderIF {
   type?: 'line' | 'num' | 'icon',
   bottomLine?: boolean,
+  topLine?: boolean,
   title?: string | ReactNode,
   beforeExtra?: ReactNode,
   extra?: ReactNode,
@@ -20,13 +21,12 @@ interface HeaderIF {
 
 const Header = (props: HeaderIF) => {
   const {
-    prefixCls: customizePrefixCls,
     type = '',
     bottomLine = false,
+    topLine = false,
     title,
     beforeExtra,
     extra = null,
-    icon = null,
     num = "1",
     color = 'var(--text-color)',
     style = {},
@@ -44,7 +44,7 @@ const Header = (props: HeaderIF) => {
     const toolsCollection = React.Children.toArray(extra)
     const toolsArr: Array<ReactElement | string> = []
     const interator = (items) => {
-      React.Children.map(items, (item, index) => {
+      React.Children.map(items, (item) => {
         if (item && item.type && item.type.toString() === 'Symbol(react.fragment)') {
           interator([item.props.children])
         } else if (React.isValidElement(item) || typeof (item) === 'string') {
@@ -77,7 +77,7 @@ const Header = (props: HeaderIF) => {
   }, [allWidth, leftRef.current])
 
   return (
-    <div className={clsString} style={{ borderBottom: bottomLine ? '1px solid rgba(128,128,128,0.2)' : '', ...style }} {...restProps}>
+    <div className={clsString} style={{ borderTop: topLine ? '1px solid rgba(128,128,128,0.2)' : '', borderBottom: bottomLine ? '1px solid rgba(128,128,128,0.2)' : '', ...style }} {...restProps}>
       {extra && <ReactResizeDetector handleWidth handleHeight key={1}>
         <ResizeDetector setAllWidth={setAllWidth} />
       </ReactResizeDetector>
@@ -89,7 +89,7 @@ const Header = (props: HeaderIF) => {
           </div>
           {type === 'icon' && <div className={prefixCls + '-icon'} style={{ color }}>
             {/* {typeof icon === 'string' && <Icon type={icon} />} */}
-            {typeof icon === 'object' && { icon }}
+            {/* {typeof icon === 'object' && { icon }} */}
           </div>}
           {type == 'line' && title && <div className={prefixCls + '-line'} style={{ background: color }}></div>}
           {type == 'num' && <div className={prefixCls + '-num'} style={{ background: color }}>{num}</div>}

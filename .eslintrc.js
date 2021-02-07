@@ -15,7 +15,7 @@ module.exports = {
     'no-unused-expressions': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-throw-literal': 'off',
     'prefer-template': 'off',
     '@typescript-eslint/dot-notation': 'off',
@@ -23,7 +23,8 @@ module.exports = {
     'radix': 'off',
     '@typescript-eslint/array-type': 'off',
     'eqeqeq': 'off',
-    'no-multiple-empty-lines':'error'
+    'no-multiple-empty-lines':'error',
+    'spaced-comment':'off'
 
 
   },
