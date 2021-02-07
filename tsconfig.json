@@ -3,22 +3,23 @@
     "target": "ES5",
     "moduleResolution": "node",
     "jsx": "react",
-    "allowJs": true,
+    // "allowJs": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
     "sourceMap": true,
     "baseUrl": ".",
-    // "outDir": "./",
+    // "outDir": "/",
     "paths": {
       "@/*": ["./packages/*"]
     },
-    "allowSyntheticDefaultImports": true,
+    // "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "declaration": false,
     "strictNullChecks": true
   },
   "exclude": [
     "node_modules",
+    // "gulpfile.js",
     "dist",
     "**/lib",
     "**/es",
