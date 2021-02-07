@@ -15,11 +15,17 @@ module.exports = {
     'no-unused-expressions': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/no-unused-vars':'off',
-    '@typescript-eslint/no-throw-literal':'off',
-    'prefer-template':'off',
-    '@typescript-eslint/dot-notation':'off',
-    'no-bitwise':'off'
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-throw-literal': 'off',
+    'prefer-template': 'off',
+    '@typescript-eslint/dot-notation': 'off',
+    'no-bitwise': 'off',
+    'radix': 'off',
+    '@typescript-eslint/array-type': 'off',
+    'eqeqeq': 'off',
+    'no-multiple-empty-lines':'error'
+
+
   },
   plugins: [...fabric.default.plugins, 'react-hooks'],
   parserOptions: {

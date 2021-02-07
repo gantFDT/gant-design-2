@@ -1,5 +1,5 @@
 ---
-title: GantD - React Hooks Library
+title: GantD - React Compoents Library
 hero:
   title: GantD
   desc: 为企业级软件而生

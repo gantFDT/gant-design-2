@@ -14,6 +14,7 @@ export default {
   dynamicImport: {},
   manifest: {},
   hash: true,
+  locales: [['zh-CN', '中文']],
   extraBabelPlugins: [
     [
       'babel-plugin-import',

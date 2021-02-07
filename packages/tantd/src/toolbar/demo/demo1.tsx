@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Toolbar } from 'tantd';
 import { Button, Tooltip } from 'antd';
 
 export default () => {
+  const [fixed, setFixed] = useState(false)
+
   return (
     <Toolbar
+      fixed={fixed}
       extraLeft={<Button size="small">返回</Button>}
       extraRight={
         <>
           <Tooltip title="新增">
-            <Button size="small" type="primary">
-              新增
+            <Button size="small" type="primary" onClick={() => setFixed(!fixed)}>
+              {fixed ? '解除固定' : '固定到底部'}
             </Button>
           </Tooltip>
           <Tooltip title="编辑">

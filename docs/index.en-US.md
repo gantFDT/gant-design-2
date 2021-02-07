@@ -1,5 +1,5 @@
 ---
-title: tantds - React Hooks Library
+title: tantds - React Compoents Library
 hero:
   title: Gantd
   desc: react components

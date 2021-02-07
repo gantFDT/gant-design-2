@@ -1,5 +1,5 @@
 ---
-title: Toolbar
+title: Header
 order: 2
 nav:
   title: 组件
@@ -10,7 +10,7 @@ group:
   order: 3
 ---
 
-# Toolbar
-一个可吸附在底部的工具条
+# Header
+自适应宽度的头部组件，按钮放不下空间时会自动收到下拉容器里
 
 <code src="./demo/demo1.tsx" />

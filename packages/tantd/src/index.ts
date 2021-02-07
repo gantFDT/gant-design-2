@@ -1,6 +1,9 @@
 import Utils from 'utils_t';
-
-// 内置的包
 import Toolbar from './toolbar';
+import Header from './header';
 
-export { Toolbar, Utils };
+export {
+  Toolbar,
+  Utils,
+  Header
+};
