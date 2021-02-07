@@ -2,8 +2,8 @@ export default {
   // ssr: {},
   mode: 'site',
   title: 'GantD',
-  favicon: 'https://upload.zcool.com.cn/image/12663712/3/community/015810601eaeb711013f79282623d5.png@1280w_1l_2o_100sh.png',
-  logo: 'https://upload.zcool.com.cn/image/12663712/3/community/015810601eaeb711013f79282623d5.png@1280w_1l_2o_100sh.png',
+  favicon: 'https://i.loli.net/2021/02/07/KRZuGH3JgU8hCxs.png',
+  logo: 'https://i.loli.net/2021/02/07/KRZuGH3JgU8hCxs.png',
   publicPath: '/gant-design-2/',
   base: '/gant-design-2/',
   exportStatic: {},
@@ -52,7 +52,7 @@ export default {
   styles: [
     `
     .__dumi-default-layout-hero{
-      background-image:url(https://6669-financial-4gjj573w836c3925-1255796665.tcb.qcloud.la/01c29ee3bc3f7370de0dbbd754383b9f.png?sign=7c155f7e01eb4623a72362c4003c8a1a&t=1612661788)!important;
+      background-image:url(https://i.loli.net/2021/02/07/D95R2L8pzy1bjCU.png)!important;
       background-size:cover;
       background-repeat:no-repeat;
     }
