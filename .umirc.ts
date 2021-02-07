@@ -45,7 +45,7 @@ export default {
   navs: [
     null,
     {
-      title: 'GitHub',
+      title: '-',
       path: 'https://github.com/gantFDT/gant-design-2',
     },
   ],
@@ -62,6 +62,15 @@ export default {
     }
     .__dumi-default-layout-hero .markdown p{
       color:#fff!important;
+    }
+    .__dumi-default-navbar nav > span:last-child{
+      background-image: url(https://img.shields.io/github/stars/gantFDT/gant-design?style=social);
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100px;
+    }
+    .__dumi-default-navbar nav > span:last-child a{
+      opacity:0;
     }
     `
   ]

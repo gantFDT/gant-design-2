@@ -6,7 +6,7 @@ import ExtraContent from './ExtraContent'
 import _ from 'lodash';
 
 interface HeaderIF {
-  type?: 'line' | 'num' | 'icon',
+  type?: 'line' | 'num' | 'normal',
   bottomLine?: boolean,
   topLine?: boolean,
   title?: string | ReactNode,

@@ -24,13 +24,13 @@ group:
 
 ## API
 ### Header props
-| 属性        | 说明                                 | 类型                | 默认值            |
-| ----------- | ------------------------------------ | ------------------- | ----------------- |
-| type        | 标题展示类型，可选值为 `line`, `num` | string              | line              |
-| title       | 标题                                 | string              |                   |
-| beforeExtra | 标题左侧额外容器                     | string \| ReactNode | null              |
-| extra       | 右侧额外容器                         | string \| ReactNode | null              |
-| num         | type=num 时显示的序号                | string \| number    | 0                 |
-| color       | 自定义颜色                           | string              | var(--text-color) |
-| topLine     | 顶部部分割线                         | boolean             | `false`           |
-| bottomLine  | 底部分割线                           | boolean             | `false`           |
+| 属性        | 说明                                          | 类型                | 默认值            |
+| ----------- | --------------------------------------------- | ------------------- | ----------------- |
+| type        | 标题展示类型，可选值为 `line`, `num`,`normal` | string              | normal              |
+| title       | 标题                                          | string              |                   |
+| beforeExtra | 标题左侧额外容器                              | string \| ReactNode | null              |
+| extra       | 右侧额外容器                                  | string \| ReactNode | null              |
+| num         | type=num 时显示的序号                         | string \| number    | 0                 |
+| color       | 自定义颜色                                    | string              | var(--text-color) |
+| topLine     | 顶部部分割线                                  | boolean             | `false`           |
+| bottomLine  | 底部分割线                                    | boolean             | `false`           |
