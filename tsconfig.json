@@ -19,7 +19,6 @@
   },
   "exclude": [
     "node_modules",
-    // "gulpfile.js",
     "dist",
     "**/lib",
     "**/es",
