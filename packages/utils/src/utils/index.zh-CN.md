@@ -2,7 +2,7 @@
 title: Utils
 order: 20
 nav:
-  title: Component
+  title: 组件
   path: /component
 ---
 
