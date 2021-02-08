@@ -12,7 +12,6 @@ interface HeaderIF {
   title?: string | ReactNode,
   beforeExtra?: ReactNode,
   extra?: ReactNode,
-  icon?: string | ReactNode,
   color?: string,
   style?: object,
   className?: string,
@@ -21,7 +20,7 @@ interface HeaderIF {
 
 const Header = (props: HeaderIF) => {
   const {
-    type = '',
+    type = 'normal',
     bottomLine = false,
     topLine = false,
     title,
@@ -87,10 +86,10 @@ const Header = (props: HeaderIF) => {
           <div className={prefixCls + '-beforeExtra'}>
             {beforeExtra}
           </div>
-          {type === 'icon' && <div className={prefixCls + '-icon'} style={{ color }}>
+          {/* {type === 'icon' && <div className={prefixCls + '-icon'} style={{ color }}> */}
             {/* {typeof icon === 'string' && <Icon type={icon} />} */}
             {/* {typeof icon === 'object' && { icon }} */}
-          </div>}
+          {/* </div>} */}
           {type == 'line' && title && <div className={prefixCls + '-line'} style={{ background: color }}></div>}
           {type == 'num' && <div className={prefixCls + '-num'} style={{ background: color }}>{num}</div>}
           <div className={prefixCls + '-title'} style={{ color }}>{title}</div>
