@@ -12,8 +12,8 @@ export default () => {
   return (
     <div>
       {res && <div style={styles['m-5']}>输出:{res}</div>}
-      <button style={styles['m-5']} onClick={() => setRes(Utils.IEVersion())}>
-        IEVersion()
+      <button style={styles['m-5']} onClick={() => setRes(Utils.getIEVersion())}>
+        getIEVersion()
       </button>
     </div>
   );

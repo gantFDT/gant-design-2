@@ -14,21 +14,21 @@ nav:
 
 ### 生成 UUID
 
-<code src="../demo/generateUuid.tsx" />
+<code src="../demo/createUUID.tsx" />
 
 ### 获取 IE 版本
 
-<code src="../demo/IEVersion.tsx" />
+<code src="../demo/getIEVersion.tsx" />
 
 ## API
 
 ```typescript
-import { Utils } from 'tantd';
+import { Utils } from 'tantd'; // or import Utils from 'util_t';
 ```
 
 ### Functions
 
 | 方法名         | 说明                             | 类型                                     |
 | ------------ | -------------------------------- | ---------------------------------------- |
-| generateUuid | 生成 UUID,可指定位数和进制       | `(len?: number,radix?:number) => string` |
-| IEVersion    | 判断当前浏览器环境是 IE 哪个版本 | `() => string\|number`                   |
+| createUUID | 生成 UUID,可指定位数和进制       | `(len?: number,radix?:number) => string` |
+| getIEVersion    | 判断当前浏览器环境是 IE 哪个版本 | `() => string\|number`                   |

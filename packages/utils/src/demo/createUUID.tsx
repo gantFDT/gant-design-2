@@ -14,21 +14,21 @@ export default () => {
       {res && <div style={styles['m-5']}>输出:{res}</div>}
       <button
         style={styles['m-5']}
-        onClick={() => setRes(Utils.generateUuid())}
+        onClick={() => setRes(Utils.createUUID())}
       >
-        Utils.generateUuid()
+        Utils.createUUID()
       </button>
       <button
         style={styles['m-5']}
-        onClick={() => setRes(Utils.generateUuid(6))}
+        onClick={() => setRes(Utils.createUUID(6))}
       >
-        Utils.generateUuid(6)
+        Utils.createUUID(6)
       </button>
       <button
         style={styles['m-5']}
-        onClick={() => setRes(Utils.generateUuid(10, 2))}
+        onClick={() => setRes(Utils.createUUID(10, 2))}
       >
-        Utils.generateUuid(6,2)
+        Utils.createUUID(6,2)
       </button>
     </div>
   );

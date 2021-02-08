@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const Utils = {
-  IEVersion() {
+  getIEVersion() {
     const { userAgent } = navigator; // 取得浏览器的userAgent字符串
     const isIE =
       userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
@@ -47,7 +47,7 @@ const Utils = {
   },
 
   // 删除cookie
-  delCookie(name: string): void {
+  removeCookie(name: string): void {
     const exp = new Date();
     exp.setTime(exp.getTime() - 1000000);
     // 这里需要判断一下cookie是否存在
@@ -87,7 +87,7 @@ const Utils = {
   len:number  长度
   radix:number  进制
   */
-  generateUuid(len: number = 32, radix: number = 10): string {
+  createUUID(len: number = 32, radix: number = 10): string {
     const chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
     const uuid: string[] = [];
     let i: number;
