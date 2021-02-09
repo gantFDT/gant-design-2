@@ -298,5 +298,28 @@
   display: none;
 }
 
+:root {
+  --primary-color: #2D2DA3;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+}
+.selector .storageItemContent .deleteIcon {
+  display: none;
+}
+.dropdown :global .ant-select-item-option-state {
+  margin-left: 5px;
+}
+.dropdown .storageOption .storageItemContent {
+  display: flex;
+  align-items: center;
+}
+.dropdown .storageOption .storageItemContent .deleteIcon {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.dropdown .storageOption:hover .storageItemContent .deleteIcon {
+  opacity: 0.45;
+}
+
 
 /*# sourceMappingURL=tantd.css.map*/

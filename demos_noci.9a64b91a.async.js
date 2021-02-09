@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[9],{p8kL:function(e,n,t){"use strict";t.r(n),n["default"]={"icon-demo1":{component:t("qCwg").default}}},qCwg:function(e,n,t){"use strict";t.r(n);var o=t("q1tI"),a=t.n(o);n["default"]=()=>a.a.createElement(a.a.Fragment,null,"demo")}}]);
