@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[5],{"9ATI":function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),o=n.n(a);t["default"]=()=>o.a.createElement(o.a.Fragment,null,"demo")},dz0t:function(e,t,n){"use strict";n.r(t),t["default"]={"modal-demo1":{component:n("9ATI").default}}}}]);

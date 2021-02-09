@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[6],{"0WGH":function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),o=t.n(a);n["default"]=()=>o.a.createElement(o.a.Fragment,null,"demo")},"2lYa":function(e,n,t){"use strict";t.r(n),n["default"]={"schemaform-demo1":{component:t("0WGH").default}}}}]);

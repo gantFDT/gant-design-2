@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[10],{Mvc7:function(e,n,t){"use strict";t.r(n);var c=t("q1tI"),o=t.n(c);n["default"]=()=>o.a.createElement(o.a.Fragment,null,"demo")},wiY8:function(e,n,t){"use strict";t.r(n),n["default"]={"colorpicker-demo1":{component:t("Mvc7").default}}}}]);
