@@ -19,7 +19,7 @@ GantD 是一个 React Components 库，致力提供企业级管理后台组件
 
 ### 1. 创建一个 codesandbox
 
-访问 https://codesandbox.io/s/tantds-template-k5l7x 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 https://codesandbox.io/s/tender-sun-bsjso?file=/App.tsx 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用 GantD
 
