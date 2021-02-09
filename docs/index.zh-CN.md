@@ -20,19 +20,48 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by [du
 ---
 
 ## 快速开始
+
 安装依赖
+
 ```bash
 npm i tantd --save
 ```
 
 使用组件
+
 ```ts
 import { Toolbar } from 'tantd';
 ```
 
 ## 核心贡献者
 
-GantFDT
+<a href="https://github.com/gantFDT" >
+  <img title="gantFDT" src="https://avatars.githubusercontent.com/u/50983712?s=60&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;" />
+</a>
+
+<a href="https://github.com/vveyZhang" >
+  <img title="vvey" src="https://avatars.githubusercontent.com/u/12295614?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;" />
+</a>
+
+<a href="https://github.com/zhangdousang">
+  <img title="zhangdousang" src="https://avatars.githubusercontent.com/u/21156463?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/SolinMa" >
+  <img title="Solin丶" src="https://avatars.githubusercontent.com/u/15624236?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/eyelly-wu" >
+  <img title="Eyelly Wu" src="https://avatars.githubusercontent.com/u/24505069?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/yunfqueen" >
+  <img title="yunf" src="https://avatars.githubusercontent.com/u/22796806?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/yuanguandong" >
+  <img title="Favori" src="https://avatars.githubusercontent.com/u/13197560?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
 
 ## 反馈
 
