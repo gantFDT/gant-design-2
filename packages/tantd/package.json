@@ -28,6 +28,7 @@
   "dependencies": {
     "antd": "^4.11.2",
     "classnames": "^2.2.6",
+    "react-color": "^2.19.3",
     "react-resize-detector": "^6.3.3",
     "utils_t": "^0.0.15"
   },

@@ -5,8 +5,8 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 数据单元
-  path: /datacell
+  title: 表单
+  path: /form
   order: 3
 ---
 

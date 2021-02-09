@@ -7,7 +7,7 @@ nav:
 group:
   title: 工具类
   path: /utils
-  order: 3
+  order: 20
 ---
 
 # Utils

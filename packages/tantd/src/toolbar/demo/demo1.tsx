@@ -3,7 +3,7 @@ import { Toolbar } from 'tantd';
 import { Button, Tooltip } from 'antd';
 
 export default () => {
-  const [fixed, setFixed] = useState(false)
+  const [fixed, setFixed] = useState(false);
 
   return (
     <Toolbar

@@ -12,24 +12,9 @@ export interface ToolBarPropsIF {
 const prefixCls = 'gant-toolbar';
 
 const Toolbar = (props: ToolBarPropsIF) => {
-  const {
-    extraLeft,
-    extraRight,
-    fixed,
-    className,
-    style,
-    ...restProps
-  } = props;
+  const { extraLeft, extraRight, fixed, className, style, ...restProps } = props;
   return (
-    <div
-      className={classNames(
-        prefixCls,
-        fixed ? `${prefixCls}-fixed` : '',
-        className,
-      )}
-      style={style}
-      {...restProps}
-    >
+    <div className={classNames(prefixCls, fixed ? `${prefixCls}-fixed` : '', className)} style={style} {...restProps}>
       <div className={`${prefixCls}-left`}>{extraLeft}</div>
       <div className={`${prefixCls}-space`}></div>
       <div className={`${prefixCls}-right`}>{extraRight}</div>
