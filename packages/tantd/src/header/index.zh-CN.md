@@ -1,6 +1,6 @@
 ---
 title: Header 头部
-order: 2
+order: 1
 nav:
   title: 组件
   path: /component
