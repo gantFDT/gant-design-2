@@ -1,1 +1,156 @@
 @import '../../../../../style/index.less';
+
+
+@prefixCls: ~'gant-submenu';
+@border: 1px solid rgba(128, 128, 128, 0.2);
+
+:root {
+  --submenu-collapsed-width: 30px;
+}
+
+
+  .@{prefixCls} {
+    &.ant-menu-inline-collapsed>.ant-menu-item .gant-input-wrapper+span {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+    }
+
+    &.ant-menu-inline-collapsed {
+      width: var(--submenu-collapsed-width);
+    }
+
+    height:100%;
+    border-right:none !important;
+
+    &-collapsed.ant-menu-item-selected::after {
+      opacity: 0;
+    }
+
+    &-collapsed>.anticon+span {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+    }
+
+    .ant-menu-item {
+      margin: 0;
+
+      .anticon+span {
+        transition: opacity 0s
+      }
+    }
+
+    &-collapsebtn {
+      display: inline-block;
+      transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      span {
+        cursor: pointer;
+        line-height: var(--submenu-collapsed-width);
+        height: var(--submenu-collapsed-width);
+        width: var(--submenu-collapsed-width);
+        float: right;
+        padding-top: 3px; //解决float导致的上下不居中
+      }
+    }
+
+    &-pagewrap {
+      // box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+      border-radius: 3px;
+      overflow: hidden;
+
+      .ant-menu-inline-collapsed>.ant-menu-item {
+        left: 0;
+        text-overflow: clip;
+        // padding: 0 12px !important;
+        padding: unset !important;
+        width: 100%;
+        text-align: center;
+      }
+
+      .ant-menu-vertical .ant-menu-item {
+        margin: 0;
+      }
+    }
+
+    &-pagecard {
+      overflow: hidden;
+      flex: 1;
+      transition: all 0.15s;
+    }
+
+    &-menuboxinline {
+      border-right: 1px solid rgba(126, 126, 126, 0.3);
+      // box-sizing: initial !important;
+    }
+
+    &-menuinternal {
+      display: flex;
+      width: 100%;
+      border-bottom: none;
+    }
+
+    &-menuleft {
+      width: calc(100% - 30px);
+      border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    }
+
+    &-menuright {
+      width: 33px;
+      height: 33px;
+      line-height: 33px;
+      border-left: @border;
+      border-bottom: @border;
+      text-align: center;
+
+    }
+
+    &-horIcon {}
+
+    &-horMenu {
+      display: block;
+      max-width: 100%;
+
+      .ant-menu-horizontal {
+        line-height: 30px;
+        border: none;
+      }
+    }
+
+    &-item-count {
+      float: right;
+      padding-left: 20px;
+    }
+
+    &-contextfooter {
+      width: 100%;
+      height: var(--submenu-collapsed-width);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(128, 128, 128, 0.1);
+    }
+
+    &-footerdiv {
+      cursor: pointer;
+      flex: 1;
+      padding: 0 10px;
+      user-select: none;
+      line-height: var(--submenu-collapsed-width);
+    }
+
+
+    &-fixed {
+      position: fixed;
+      z-index: 1;
+      background: #fff;
+      -webkit-transform: translateZ(0);
+    }
+
+    &-boxShow {
+      box-shadow: 0 2px 3px rgba(125, 125, 125, 0.1);
+
+    }
+
+  }

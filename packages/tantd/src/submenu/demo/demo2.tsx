@@ -46,41 +46,21 @@ export default function BasicUse() {
   ].map((item) => ({ ...item, key: item.path }));
 
   const [selectedKey, setSelectedKey] = useState(menuData[0].path);
-  const menuBoxRef = useRef(null);
-  const activeMenu = _.find(menuData, (i) => i.path === selectedKey);
-  
+
   const onSelectedChange = (key, record, item) => setSelectedKey(key);
-
-  const onSwitchChange = (mode) => {
-    console.log('当前状态', mode);
-  };
-
-  
+  const activeMenu = _.find(menuData, i => i.path === selectedKey)
   return (
     <Submenu
       menuData={menuData}
       selectedKey={selectedKey}
-      width={180}
-      setMenuBoxRef={(ref) => {
-        menuBoxRef.current = ref;
-      }}
-      showFlipOverFooter
-      onCollapseChange={(collapsed) => {
-        console.log(collapsed);
-        console.log(menuBoxRef);
-      }}
+      mode='horizontal'
+      showMenuMagnet
+      fixedTopHeight={64}
       onSelectedChange={onSelectedChange}
-      onSwitchChange={onSwitchChange}
-      extra={
-        <div style={{ padding: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div>
-            <Avatar size={64} src={'https://i.loli.net/2021/02/07/KRZuGH3JgU8hCxs.png'} />
-            <div style={{ textAlign: 'center' }}>GantD</div>
-          </div>
-        </div>
-      }
     >
-      <div style={{ padding: '20px', height: 400 }}>{activeMenu['title']}</div>
+      <div style={{ padding: '20px', height: 400 }}>
+        {activeMenu['title']}
+      </div>
     </Submenu>
-  );
+  )
 }

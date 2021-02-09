@@ -5,7 +5,7 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 列表
+  title: 表格
   path: /list
   order: 3
 ---

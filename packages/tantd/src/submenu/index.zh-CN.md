@@ -5,39 +5,53 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 布局组件
+  title: 容器
   path: /layout
   order: 4
 ---
 
-# Demo
-组件介绍
+# Submenu
+
+子菜单容器组件，可以设置两种布局方式，可动态切换布局，操作按钮可配置磁吸功能
 
 ## 代码演示
 
-### 代码标题
+### 左侧菜单
+
 <code src="./demo/demo1.tsx" />
 
+### 顶部菜单+磁吸
+
+<code src="./demo/demo2.tsx" />
+
 ## API
+
 ### Anchor props
 
-| 属性           | 说明                                                                        | 类型                          | 默认值   |
-| -------------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
-| <a href="#list-props">list</a>           | 锚点渲染项, 必填                                                            | array                         |          |
-| content        | 内容                                                                        | string / ReactNode            |          |
-| fixedTop       | 如果固定头部导航栏则为页面固定的头部导航高度，若没有固定头部导航栏则默认为0 | number                        | 0        |
-| layout         | 锚点类型，支持水平、和竖直两种                                              | string/ horizontal、 vertical | vertical |
-| onLayoutChange | 切换layout时的回调函数                                                      | function(layout)              |          |
-| minHeight      | 内容最小高度                                                                | number                        | 400      |
-| style          | 额外样式                                                                    | cSSProperties                 |          |
-| className      | 类名                                                                        | string                        |          |
+| 属性               | 说明                                   | 类型                | 默认值                    |
+| ------------------ | -------------------------------------- | ------------------- | ------------------------- |
+| collapsed          | 菜单是否折叠                           | boolean             | `false`                   |
+| mode               | 菜单类型，现在支持水平、和内嵌模式两种 | horizontal \|inline | inline                    |
+| selectedKey        | 选中的菜单 key 值，默认为第一个 , 必填 | string              |                           |
+| width              | 菜单宽度                               | number \| string    | `200`                     |
+| fixedTopHeight     | 磁吸的位置                             | number              | 0                         |
+| subMinHeight       | 菜单最小高度                           | number \| string    | `112`                     |
+| collapsedWidth     | 菜单折叠宽度                           | number \| string    | `40`                      |
+| extra              | 菜单额外内容                           | reactNode           |                           |
+| menuData           | 菜单渲染项, 必填                       | array               | []                        |
+| showMenuMagnet     | 是否显示磁吸功能                       | boolean             | false                     |
+| showFlipOverFooter | 是否显示翻页页脚                       | boolean             | false                     |
+| bordered           | 是否有边框                             | boolean             | true                      |
+| onSwitchChange     | 切换菜单后的执行回调函数               | function            | (nowMode) => void         |
+| onCollapseChange   | 菜单折叠展开后的执行回调函数           | function            | (collapsed) => void       |
+| onSelectedChange   | 菜单子项被点击触发后的执行回调函数     | function            | (key,record,item) => void |
 
-    
-### list props 
+### menuData props
 
-| 成员      | 说明                                          | 类型             | 默认值 |
-| --------- | --------------------------------------------- | ---------------- | ------ |
-| title     | 文字内容                                      | string/ReactNode |        |
-| id        | 与模块对应ID                                  | string           |        |
-| complete  | 对应模块内容是否填写完整,对应显示一个对勾符号 | boolean          |        |
-| isInvalid | 是否无效，若无效则禁止点击跳转                | boolean          | false  |
+| 属性     | 说明           | 类型                 | 默认值 |
+| -------- | -------------- | -------------------- | ------ |
+| title    | 菜单项标题     | string \| ReactNode  | null   |
+| key      | 菜单项 key     | horizontal \| inline | inline |
+| icon     | 菜单项 icon    | ReactNode            |        |
+| count    | 菜单项徽标数字 | number \| string     |        |
+| disabled | 是否禁用       | boolean              | false  |

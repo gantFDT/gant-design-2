@@ -5,7 +5,7 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 布局组件
+  title: 容器
   path: /layout
   order: 4
 ---
