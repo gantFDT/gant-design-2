@@ -10,34 +10,52 @@ group:
   order: 3
 ---
 
-# Demo
-组件介绍
+# Selector
+基于antd-select的增强型选择器，展示最可选择项，支持传递dataSource作为选择器数据源。
 
 ## 代码演示
 
-### 代码标题
+### 基本使用
 <code src="./demo/demo1.tsx" />
 
+### 最近选择
+<code src="./demo/demo2.tsx" />
+
+### 最近选择-数量限制
+<code src="./demo/demo3.tsx" />
+
+### dataSource数据源
+<code src="./demo/demo4.tsx" />
+
+### 暴露apiRef
+<code src="./demo/demo5.tsx" />
+
+### 多选下组合使用
+<code src="./demo/demo6.tsx" />
 ## API
-### Anchor props
+### Selector props
 
-| 属性           | 说明                                                                        | 类型                          | 默认值   |
-| -------------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
-| <a href="#list-props">list</a>           | 锚点渲染项, 必填                                                            | array                         |          |
-| content        | 内容                                                                        | string / ReactNode            |          |
-| fixedTop       | 如果固定头部导航栏则为页面固定的头部导航高度，若没有固定头部导航栏则默认为0 | number                        | 0        |
-| layout         | 锚点类型，支持水平、和竖直两种                                              | string/ horizontal、 vertical | vertical |
-| onLayoutChange | 切换layout时的回调函数                                                      | function(layout)              |          |
-| minHeight      | 内容最小高度                                                                | number                        | 400      |
-| style          | 额外样式                                                                    | cSSProperties                 |          |
-| className      | 类名                                                                        | string                        |          |
+| 属性                                       | 说明                     | 类型                                            | 默认值                                     |
+| ------------------------------------------ | ------------------------ | ----------------------------------------------- | ------------------------------------------ |
+| selectorId                                 | 本地存储最近选择的唯一id | string                                          |                                            |
+| useStorage                                 | 是否开启最近选择         | boolean                                         | false                                      |
+| storageCount                               | 最近选择项数量           | number                                          | 10                                         |
+| dataSource                                 | 数据源                   | { [label: string, value: string] }[]            | { valueProp: 'value', labelProp: 'label' } |
+| <a href="#dataconfig-props">dataConfig</a> | 数据源配置项内容         | object                                          | -                                          |
+| <a href="#apiref-props">apiRef</a>         | 额外实例方法暴露         | object                                          | -                                          |
+| onSearchValueChange                        | 搜索值发生变化时的回调   | function(searchValue: string) => void         - |                                            |
 
-    
-### list props 
+### dataConfig props 
 
-| 成员      | 说明                                          | 类型             | 默认值 |
-| --------- | --------------------------------------------- | ---------------- | ------ |
-| title     | 文字内容                                      | string/ReactNode |        |
-| id        | 与模块对应ID                                  | string           |        |
-| complete  | 对应模块内容是否填写完整,对应显示一个对勾符号 | boolean          |        |
-| isInvalid | 是否无效，若无效则禁止点击跳转                | boolean          | false  |
+| 成员      | 说明            | 类型   | 默认值 |
+| --------- | --------------- | ------ | ------ |
+| valueProp | value值的主键   | string | value  |
+| labelProp | 显示label的主键 | string | label  |
+| groupProp | 分组字段的主键  | string | group  |
+
+### apiRef props 
+
+| 成员           | 说明                                           | 类型                                         | 默认值 |
+| -------------- | ---------------------------------------------- | -------------------------------------------- | ------ |
+| getStorageList | 获取最近选择项                                 | function()=> StorageOption[]                 | -      |
+| setStorageList | 设置最近选择项(storages为空时，清空最近选择项) | function(storages?: StorageOption[]) => void | -      |

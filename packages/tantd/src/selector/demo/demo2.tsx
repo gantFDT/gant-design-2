@@ -1,7 +1,7 @@
 /**
  *
- * title.zh-CN: 基础使用
- * desc.zh-CN: 与antd select 的表现一致，支持对应的prop属性，区别是仅支持数据化配置选项内容。
+ * title.zh-CN: 最近选择
+ * desc.zh-CN: 开启`useStorage`功能时需同时传递`selectorId`做为本地存储的唯一标识，最近选择项可批量清除也可单项单项。
  */
 import React from 'react';
 import { Selector } from 'tantd';
@@ -15,6 +15,8 @@ export default () => {
     { label: 'John', value: 'john' },
   ]
   return <Selector
+    selectorId='demo-default'
+    useStorage
     options={options}
     style={{ width: 200 }}
   />

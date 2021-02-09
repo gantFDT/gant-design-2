@@ -29,7 +29,8 @@ module.exports = {
     'semi': ['error', 'always'],
     'quotes': 'error',
     'jsx-quotes': 'off',
-    'func-names':'off'
+    'func-names': 'off',
+    'no-console': 'warn',
   },
   plugins: [...fabric.default.plugins, 'react-hooks'],
   parserOptions: {
