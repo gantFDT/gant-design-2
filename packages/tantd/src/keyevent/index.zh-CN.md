@@ -7,7 +7,7 @@ nav:
 group:
   title: 其他
   path: /other
-  order: 3
+  order: 5
 ---
 
 # Demo

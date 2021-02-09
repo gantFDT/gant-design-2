@@ -7,7 +7,7 @@ nav:
 group:
   title: 布局组件
   path: /layout
-  order: 3
+  order: 4
 ---
 
 # Toolbar
