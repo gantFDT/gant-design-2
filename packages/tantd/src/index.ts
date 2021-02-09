@@ -3,9 +3,4 @@ import Toolbar from './toolbar';
 import Header from './header';
 import Anchor from './anchor';
 
-export {
-  Toolbar,
-  Utils,
-  Header,
-  Anchor
-};
+export { Toolbar, Utils, Header, Anchor };

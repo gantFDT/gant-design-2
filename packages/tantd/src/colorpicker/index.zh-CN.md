@@ -7,7 +7,7 @@ nav:
 group:
   title: 数据单元
   path: /datacell
-  order: 3
+  order: 1
 ---
 
 # Demo

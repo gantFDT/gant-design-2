@@ -23,10 +23,12 @@ module.exports = {
     'radix': 'off',
     '@typescript-eslint/array-type': 'off',
     'eqeqeq': 'off',
-    'no-multiple-empty-lines':'error',
-    'spaced-comment':'off'
-
-
+    'no-multiple-empty-lines': 'error',
+    'spaced-comment': 'off',
+    'semi': ['error', 'always'],
+    'quotes': 'error',
+    'jsx-quotes': 'off',
+    'func-names':'off'
   },
   plugins: [...fabric.default.plugins, 'react-hooks'],
   parserOptions: {

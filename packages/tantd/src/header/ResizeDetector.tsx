@@ -1,13 +1,11 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect } from 'react';
 
 export default memo(function ResizeDetector(props: any) {
-	const { width, setAllWidth } = props;
-	
-	useEffect(() => {
-		setAllWidth(width);
-	}, [width, setAllWidth])
+  const { width, setAllWidth } = props;
 
-	return <div style={{ width: "100%", height: 1, position: "absolute" }} >
+  useEffect(() => {
+    setAllWidth(width);
+  }, [width, setAllWidth]);
 
-	</div>
-})
+  return <div style={{ width: '100%', height: 1, position: 'absolute' }}></div>;
+});
