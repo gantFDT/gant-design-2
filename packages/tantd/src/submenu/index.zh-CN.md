@@ -1,5 +1,5 @@
 ---
-title: Anchor 锚点
+title: Submenu 子菜单
 order: 2
 nav:
   title: 组件
@@ -10,12 +10,12 @@ group:
   order: 3
 ---
 
-# Anchor
-可以动态控制锚点操作按钮布局的锚点容器组件
+# Demo
+组件介绍
 
 ## 代码演示
 
-### 可切换布局
+### 代码标题
 <code src="./demo/demo1.tsx" />
 
 ## API

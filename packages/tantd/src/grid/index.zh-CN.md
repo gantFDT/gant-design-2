@@ -1,21 +1,21 @@
 ---
-title: Anchor 锚点
+title: Grid 表格
 order: 2
 nav:
   title: 组件
   path: /component
 group:
-  title: 布局组件
-  path: /layout
+  title: 列表
+  path: /list
   order: 3
 ---
 
-# Anchor
-可以动态控制锚点操作按钮布局的锚点容器组件
+# Demo
+组件介绍
 
 ## 代码演示
 
-### 可切换布局
+### 代码标题
 <code src="./demo/demo1.tsx" />
 
 ## API

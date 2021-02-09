@@ -1,11 +1,11 @@
 ---
-title: Toolbar
+title: Toolbar 工具条
 order: 2
 nav:
   title: 组件
   path: /component
 group:
-  title: layout
+  title: 布局组件
   path: /layout
   order: 3
 ---

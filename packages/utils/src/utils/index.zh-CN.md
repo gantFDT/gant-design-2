@@ -1,9 +1,13 @@
 ---
-title: Utils
+title: 工具类
 order: 20
 nav:
   title: 组件
   path: /component
+group:
+  title: 工具类
+  path: /utils
+  order: 3
 ---
 
 # Utils
