@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[15],{IwGq:function(e,n,t){"use strict";t.r(n),n["default"]={"submenu-demo1":{component:t("icqS").default}}},icqS:function(e,n,t){"use strict";t.r(n);var u=t("q1tI"),a=t.n(u);n["default"]=()=>a.a.createElement(a.a.Fragment,null,"demo")}}]);

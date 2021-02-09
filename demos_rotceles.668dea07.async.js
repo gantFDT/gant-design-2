@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[12],{So24:function(e,t,n){"use strict";n.r(t);var o=n("q1tI"),a=n.n(o);t["default"]=()=>a.a.createElement(a.a.Fragment,null,"demo")},e5UH:function(e,t,n){"use strict";n.r(t),t["default"]={"selector-demo1":{component:n("So24").default}}}}]);

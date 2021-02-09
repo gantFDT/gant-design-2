@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[3],{"/dpH":function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),d=t.n(a);n["default"]=()=>d.a.createElement(d.a.Fragment,null,"demo")},ZCrH:function(e,n,t){"use strict";t.r(n),n["default"]={"grid-demo1":{component:t("/dpH").default}}}}]);
