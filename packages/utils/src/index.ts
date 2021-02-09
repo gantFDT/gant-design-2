@@ -3,11 +3,9 @@ import _ from 'lodash';
 const Utils = {
   getIEVersion() {
     const { userAgent } = navigator; // 取得浏览器的userAgent字符串
-    const isIE =
-      userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
+    const isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
     const isEdge = userAgent.indexOf('Edge') > -1 && !isIE; // 判断是否IE的Edge浏览器
-    const isIE11 =
-      userAgent.indexOf('Trident') > -1 && userAgent.indexOf('rv:11.0') > -1;
+    const isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf('rv:11.0') > -1;
     if (isIE) {
       const reIE = new RegExp('MSIE (\\d+\\.\\d+);');
       reIE.test(userAgent);
@@ -53,32 +51,26 @@ const Utils = {
     // 这里需要判断一下cookie是否存在
     const c = Utils.getCookie(name);
     if (c !== null) {
-      document.cookie =
-        `${name}=${c};expires=${exp.toUTCString()};path=/;`
+      document.cookie = `${name}=${c};expires=${exp.toUTCString()};path=/;`;
     }
   },
 
   // 设置cookie,增加到实例方便全局调用
-  setCookie(
-    name: string,
-    value: string,
-    time: any = '',
-    path: string = '',
-  ): void {
+  setCookie(name: string, value: string, time: any = '', path: string = ''): void {
     if (time && path) {
       const strsec = time * 1000;
       const exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
-      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};path=${path};`
+      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};path=${path};`;
     } else if (time) {
       const strsec = time * 1000;
       const exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
-      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};`
+      document.cookie = `${name}=${escape(value)};expires=${exp.toUTCString()};`;
     } else if (path) {
-      document.cookie = `${name}=${escape(value)};path=${path};`
+      document.cookie = `${name}=${escape(value)};path=${path};`;
     } else {
-      document.cookie = `${name}=${escape(value)};`
+      document.cookie = `${name}=${escape(value)};`;
     }
   },
 
@@ -161,7 +153,7 @@ const Utils = {
     let Deep;
     let T;
     let F;
-    for (F = Data.length; F;) {
+    for (F = Data.length; F; ) {
       T = Data[--F];
       if (value === T[key]) {
         return T;
@@ -174,33 +166,22 @@ const Utils = {
   },
 
   // 取树形数据所有节点的id,返回一个id数组
-  getIdsFormTree(
-    Data: any[],
-    childrenKey: string = 'children',
-    field: string = 'id',
-  ): any[] {
+  getIdsFormTree(Data: any[], childrenKey: string = 'children', field: string = 'id'): any[] {
     let V: any;
     let L: any;
     let IDs: any = [];
-    for (L = Data.length; L;) {
+    for (L = Data.length; L; ) {
       V = Data[--L];
       IDs.push(V[field]);
       if (V[childrenKey] && V[childrenKey].length) {
-        IDs = [
-          ...IDs,
-          ...Utils.getIdsFormTree(V[childrenKey], childrenKey, field),
-        ];
+        IDs = [...IDs, ...Utils.getIdsFormTree(V[childrenKey], childrenKey, field)];
       }
     }
     return IDs;
   },
 
   // arr转树形结构数据
-  array2Tree(
-    data: any[],
-    parentId: string | undefined = undefined,
-    keyName: string = 'key',
-  ): any[] {
+  array2Tree(data: any[], parentId: string | undefined = undefined, keyName: string = 'key'): any[] {
     const itemArr: Record<string, unknown>[] = [];
     for (let i = 0; i < data.length; i++) {
       const node = data[i];
@@ -269,17 +250,11 @@ const Utils = {
     const startTime: any = new Date(startTimeStr); // 开始时间
     const endTime: any = new Date(endTimeStr); // 结束时间
     let seconds: number | string = Math.floor((endTime - startTime) / 1000); // 秒数
-    let minutes: number | string = Math.floor(
-      (endTime - startTime) / 1000 / 60,
-    ); // 分钟
-    let hours: number | string = Math.floor(
-      (endTime - startTime) / 1000 / 60 / 60,
-    ); // 小时
-    let days: number | string = Math.floor(
-      (endTime - startTime) / 1000 / 60 / 60 / 24,
-    ); // 天数
+    let minutes: number | string = Math.floor((endTime - startTime) / 1000 / 60); // 分钟
+    let hours: number | string = Math.floor((endTime - startTime) / 1000 / 60 / 60); // 小时
+    let days: number | string = Math.floor((endTime - startTime) / 1000 / 60 / 60 / 24); // 天数
     if (seconds < 60) {
-      return `<1分钟)}`;
+      return '<1分钟)}';
     }
     days = days ? days + '天' : '';
     hours = hours ? hours + '时' : '';
@@ -298,14 +273,11 @@ const Utils = {
   findDomParentNode(target: Record<string, unknown>, className: string) {
     let result: any = null;
     const bubble = (_target: any) => {
-      let nextTarget = _target
+      let nextTarget = _target;
       if (!nextTarget) {
         return;
       }
-      if (
-        typeof nextTarget['className'] !== 'object' &&
-        nextTarget['className'].indexOf(className) >= 0
-      ) {
+      if (typeof nextTarget['className'] !== 'object' && nextTarget['className'].indexOf(className) >= 0) {
         result = nextTarget;
       } else {
         nextTarget = nextTarget['parentElement'];
@@ -355,9 +327,7 @@ const Utils = {
   hexToRgba(hex: any, opacity: number): string {
     const convertHex = hex
       .slice(1)
-      .replace(/[0-9a-fA-F]/g, (match: string, index: number, string: string) =>
-        string.length <= 3 ? match.repeat(2) : match,
-      )
+      .replace(/[0-9a-fA-F]/g, (match: string, index: number, string: string) => (string.length <= 3 ? match.repeat(2) : match))
       .padEnd(6, '0')
       .slice(0, 6)
       .match(/[0-9a-fA-F]{1,2}/g)

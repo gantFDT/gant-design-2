@@ -3,7 +3,6 @@ const babel = require('gulp-babel');
 const ts = require('gulp-typescript');
 const del = require('del');
 const less = require('gulp-less');
-const sourcemaps = require('gulp-sourcemaps');
 const through2 = require('through2');
 
 //给组件中追加引入css
@@ -12,9 +11,7 @@ const pushCss = () => {
     this.push(file.clone());
     if (file.path.match(/(\/|\\)src(\/|\\)(\w+)(\/|\\)index\.js/)) {
       let content = file.contents.toString(encoding);
-      file.contents = Buffer.from(
-        (content += `\nrequire('./style/index.css');`),
-      );
+      file.contents = Buffer.from((content += `\nrequire('./style/index.css');`));
     }
     this.push(file);
     next();
@@ -86,12 +83,7 @@ task('declaration', function () {
     declaration: true,
     emitDeclarationOnly: true,
   });
-  return tsProject
-    .src()
-    .pipe(tsProject())
-    .pipe(less2css())
-    .pipe(dest('es/'))
-    .pipe(dest('lib/'));
+  return tsProject.src().pipe(tsProject()).pipe(less2css()).pipe(dest('es/')).pipe(dest('lib/'));
 });
 
 //拷贝readme
@@ -99,11 +91,4 @@ task('copyReadme', async function () {
   await src('../../README.md').pipe(dest('../../packages/tantd'));
 });
 
-exports.default = series(
-  'clean',
-  'cjs',
-  'es',
-  'less',
-  'declaration',
-  'copyReadme',
-);
+exports.default = series('clean', 'cjs', 'es', 'less', 'declaration', 'copyReadme');

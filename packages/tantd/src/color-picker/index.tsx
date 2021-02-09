@@ -37,11 +37,11 @@ function ColorPicker(props) {
     if (disabled) return undefined;
     setCurrentColor(color);
     if (onChange) onChange(color);
-  },[disabled, onChange])
+  },[disabled, onChange]);
 
   const inputColor = useCallback((color) => {
     modifyColor(`#${fillText(color)}`);
-  },[modifyColor])
+  },[modifyColor]);
 
   useEffect(() => {
     if(!hex){
@@ -49,7 +49,7 @@ function ColorPicker(props) {
     }else{
       setCurrentColor(hex);
     }
-  }, [hex])
+  }, [hex]);
 
   const showText = fillText(currentColor);
   const prefixCls = customizePrefixCls + '-color-picker' + (size==='small'?'-small':'');
@@ -139,7 +139,7 @@ function ColorPicker(props) {
                   </div>
                 )}
               </div>
-            )
+            );
           })
         }
       </div>
@@ -153,6 +153,6 @@ export default (props) => {
   const { value, onChange, ...restProps } = props;
   const handlerChange = (color) => {
     if (onChange) onChange(color.hex);
-  }
-  return <WithWrap {...restProps} onChange={handlerChange} color={value}/>
+  };
+  return <WithWrap {...restProps} onChange={handlerChange} color={value}/>;
 };

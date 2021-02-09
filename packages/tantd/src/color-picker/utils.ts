@@ -9,13 +9,13 @@ export const PrimaryColors = Object
       id: key,
       primary,
       children: value
-    }
+    };
   });
 
 export const validColorText = (_: string): boolean => {
-  const reg = /^([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/
+  const reg = /^([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/;
   return reg.test(_);
-}
+};
   
 export const fillText = (_: string): string => {
   if (_.includes('#')) {
@@ -29,4 +29,4 @@ export const fillText = (_: string): string => {
     return `${_}`;
   }
   return _.replace('#', '');
-}
+};

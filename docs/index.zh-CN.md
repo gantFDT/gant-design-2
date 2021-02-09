@@ -1,75 +1,68 @@
 ---
-title: GantD - React Compoents Library
+title: tantds - React Compoents Library
 hero:
   title: GantD
-  desc: 为企业级软件而生
+  desc: 数据密集型企业级React组件库
   actions:
-    - text: 快速上手
-      link: /zh-CN/docs/getting-started
+    - text: 开始使用
+      link: /docs/getting-started
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/813f5ed9-6bc4-43d4-9f74-ec81ecf35733/k7htg6n4_w144_h144.png
-    title: 内容丰富
-    desc: 拥有丰富的自定义 Hooks，每个 Hooks 都有丰富的在线示例供您体验。
+    title: 数据密集
+    desc: 专注于数据密集型业务场景，特别适用于后台管理项目
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/7659205c-6637-4fa2-8529-d32e5818304b/k7htflfb_w144_h144.png
-    title: 完备的教程
-    desc: 包含适合全年龄段的丰富的 React Hooks 教程，想学 React Hooks，来这里就够了。
+    title: 双表协同
+    desc: 表单与表格共同依赖通用数据单元，让开发人员更能关注业务本身
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/6319a122-e8b8-497f-9b45-37cfbe77edaa/k7htfx7t_w144_h144.png
-    title: 生产可用
-    desc: 已经过蚂蚁金服、淘宝、天猫等平台足够大量的线上系统的考验及打磨，健壮性值得信赖。
-footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by [dumi](https://d.umijs.org)
+    title: 读写分离
+    desc: 基于数据单元的读写分离，表单和表格都包含读模式和写模式
+footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by [dumi](https://d.umijs.org) Sponsor by GantSoftware
 ---
 
-## 轻松上手
+## 快速开始
+
+安装依赖
 
 ```bash
-// 安装依赖
-npm i tantds --save
-
-// 使用 Hooks
-import { useRequest } from 'tantds';
+npm i tantd --save
 ```
 
-## 开发团队
+使用组件
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a target="_blank" href="https://github.com/alibaba/ice">
-          <img
-            width="32"
-            src="https://img.alicdn.com/tfs/TB1Jd.tb79l0K4jSZFKXXXFjpXa-482-264.png"
-          />
-          <br>
-          <strong>icejs</strong>
-        </a>
-      </td>
-      <td align="center">
-        <a target="_blank" href="https://github.com/umijs/umi">
-          <img
-            width="32"
-            style="vertical-align: -0.32em; margin-right: 8px;"
-            src="https://img.alicdn.com/tfs/TB1fhqaLAT2gK0jSZFkXXcIQFXa-132-130.png"
-          />
-          <br>
-          <strong>UmiJS</strong>
-        </a>
-      </td>
-       <td align="center">
-        <a target="_blank" href="https://www.alisports.com/">
-          <img
-            width="32"
-            style="vertical-align: -0.32em; margin-right: 8px;"
-            src="https://gw.alicdn.com/tfs/TB13XKjLuL2gK0jSZFmXXc7iXXa-205-59.png"
-          />
-          <br>
-          <strong>阿里体育</strong>
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+```ts
+import { Toolbar } from 'tantd';
+```
 
-## 👥 反馈与共建
+## 核心贡献者
 
-<img src="https://raw.githubusercontent.com/alibaba/hooks/master/dingtalk.jpg" width="300" />
+<a href="https://github.com/gantFDT" >
+  <img title="gantFDT" src="https://avatars.githubusercontent.com/u/50983712?s=60&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;" />
+</a>
+
+<a href="https://github.com/vveyZhang" >
+  <img title="vvey" src="https://avatars.githubusercontent.com/u/12295614?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;" />
+</a>
+
+<a href="https://github.com/zhangdousang">
+  <img title="zhangdousang" src="https://avatars.githubusercontent.com/u/21156463?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/SolinMa" >
+  <img title="Solin丶" src="https://avatars.githubusercontent.com/u/15624236?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/eyelly-wu" >
+  <img title="Eyelly Wu" src="https://avatars.githubusercontent.com/u/24505069?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/yunfqueen" >
+  <img title="yunf" src="https://avatars.githubusercontent.com/u/22796806?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+<a href="https://github.com/yuanguandong" >
+  <img title="Favori" src="https://avatars.githubusercontent.com/u/13197560?s=96&v=4" style="display:inline-block; margin-right:10px;width:20px;height:20px;border-radius:50%;overflow:hidden;"/>
+</a>
+
+## 反馈
+
+<img width= 200 src="https://i.loli.net/2021/02/09/Ao1POb9XhS2MnV7.jpg">

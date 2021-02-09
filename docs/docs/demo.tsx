@@ -2,7 +2,7 @@ import React from 'react';
 
 export default () => (
   <iframe
-    src="https://codesandbox.io/embed/demo-for-tantds-t7o7v?fontsize=14&hidenavigation=1&theme=dark"
+    src="https://codesandbox.io/s/tender-sun-bsjso?file=/App.tsx"
     style={{
       width: '100%',
       height: 500,
@@ -10,7 +10,7 @@ export default () => (
       borderRadius: 4,
       overflow: 'hidden',
     }}
-    title="demo for tantds"
+    title="demo for gantd"
     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
   ></iframe>

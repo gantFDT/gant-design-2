@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
-import KeyCode from "rc-util/es/KeyCode";
+import KeyCode from 'rc-util/es/KeyCode';
 
 const KEY_EVENT = 'keydown';
 
@@ -8,11 +8,11 @@ const keyReg = /^on(Alt|Ctrl|Meta|Shift){0,4}([A-Z][a-z]*)+$/;
 const splitKey = (str: string): Array<string> | null => {
   const reg = /[A-Z][a-z]*/g;
   return str.match(reg);
-}
+};
 
 const isSpecialKey = (str: string) => {
-  return ['Alt', 'Ctrl', 'Meta', 'Shift'].includes(str)
-}
+  return ['Alt', 'Ctrl', 'Meta', 'Shift'].includes(str);
+};
 
 // 检查是否是合法的按键
 const checkKeyGroup = (e: KeyboardEvent, ename: string) => {
@@ -27,7 +27,7 @@ const checkKeyGroup = (e: KeyboardEvent, ename: string) => {
     }
   }
   return true;
-}
+};
 
 const KeyEvent = (bindKeys: Record<string, (ev: KeyboardEvent) => void>, needFouce?: boolean) => {
 
@@ -36,9 +36,9 @@ const KeyEvent = (bindKeys: Record<string, (ev: KeyboardEvent) => void>, needFou
   const validPropName = useCallback((e, keyName) => {
     // 验证属性名
     if (keyReg.test(keyName) && checkKeyGroup(e, keyName)) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }, []);
   
   return function Comp(WrapedComponent: React.ReactElement): React.ReactElement {
@@ -49,8 +49,8 @@ const KeyEvent = (bindKeys: Record<string, (ev: KeyboardEvent) => void>, needFou
         const callback = (ev: KeyboardEvent) => {
           Object.keys(bindKeys).filter((keyName) => validPropName(ev, keyName)).forEach(key => {
             bindKeys[key](ev);
-          })
-        }
+          });
+        };
         if (dom) dom.addEventListener(KEY_EVENT, callback);
         return () => {
           if (dom) dom.removeEventListener(KEY_EVENT, callback);
@@ -62,8 +62,8 @@ const KeyEvent = (bindKeys: Record<string, (ev: KeyboardEvent) => void>, needFou
 
     return needFouce? <div ref={ref} tabIndex={-1}>
       {WrapedComponent}
-    </div> : WrapedComponent
-  }
-}
+    </div> : WrapedComponent;
+  };
+};
 
 export default KeyEvent;

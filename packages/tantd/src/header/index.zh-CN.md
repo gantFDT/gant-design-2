@@ -1,13 +1,13 @@
 ---
 title: Header 头部
-order: 2
+order: 1
 nav:
   title: 组件
   path: /component
 group:
   title: 布局组件
   path: /layout
-  order: 3
+  order: 4
 ---
 
 # Header

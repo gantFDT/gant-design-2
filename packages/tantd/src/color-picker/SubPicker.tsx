@@ -52,12 +52,12 @@ const SubPicker = props => {
     clear: {
       clear: 'both',
     },
-  }),[size])
+  }),[size]);
   
   const handleChange = (color, ev) => {
 		ev.stopPropagation();
     if (onChange) onChange(color);
-  }
+  };
 
   return (
     <div style={{...styles.card, width: size === 'small' ? (width - 40) : width }} className={`${prefixCls}-subpicker`}>
@@ -89,12 +89,12 @@ const SubPicker = props => {
                 boxShadow: `0 0 4px ${ c }`,
               }}
             />
-          )
+          );
         }) }
         <div style={ styles.clear } />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SubPicker;

@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
-import React from 'react'
-import { Hue, Saturation, Checkboard, ColorWrap } from 'react-color/lib/components/common'
+import React from 'react';
+import { Hue, Saturation, Checkboard, ColorWrap } from 'react-color/lib/components/common';
 
 const Chrome = (props) => {
   const {
@@ -94,7 +94,7 @@ const Chrome = (props) => {
       top: '-1px',
       left: '33px'
     },
-  }
+  };
 
   return (
     <div style={{...styles.picker, flexDirection: placement === 'top' ? 'column' : 'column-reverse'}} className={ `${prefixCls}-chromepicker`}>
@@ -164,7 +164,7 @@ const Chrome = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ColorWrap(Chrome);
