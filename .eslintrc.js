@@ -24,8 +24,8 @@ module.exports = {
     '@typescript-eslint/array-type': 'off',
     'eqeqeq': 'off',
     'no-multiple-empty-lines':'error',
-    'spaced-comment':'off'
-
+    'spaced-comment':'off',
+    'no-console':'off',
 
   },
   plugins: [...fabric.default.plugins, 'react-hooks'],
