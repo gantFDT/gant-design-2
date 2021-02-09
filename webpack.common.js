@@ -1,10 +1,7 @@
-const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
-
 const packageInfo = require('./package.json');
 
 module.exports = {
@@ -67,7 +64,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new webpack.ProgressPlugin(),
     new WebpackBar({
       name: ' 🎸  TantD',
       color: 'green',
