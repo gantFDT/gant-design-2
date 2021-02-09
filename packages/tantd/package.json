@@ -1,6 +1,6 @@
 {
   "name": "tantd",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "react tantd library",
   "keywords": [
     "tantd",
@@ -30,7 +30,7 @@
     "classnames": "^2.2.6",
     "react-color": "^2.19.3",
     "react-resize-detector": "^6.3.3",
-    "utils_t": "^0.0.15"
+    "utils_t": "^0.0.16"
   },
   "peerDependencies": {
     "react": "16.x",
