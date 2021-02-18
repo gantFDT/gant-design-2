@@ -286,6 +286,9 @@
 .gant-anchor-content > div {
   width: 100% !important;
 }
+.gant-anchor-wrapper {
+  position: relative;
+}
 .gant-anchor-wrapper:after {
   content: '';
   width: 100%;
