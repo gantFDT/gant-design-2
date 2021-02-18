@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { Dropdown, Menu, Anchor, Tooltip } from 'antd';
 import classnames from 'classnames';
 import { AnchorProps } from 'antd/lib/anchor';
@@ -37,6 +37,8 @@ const GantAnchor = (props: GantAnchorProps) => {
   const [silderIdWidth, setSilderIdWidth] = useState(0); //List外层宽度
   const [contentWidth, setContentWidth] = useState(0); //List实际宽度
   const [isClickScroll, setIsClickScroll] = useState(false); //页面滚动判断是点击后的滚动还是手动的滚动
+  const containerRef = useRef<any>();
+  const rightBoxRef = useRef<any>();
   let scrollHeight = 0; // 滚动的值
   let m2 = 0; // 对比时间的值
   let timer: any = null;
@@ -52,24 +54,46 @@ const GantAnchor = (props: GantAnchorProps) => {
   const handleScroll = useCallback(() => {
     const fixedEle = document.getElementById('anchorBoxId'); //定位元素
     const fixedEleParent = document.querySelector('.gant-anchor-horAnchorOut'); //定位元素的父元素
+    const anchorBomfixed: any = document.querySelector('.ant-affix');
+    const fixBox: any = document.getElementById('anchor-wrapper-id'); //定位元素
+    const anchorBom: any = document.getElementById('current-anchor-id'); //定位元素的父元素
+
+    if (fixedEle && stateMode == 'vertical' && fixBox && anchorBomfixed) {
+      const containerRect = fixBox.getBoundingClientRect();
+      const rightBoxRect = anchorBom.getBoundingClientRect();
+      if (window.scrollY > containerRect.height + rightBoxRect.height) {
+        anchorBomfixed['style'].position = 'absolute';
+        anchorBomfixed['style'].top = 'auto';
+        anchorBomfixed['style'].bottom = '0';
+      } else {
+        anchorBomfixed['style'].position = 'fixed';
+        anchorBomfixed['style'].top = '80px';
+        anchorBomfixed['style'].bottom = 'auto';
+      }
+    }
 
     if (fixedEle && stateMode == 'horizontal') {
       clearTimeout(timer);
       timer = setTimeout(Data, 300);
+      const containerRect = fixBox.getBoundingClientRect();
       const parentClientTop = fixedEleParent ? fixedEleParent.getBoundingClientRect().top : 0; //定位元素父级距离浏览器的高度
       scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
       const menuboxhor = document.querySelector('.gant-submenu-menuboxhor'); //anchor的外层card
       const extraheight = menuboxhor ? menuboxhor['offsetHeight'] : 0;
       if (fixedEle) {
-        if (parentClientTop <= fixedTop + extraheight) {
-          fixedEle.classList.add('gant-anchor-activeScroll');
-          const active = document.querySelector('.gant-anchor-activeScroll');
-          if (!active || !fixedEleParent) {
-            return;
+        if ((0 - parentClientTop) + 80 < containerRect.height - 40) {
+          if (parentClientTop < fixedTop + extraheight) {
+            fixedEle.classList.add('gant-anchor-activeScroll');
+            const active = document.querySelector('.gant-anchor-activeScroll');
+            if (!active || !fixedEleParent) {
+              return;
+            }
+            active['style'].top = `${fixedTop + extraheight}px`;
+            active['style'].width = `${fixedEleParent['offsetWidth']}px`;
+          } else {
+            fixedEle.classList.remove('gant-anchor-activeScroll');
           }
-          active['style'].top = `${fixedTop + extraheight}px`;
-          active['style'].width = `${fixedEleParent['offsetWidth']}px`;
-        } else if (parentClientTop > fixedTop + extraheight) {
+        } else {
           fixedEle.classList.remove('gant-anchor-activeScroll');
         }
       }
@@ -90,7 +114,7 @@ const GantAnchor = (props: GantAnchorProps) => {
         });
       }
     }
-  }, [stateMode, setId, isClickScroll, list]);
+  }, [stateMode, setId, isClickScroll, list, containerRef, rightBoxRef]);
   // 点击左右箭头
   const handleMobileTabs = useCallback(
     (e) => {
@@ -209,7 +233,7 @@ const GantAnchor = (props: GantAnchorProps) => {
   }, [stateMode, setStateMode, onLayoutChange]);
 
   return (
-    <div className={classnames(className, `${prefixCls}-wrapper`)} style={{ ...style }}>
+    <div id='anchor-wrapper-id' className={classnames(className, `${prefixCls}-wrapper`)} style={{ ...style }}>
       <div
         style={{
           width: stateMode === 'horizontal' ? '100%' : 'calc(100% - 150px)',
@@ -303,8 +327,9 @@ const GantAnchor = (props: GantAnchorProps) => {
         </div>
       </div>
       <div
+        id='current-anchor-id'
         className={classnames(`${prefixCls}-verticalbox`, {
-          [`${prefixCls}-verticalbox__hidden`]: stateMode === 'horizontal',
+          [`${prefixCls}-verticalbox__hidden`]: stateMode === 'horizontal'
         })}
         style={{
           width: 150,
