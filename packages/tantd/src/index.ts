@@ -5,5 +5,6 @@ import Anchor from './anchor';
 import ColorPicker from './color-picker';
 import Submenu from './submenu';
 import Selector from './selector';
+import Modal from './modal';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal };

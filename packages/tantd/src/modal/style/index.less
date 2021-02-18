@@ -1,1 +1,192 @@
-@import '../../../../../style/index.less';
+@gant-prefix: gant;
+@component: ~'@{gant-prefix}-modal';
+@activeIconColor: var(--modal-header-icon-hover-color);
+
+// Modal
+:root {
+  --modal-highlight-color: #f00;
+  --modal-body-padding: 10px;
+  --modal-header-bg: #fff;
+  --modal-footer-bg: transparent;
+  --modal-footer-reset-color: rgba(0, 0, 0, 1);
+  --modal-footer-border-color-split: rgba(0, 0, 0, 0.45);
+  --modal-mask-bg: rgba(0, 0, 0, 0.45);
+  --modal-header-bg: #fff;
+  --modal-header-color: rgba(0, 0, 0, 0.65);
+  --modal-header-hover-color: rgba(0, 0, 0, 1);
+  --modal-header-icon-hover-color: #fff;
+  --modal-header-danger-icon-bg: #f00;
+  --modal-header-default-icon-bg: rgba(0, 0, 0, 0.3);
+}
+
+html {
+  .ant-modal-header {
+    padding: 4px !important;
+  }
+
+  .ant-modal-close-x {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .ant-modal-body {
+    padding: 10px;
+  }
+
+  .ant-modal-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .ant-modal-confirm-body {
+    padding-bottom: 30px;
+  }
+
+  .ant-modal-confirm {
+    .ant-modal-confirm-btns {
+      margin-top: 0px;
+    }
+
+    .ant-modal-body {
+      padding: 10px !important;
+    }
+  }
+
+  .ant-modal-footer {
+    padding: 3px;
+  }
+}
+
+
+.@{component} {
+  &-resizableModalDefault {
+    pointer-events: none;
+  }
+
+  &-resizableModalDialog {
+    pointer-events: auto;
+  }
+
+  &-resizableModalWrapper {
+    overflow: hidden !important;
+
+    .ant-modal {
+      display: flex;
+      max-width: none;
+      // transform-origin: 50% 50% !important;
+    }
+
+    .ant-modal-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .ant-modal-close {
+        transition: none;
+      }
+
+      .ant-modal-close-x {
+        &:hover {
+          background-color: var(--modal-header-danger-icon-bg);
+
+          i {
+            color: @activeIconColor;
+          }
+        }
+
+        &:active {
+          background-color: var(--modal-highlight-color);
+
+          i {
+            color: @activeIconColor;
+          }
+        }
+      }
+    }
+
+    .ant-modal-body {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .@{component}-resizableModalTitle {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .@{component}-canDrag {
+      cursor: move;
+    }
+
+    .@{component}-resizableModalContent {
+      height: 100%;
+    }
+
+    .@{component}-maximizeAnchor {
+      right: 30px;
+      width: 30px;
+      top: 0;
+      cursor: pointer;
+      height: 30px;
+      position: absolute;
+
+      span {
+        font-size: 16px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--modal-header-color);
+      }
+
+      &:hover {
+        background-color: var(--modal-header-default-icon-bg);
+
+        i {
+          color: @activeIconColor;
+        }
+      }
+    }
+
+    .@{component}-resizeAnchor {
+      right: -10px;
+      width: 30px;
+      bottom: -10px;
+      cursor: se-resize;
+      height: 30px;
+      position: absolute;
+
+      i {
+        opacity: 0;
+        visibility: hidden;
+        width: 12px;
+        right: 14px;
+        border: 2px solid transparent;
+        height: 12px;
+        bottom: 14px;
+        position: absolute;
+        border-top: 0;
+        border-left: 0;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        i {
+          opacity: 1;
+          visibility: visible;
+          border-color: var(--modal-footer-reset-color);
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+
+  &-maximize {
+    .ant-modal-content {
+      border-radius: 0;
+    }
+  }
+}
