@@ -58,7 +58,7 @@ export default function BasicUse() {
       fixedTopHeight={64}
       onSelectedChange={onSelectedChange}
     >
-      <div style={{ padding: '20px', height: 400 }}>
+      <div style={{ padding: '20px', height: 600 }}>
         {activeMenu['title']}
       </div>
     </Submenu>
