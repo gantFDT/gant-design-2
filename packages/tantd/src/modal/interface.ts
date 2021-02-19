@@ -1,7 +1,3 @@
-/*
- * @Descripttion: 
- * @MainAuthor: 
- */
 import type { ModalProps as antdModalProps } from 'antd/lib/modal';
 
 export interface WindowSize {

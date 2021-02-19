@@ -144,14 +144,13 @@ const resizableReducer: React.Reducer<ModalsState, Action> = (state, action) => 
         width: convertPercentage((modalState.inital as ModalPositionSize).width as number | string, windowSize.width, <number>initialModalState.width),
         height: convertPercentage((modalState.inital as ModalPositionSize).height as number | string, windowSize.height, <number>initialModalState.height),
         isMaximized: false,
-        visible: false,
       };
       const newState = modalState.keepStateOnClose ? modalState : resetState;
       return {
         ...state,
         modals: {
           ...state.modals,
-          [action.id]: newState,
+          [action.id]: { ...newState, visible: false },
         },
       };
     }
