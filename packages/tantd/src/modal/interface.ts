@@ -52,9 +52,10 @@ export interface InnerModalProps extends antdModalProps {
   canResize?: boolean;
   isModalDialog?: boolean;
   children?: React.ReactNode | string;
+  contentRef?: React.RefObject<HTMLDivElement>;
 }
 
-export declare type OnSizeChangeFunc = (width: number, height: number) => void;
+export declare type OnSizeChangeFunc = (width: number, height: number, contentEl?: HTMLDivElement | null) => void;
 
 export interface ModalProps extends InnerModalProps, ResizableProviderProps {
   throttle?: number;
@@ -67,6 +68,8 @@ export interface ContextContentProps {
   throttleTime?: number;
   /** 弹窗尺寸变化时的回调 */
   onSizeChange?: OnSizeChangeFunc;
+  /** 获取弹窗内容元素的回调 */
+  getContentEl: () => HTMLDivElement | null;
 }
 
 export enum ActionTypes {

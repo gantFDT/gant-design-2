@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalsState, Action } from './interface';
+import type{ ModalsState, Action } from './interface';
 
 const ModalContext = React.createContext(
   {} as {
