@@ -10,7 +10,7 @@ group:
   order: 3
 ---
 
-# Selector
+# Selector 选择器
 
 基于 antd-select 的增强型选择器，展示最可选择项，支持传递 dataSource 作为选择器数据源。
 

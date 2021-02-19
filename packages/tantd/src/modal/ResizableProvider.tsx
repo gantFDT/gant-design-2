@@ -1,7 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import ModalContext from './Context';
 import resizableReducer from './Reducer';
-import { WindowSize, ModalStateProps, ModalsState, ResizableProviderProps, ActionTypes } from './interface';
+import type { WindowSize, ModalStateProps, ModalsState, ResizableProviderProps} from './interface';
+import { ActionTypes } from './interface';
 
 const getWindowSize = (): WindowSize => ({
   width: window.innerWidth || 0,

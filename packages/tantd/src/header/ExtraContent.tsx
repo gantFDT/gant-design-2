@@ -1,4 +1,5 @@
-import React, { memo, useMemo, useLayoutEffect, useRef, useState, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React, { memo, useMemo, useLayoutEffect, useRef, useState } from 'react';
 import { Dropdown, Menu, Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 

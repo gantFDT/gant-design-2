@@ -47,7 +47,6 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -60,6 +59,13 @@ module.exports = {
             loader: 'postcss-loader',
           },
         ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        },
       },
     ],
   },

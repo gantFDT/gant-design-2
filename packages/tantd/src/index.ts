@@ -6,5 +6,6 @@ import ColorPicker from './color-picker';
 import Submenu from './submenu';
 import Selector from './selector';
 import Modal from './modal';
+import Grid from './grid';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid };

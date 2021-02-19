@@ -1,5 +1,6 @@
-import React from 'react';
-import { ModalsState, PrivateModalStateProps, ActionTypes, Action, ModalPositionSize } from './interface';
+import type React from 'react';
+import type { ModalsState, PrivateModalStateProps, Action, ModalPositionSize } from './interface';
+import { ActionTypes } from './interface';
 
 export const getModalState = (state: ModalsState, id: string): PrivateModalStateProps => state.modals[id] || state.initialModalState;
 

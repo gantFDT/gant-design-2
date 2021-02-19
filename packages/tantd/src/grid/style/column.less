@@ -1,0 +1,171 @@
+
+  .gant-grid-edit {
+    &.gant-grid-editable {
+      // .gant-cell-disable-sign {
+      //   background-color: rgba(128, 128, 128, 0.1)
+      // }
+    }
+    .ag-root {
+      .gant-cell-validate-sign {
+        &::before {
+          content: '';
+          width: 98%;
+          bottom: 0px;
+          border-bottom: 1px dashed #ff4d4f;
+          position: absolute;
+          left: 1%;
+        }
+      }
+      .gant-header-cell-required {
+        .ag-header-cell-text::before {
+          content: '*';
+          margin-right: 2px;
+          color: #ff4d4f;
+        }
+      }
+      .gant-header-cell-edit {
+        .ag-header-cell-text::before {
+          content: '*';
+          margin-right: 2px;
+          color: #1890ff;
+        }
+      }
+    }
+  }
+  .gant-grid-cell-serial-add {
+    &::before {
+      content: '+';
+      position: absolute;
+      left: 2px;
+      top: -1px;
+    }
+    color: #52c41a;
+  }
+  .gant-grid-cell-editing {
+    margin-top: -1px;
+    > .gant-input-wrapper {
+      display: block;
+    }
+    .gant-input .gant-input-group.ant-input-group {
+      .gant-input-group-inner {
+        & > * {
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+  .gant-grid-editable {
+    .gant-grid-cell {
+      &-edit {
+        &::after {
+          border-color: #1890ff transparent transparent #1890ff;
+        }
+      }
+      &-modify {
+        &::after {
+          border-color: #ff4d4f transparent transparent #ff4d4f;
+        }
+      }
+      // &-add {
+      //   &::after {
+      //     border-color: #52c41a transparent transparent #52c41a;
+      //   }
+      // }
+      &-delete {
+        &::after {
+          border-color: #faad14 transparent transparent #faad14;
+        }
+      }
+    }
+  }
+
+  .gant-grid-cell {
+    &.ag-cell-range-handle {
+      background: bisque;
+      border: none !important;
+    }
+    .gant-level-line {
+      width: 18px;
+      position: relative;
+
+      &.gant-folder-line {
+        &::before {
+          position: absolute;
+          border-left: 1px dotted #a39f9f;
+          content: '';
+          height: 100%;
+          left: 8px;
+          display: block;
+        }
+      }
+      &.gant-file-line-last {
+        &::before {
+          position: absolute;
+          border-left: 1px dotted #a39f9f;
+          content: '';
+          height: 50%;
+          left: 8px;
+          top: 0px;
+        }
+        &::after {
+          position: absolute;
+          border-top: 1px dotted #a39f9f;
+          content: '';
+          top: 50%;
+          width: 9px;
+          left: 8px;
+        }
+      }
+      &.gant-file-line {
+        &::before {
+          position: absolute;
+          border-left: 1px dotted #a39f9f;
+          content: '';
+          height: 100%;
+          left: 8px;
+        }
+        &::after {
+          position: absolute;
+          border-top: 1px dotted #a39f9f;
+          content: '';
+          top: 50%;
+          width: 9px;
+          left: 8px;
+        }
+      }
+    }
+
+    .gant-treedata-icon {
+      color: #a39f9f;
+      margin-right: 4px;
+      &.gant-treedata-first-file {
+        padding-left: 0px;
+      }
+      &.gant-treedata-file {
+        padding-left: 18px;
+        position: relative;
+        &::before {
+          position: absolute;
+          border-top: 1px dotted #a39f9f;
+          content: '';
+          top: 50%;
+          width: 12px;
+          left: 0px;
+        }
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      // border-width: 4px;
+      // border-color： transparent;
+      // border-style: solid;
+      border: 3px solid transparent;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  }
+  

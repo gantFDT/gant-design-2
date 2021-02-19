@@ -10,14 +10,20 @@ group:
   order: 4
 ---
 
-# Toolbar
+# Toolbar 工具条
+
 一个可吸附在底部的工具条
+
 ## 代码演示
+
 ### 可吸附在底部
+
 <code src="./demo/demo1.tsx" />
 
 ## API
+
 ### Toolbar props
+
 | 属性       | 说明           | 类型              | 默认值 |
 | ---------- | -------------- | ----------------- | ------ |
 | extraLeft  | 左侧区域       | reactNode\|string | null   |

@@ -72,6 +72,39 @@ export default {
     .__dumi-default-navbar nav > span:last-child a{
       opacity:0;
     }
-    `
-  ]
+    table {
+      table-layout:fixed;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid #dedede;
+      margin: 15px auto;
+      border-collapse: collapse;
+      empty-cells: show;
+    }
+    table th,
+    table td {
+      height: 35px;
+      border: 1px solid #dedede;
+      word-wrap:break-word;
+      padding: 0 10px;
+    }
+    table th {
+      font-weight: bold;
+      background: rgba(158,188,226,0.2);
+      word-wrap:break-word;
+    }
+    table tbody tr:nth-child(2n) {
+      background: rgba(158,188,226,0.12);
+    }
+    table td:nth-child(1) {
+      word-wrap:break-word;
+    }
+    table tr:hover {
+      background: #efefef;
+    }
+    .table-area {
+      overflow: auto;
+    }
+    `,
+  ],
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { Dropdown, Menu, Anchor, Tooltip } from 'antd';
 import classnames from 'classnames';
-import { AnchorProps } from 'antd/lib/anchor';
+import type { AnchorProps } from 'antd/lib/anchor';
 import scrollTo from 'antd/es/_util/scrollTo';
 import getScroll from 'antd/es/_util/getScroll';
 import { CheckCircleOutlined, LeftOutlined, SwitcherOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';

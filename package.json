@@ -13,7 +13,7 @@
     "clean": "lerna clean --yes",
     "build": "lerna run build",
     "test": "jest",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint --fix --ignore-pattern **/__tests__/* --ignore-pattern **/demo/* \"packages/*/src/**/*.{ts,tsx}\"",
     "lint": "eslint --ignore-pattern **/__tests__/* --ignore-pattern **/demo/* \"packages/*/src/**/*.{ts,tsx}\"",
     "build:doc": "dumi build && gulp --gulpfile scripts/cssindoc.js",
     "pub:doc": "surge ./dist --domain ahooks.js.org",
@@ -83,6 +83,7 @@
     "ts-jest": "^26.1.0",
     "typescript": "^3.3.3",
     "umi-request": "^1.2.18",
+    "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
     "webpack-bundle-analyzer": "^4.4.0",
     "webpack-cli": "^3.3.12",
@@ -91,6 +92,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "eslint": "^7.20.0",
     "react-color": "^2.19.3"
   }
 }

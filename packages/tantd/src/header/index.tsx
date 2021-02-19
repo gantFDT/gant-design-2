@@ -1,4 +1,5 @@
-import React, { ReactNode, useRef, useState, useEffect, useMemo, ReactElement } from 'react';
+import type { ReactNode, ReactElement } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import classnames from 'classnames';
 import ReactResizeDetector from 'react-resize-detector';
 import ResizeDetector from './ResizeDetector';
