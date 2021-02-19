@@ -344,7 +344,7 @@ export default class GridManage {
       records: hisRecords,
     });
   }
-  private quickCreateNode(isChild: boolean = false, targetId: string | number, record: number | object | any[] = 1) {
+  private quickCreateNode(isChild: boolean = false, targetId: string, record: number | object | any[] = 1) {
     const { createConfig, treeData, getDataPath } = this.agGridConfig;
     targetId += '';
     const rowNode = this.agGridApi.getRowNode(targetId);
@@ -398,7 +398,7 @@ export default class GridManage {
     if (typeof targetId !== 'number' && !targetId) return console.warn('nodeId is null');
     if (typeof targetId !== 'string' && typeof targetId !== 'number') return console.warn('nodeId format error');
 
-    this.quickCreateNode(false, targetId, record);
+    this.quickCreateNode(false, String(targetId), record);
   }
   public createChildNode(targetId: string | number, record: number | object | any[] = 1) {
     const { createConfig, getRowNodeId, treeData, getDataPath } = this.agGridConfig;
@@ -406,7 +406,7 @@ export default class GridManage {
     if (!canQuickCreate(createConfig)) return console.warn('createConfig is error');
     if (typeof targetId !== 'number' && !targetId) return console.warn('parentNodeId is null');
     if (typeof targetId !== 'string' && typeof targetId !== 'number') return console.warn('parentNodeId format error');
-    this.quickCreateNode(true, targetId, record);
+    this.quickCreateNode(true, String(targetId), record);
   }
   //移除;
   @hisDecorator()
