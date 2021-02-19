@@ -350,6 +350,7 @@
 .gant-submenu-pagewrap {
   border-radius: 3px;
   overflow: hidden;
+  position: relative;
 }
 .gant-submenu-pagewrap .ant-menu-inline-collapsed > .ant-menu-item {
   left: 0;
@@ -421,6 +422,12 @@
   z-index: 1;
   background: #fff;
   -webkit-transform: translateZ(0);
+}
+.gant-submenu-bottomFixed {
+  position: absolute;
+  z-index: 1;
+  bottom: 0 !important;
+  top: auto !important;
 }
 .gant-submenu-boxShow {
   box-shadow: 0 2px 3px rgba(125, 125, 125, 0.1);
