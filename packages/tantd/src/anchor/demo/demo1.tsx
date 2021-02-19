@@ -40,7 +40,7 @@ export default () => {
       <Anchor
         list={list}
         minHeight={800}
-        fixedTop={80}
+        fixedTop={64}
         content={
           <>
             <div id="horbasic1" style={style}>

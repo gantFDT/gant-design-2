@@ -9,8 +9,11 @@ import { Modal } from 'tantd';
 export default () => {
   const [visible, setVisible] = useState(false);
   const [widthAndHei, setWidthAndHei] = useState([0, 0]);
-  const onSizeChange = (width, height) => {
+  const [contentWidthAndHei, setContentWidthAndHei] = useState([0, 0]);
+  const onSizeChange = (width, height, contentEl) => {
     setWidthAndHei([width, height]);
+    const rect = contentEl.getBoundingClientRect();
+    setContentWidthAndHei([rect.width, rect.height]);
   };
   return (
     <div style={{ margin: 10 }}>
@@ -33,11 +36,15 @@ export default () => {
         }}
         onSizeChange={onSizeChange}
       >
-        <div>
-          <h4>动态宽高获取（包含header+footer）:</h4>
-          <div>{`width:${widthAndHei[0]}px`}</div>
-          <div>{`height:${widthAndHei[1]}px`}</div>
-        </div>
+        <h3>动态宽高获取</h3>
+        <br />
+        <h4>包含header+footer:</h4>
+        <div>{`width:${widthAndHei[0]}px`}</div>
+        <div>{`height:${widthAndHei[1]}px`}</div>
+        <br />
+        <h4>不含header+footer:</h4>
+        <div>{`width:${contentWidthAndHei[0]}px`}</div>
+        <div>{`height:${contentWidthAndHei[1]}px`}</div>
       </Modal>
     </div>
   );

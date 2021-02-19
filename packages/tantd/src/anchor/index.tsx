@@ -67,7 +67,7 @@ const GantAnchor = (props: GantAnchorProps) => {
         anchorBomfixed['style'].bottom = '0';
       } else {
         anchorBomfixed['style'].position = 'fixed';
-        anchorBomfixed['style'].top = '80px';
+        anchorBomfixed['style'].top = `${fixedTop}px`;
         anchorBomfixed['style'].bottom = 'auto';
       }
     }
@@ -81,7 +81,7 @@ const GantAnchor = (props: GantAnchorProps) => {
       const menuboxhor = document.querySelector('.gant-submenu-menuboxhor'); //anchor的外层card
       const extraheight = menuboxhor ? menuboxhor['offsetHeight'] : 0;
       if (fixedEle) {
-        if ((0 - parentClientTop) + 80 < containerRect.height - 40) {
+        if ((0 - parentClientTop) + fixedTop < containerRect.height - 40) {
           if (parentClientTop < fixedTop + extraheight) {
             fixedEle.classList.add('gant-anchor-activeScroll');
             const active = document.querySelector('.gant-anchor-activeScroll');

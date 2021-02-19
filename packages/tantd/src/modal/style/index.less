@@ -1,27 +1,24 @@
 @gant-prefix: gant;
 @component: ~'@{gant-prefix}-modal';
 @activeIconColor: var(--modal-header-icon-hover-color);
+@barPadding: var(--modal-bar-padding);
 
 // Modal
 :root {
-  --modal-highlight-color: #f00;
+  --modal-bar-padding: 4px;
   --modal-body-padding: 10px;
-  --modal-header-bg: #fff;
-  --modal-footer-bg: transparent;
-  --modal-footer-reset-color: rgba(0, 0, 0, 1);
-  --modal-footer-border-color-split: rgba(0, 0, 0, 0.45);
   --modal-mask-bg: rgba(0, 0, 0, 0.45);
-  --modal-header-bg: #fff;
+  --modal-footer-reset-color: rgba(0, 0, 0, 0.5);
   --modal-header-color: rgba(0, 0, 0, 0.65);
   --modal-header-hover-color: rgba(0, 0, 0, 1);
   --modal-header-icon-hover-color: #fff;
-  --modal-header-danger-icon-bg: #f00;
+  --modal-header-close-icon-bg: #f00;
   --modal-header-default-icon-bg: rgba(0, 0, 0, 0.3);
 }
 
 html {
   .ant-modal-header {
-    padding: 4px !important;
+    padding: @barPadding;
   }
 
   .ant-modal-close-x {
@@ -31,7 +28,7 @@ html {
   }
 
   .ant-modal-body {
-    padding: 10px;
+    padding: var(--modal-body-padding);
   }
 
   .ant-modal-title {
@@ -49,12 +46,12 @@ html {
     }
 
     .ant-modal-body {
-      padding: 10px !important;
+      padding: 10px;
     }
   }
 
   .ant-modal-footer {
-    padding: 3px;
+    padding: @barPadding;
   }
 }
 
@@ -69,7 +66,7 @@ html {
   }
 
   &-resizableModalWrapper {
-    overflow: hidden !important;
+    overflow: hidden;
 
     .ant-modal {
       display: flex;
@@ -82,28 +79,6 @@ html {
       display: flex;
       flex-direction: column;
       overflow: hidden;
-
-      .ant-modal-close {
-        transition: none;
-      }
-
-      .ant-modal-close-x {
-        &:hover {
-          background-color: var(--modal-header-danger-icon-bg);
-
-          i {
-            color: @activeIconColor;
-          }
-        }
-
-        &:active {
-          background-color: var(--modal-highlight-color);
-
-          i {
-            color: @activeIconColor;
-          }
-        }
-      }
     }
 
     .ant-modal-body {
@@ -111,10 +86,55 @@ html {
       overflow-y: auto;
     }
 
+    .@{component}-resizableModalHeader {
+      display: flex;
+    }
+
     .@{component}-resizableModalTitle {
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      min-height: 22px;
+      flex: 1;
+    }
+
+    .@{component}-resizableHeaderActions {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      div {
+        width: 30px;
+        cursor: pointer;
+        height: 30px;
+        position: relative;
+
+        span {
+          font-size: 16px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          color: var(--modal-header-color);
+        }
+      }
+    }
+
+    .@{component}-maximizeIcon {
+      &:hover {
+        background-color: var(--modal-header-default-icon-bg);
+      }
+    }
+
+    .@{component}-closeIcon {
+      &:hover {
+        background-color: var(--modal-header-close-icon-bg);
+
+        span {
+          color: @activeIconColor;
+        }
+      }
     }
 
     .@{component}-canDrag {
@@ -125,36 +145,10 @@ html {
       height: 100%;
     }
 
-    .@{component}-maximizeAnchor {
-      right: 30px;
-      width: 30px;
-      top: 0;
-      cursor: pointer;
-      height: 30px;
-      position: absolute;
-
-      span {
-        font-size: 16px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        color: var(--modal-header-color);
-      }
-
-      &:hover {
-        background-color: var(--modal-header-default-icon-bg);
-
-        i {
-          color: @activeIconColor;
-        }
-      }
-    }
-
     .@{component}-resizeAnchor {
-      right: -10px;
+      right: -12px;
       width: 30px;
-      bottom: -10px;
+      bottom: -12px;
       cursor: se-resize;
       height: 30px;
       position: absolute;

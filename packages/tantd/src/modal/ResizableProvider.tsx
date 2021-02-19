@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import ModalContext from './Context';
 import resizableReducer from './Reducer';
-import type { WindowSize, ModalStateProps, ModalsState, ResizableProviderProps} from './interface';
 import { ActionTypes } from './interface';
+import type { WindowSize, ModalStateProps, ModalsState, ResizableProviderProps } from './interface';
 
 const getWindowSize = (): WindowSize => ({
   width: window.innerWidth || 0,
@@ -18,7 +18,13 @@ const initial: ModalStateProps = {
   keepStateOnClose: false,
 };
 
-const ResizableProvider: React.FC<ResizableProviderProps> = ({ initalState, maxZIndex, minWidth, minHeight, children }) => {
+const ResizableProvider: React.FC<ResizableProviderProps> = ({
+  initalState,
+  maxZIndex,
+  minWidth,
+  minHeight,
+  children,
+}) => {
   const initialModalsState: ModalsState = {
     modals: {},
     maxZIndex,

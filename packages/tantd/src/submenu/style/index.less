@@ -59,7 +59,7 @@
       // box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
       border-radius: 3px;
       overflow: hidden;
-
+      position: relative;
       .ant-menu-inline-collapsed>.ant-menu-item {
         left: 0;
         text-overflow: clip;
@@ -146,6 +146,13 @@
       z-index: 1;
       background: #fff;
       -webkit-transform: translateZ(0);
+    }
+
+    &-bottomFixed {
+      position: absolute;
+      z-index: 1;
+      bottom: 0 !important;
+      top:auto !important;
     }
 
     &-boxShow {

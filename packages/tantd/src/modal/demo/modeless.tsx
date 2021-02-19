@@ -11,7 +11,7 @@ export default () => {
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
   return (
-    <ResizableProvider>
+    <ResizableProvider maxZIndex={200}>
       <div style={{ marginBottom: 10 }}>
         <button
           onClick={() => {
@@ -43,7 +43,6 @@ export default () => {
         itemState={{ height: 400, width: 400 }}
         id="2"
         title="第二个弹窗"
-        okBtnSolid
         visible={visible2}
         onCancel={() => {
           setVisible2(false);
