@@ -54,22 +54,35 @@ export default (props: SubmenuIF) => {
 
   const handleScroll = useCallback(() => {
     if (!warpRef.current) return;
-    const fixedEle: any = warpRef.current.querySelector(`.${prefixCls}-wrap`); //定位元素
-    const fixedEleParent: any = warpRef.current.querySelector(`.${prefixCls}-menubox`);
+    const fixedEle: any = warpRef.current.querySelector(`.${prefixCls}-wrap`); //需要定位的元素
+    const fixedEleParent: any = warpRef.current;
     const parentClientTop = fixedEleParent ? fixedEleParent.getBoundingClientRect().top : 0; //定位元素父级距离浏览器的高度
     const horEle = warpRef.current.querySelector(`.${prefixCls}-menuboxhor`);
+    if (fixedEleParent && fixedEle) {
+      const containerRect = fixedEleParent.getBoundingClientRect();
+      const fixedEleRect = fixedEle.getBoundingClientRect();
+      if (parentClientTop - fixedTopHeight < 0 && (0 - parentClientTop + fixedTopHeight + fixedEleRect.height) < containerRect.height) {
+        fixedEle.classList.add(`${prefixCls}-fixed`);
+        fixedEle.classList.remove(`${prefixCls}-bottomFixed`);
+        fixedEle.style.top = `${fixedTopHeight}px`;
+        fixedEle.style.bottom = 'auto';
+        if (zIndex) fixedEle.style.zIndex = zIndex;
 
-    if (parentClientTop <= fixedTopHeight) {
-      fixedEle.classList.add(`${prefixCls}-fixed`);
-      fixedEle.style.top = `${fixedTopHeight}px`;
-      if (zIndex) fixedEle.style.zIndex = zIndex;
-      fixedEle.style.width = `${fixedEleParent.offsetWidth - (mode == 'inline' ? 1 : 0)}px`;
-      if (showFixedBoxShadow && horEle) {
-        fixedEle.classList.add(`${prefixCls}-boxShow`);
+        if (showFixedBoxShadow && horEle) {
+          fixedEle.style.width = `${fixedEleParent.offsetWidth - (mode == 'inline' ? 1 : 0)}px`;
+          fixedEle.classList.add(`${prefixCls}-boxShow`);
+        } else {
+          const menuBoxBom: any = warpRef.current.querySelector(`.${prefixCls}-menubox`);
+          fixedEle.style.width = `${menuBoxBom.offsetWidth - (mode == 'inline' ? 1 : 0)}px`;
+        }
+      } else if (parentClientTop < 0 && containerRect.height - (0 - parentClientTop + fixedTopHeight) <= fixedEleRect.height) {
+          fixedEle.classList.add(`${prefixCls}-bottomFixed`);
+      }else {
+          fixedEle.classList.remove(`${prefixCls}-bottomFixed`);
+          fixedEle.style.top = `${fixedTopHeight}px`;
+          fixedEle.classList.remove(`${prefixCls}-fixed`);
+          fixedEle.classList.remove(`${prefixCls}-boxShow`);
       }
-    } else {
-      fixedEle.classList.remove(`${prefixCls}-fixed`);
-      fixedEle.classList.remove(`${prefixCls}-boxShow`);
     }
   }, [fixedTopHeight, showFixedBoxShadow, zIndex, mode, warpRef]);
 
