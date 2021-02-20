@@ -8,5 +8,6 @@ import Selector from './selector';
 import Modal from './modal';
 import Grid from './grid';
 import TaskBoard from './task-board';
+import AutoReload from './auto-reload';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard, AutoReload };
