@@ -94,5 +94,13 @@
     "classnames": "^2.2.6",
     "eslint": "^7.20.0",
     "react-color": "^2.19.3"
-  }
+  },
+  "description": "",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC"
 }
