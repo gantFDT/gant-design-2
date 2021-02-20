@@ -1,38 +1,37 @@
-:root{
-  --component-background: #fff;
-}
+@import '../../../../../style/index.less';
 
-.gant-color-picker,.gant-color-picker-small {
-  &-mainwrap{
-    box-sizing: content-box;
+.gant-color-picker,
+.gant-color-picker-small {
+  &-mainwrap {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    position: relative;
-    background: var(--component-background);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
-    border-radius: 4px;
+    box-sizing: content-box;
     padding: 3px 0 0px 83px;
+    background: var(--component-background);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
   }
 
-  &-preview{
+  &-preview {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     display: flex;
     align-items: stretch;
-    text-align: center;
-    line-height: 32px;
-    color: #fff;
     width: 80px;
     height: 100%;
+    color: #fff;
     font-size: 13px;
+    line-height: 32px;
+    text-align: center;
     border-radius: 4px 0 0 4px;
 
-    &-text{
-      width: 100%;
+    &-text {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
       cursor: not-allowed;
     }
 
@@ -41,102 +40,103 @@
     }
   }
 
-  &-onlypreview{
+  &-onlypreview {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    color: #fff;
+    justify-content: center;
     width: 80px;
     height: 32px;
+    color: #fff;
     font-size: 13px;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
   }
 
-  &-itemwrap{
+  &-itemwrap {
     position: relative;
   }
 
-  &-mainitem{
-    height: 26px;
+  &-mainitem {
     width: 26px;
+    height: 26px;
     margin: 0 3px 3px 0;
     border-radius: 3px;
   }
 
-  &-picker{
+  &-picker {
     position: absolute;
     left: -3px;
     z-index: 9;
   }
 
-  &-inputlabel{
-    width: 20px;
-    height: 100%;
+  &-inputlabel {
     position: relative;
     z-index: 9;
+    width: 20px;
+    height: 100%;
 
-    span{
+    span {
       display: flex;
-      height: 100%;
       align-items: center;
       justify-content: flex-end;
+      height: 100%;
     }
   }
 
-  &-input{
+  &-input {
     flex: 1;
+    height: 24px;
     font-size: 14px;
     border: none;
     outline: none;
-    height: 24px;
   }
 
-  &-subpicker{
-    background: var(--component-background),
+  &-subpicker {
+    background: var(--component-background);
   }
 
-  &-chromepicker{
-    background: var(--component-background),
+  &-chromepicker {
+    background: var(--component-background);
   }
 }
 .gant-color-picker-small {
-  &-mainwrap{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
-    border-radius: 3px;
+  &-mainwrap {
     padding: 2px 0 0px 83px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
   }
 
-  &-preview{
+  &-preview {
     line-height: 24px;
     border-radius: 3px 0 0 3px;
   }
 
-  &-onlypreview{
+  &-onlypreview {
     height: 24px;
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
   }
 
-  &-mainitem{
-    height: 18px;
+  &-mainitem {
     width: 18px;
+    height: 18px;
   }
 
-  &-picker{
+  &-picker {
     left: -7px;
   }
 }
 .gant-input-group {
-  .gant-color-picker,.gant-color-picker-small {
-    &-mainwrap{
-      box-shadow: none;
+  .gant-color-picker,
+  .gant-color-picker-small {
+    &-mainwrap {
       border: 1px solid #d9d9d9;
       border-radius: 4px 0 0 4px;
+      box-shadow: none;
     }
-    &-preview{
-      margin: -1px 0 -1px -1px;
+    &-preview {
       height: calc(100% + 2px);
+      margin: -1px 0 -1px -1px;
     }
   }
   .gant-color-picker-small-mainwrap {
