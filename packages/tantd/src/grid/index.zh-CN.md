@@ -52,7 +52,30 @@ tantd不提供LicenseKey，此文档只做演示使用
 列定义可以通过设置children的方式做分组
 
 <code src="./demo/HeaderGroup.tsx" />
+### 树形数据展示
 
+该示例为所有数据已加载完成的树形数据展示
+
+分为两个模式：普通模式和 isCompute 模式
+
+**普通模式**：数据格式的要求为平铺数据，每条数据中存在一个字段可以其他数据有关联关系，例如下面示例中 **path** 字段，并结合 **getDataPath** 属性
+
+**isCompute 模式**：数据格式要求为树形数据，默认根据 **children** 字段确定父子关系，可以根据 **treeDataChildrenName** 来设置为其他字段，示例中是 **test_children**
+
+可结合业务需求灵活选择对应模式，如果业务数据是平铺数据，推荐使用普通模式，业务数据为树形数据，推荐使用 isCompute 模式
+
+可以在列中配置以指定以当前列展开/收缩子节点，示例中以 **Name** 为列
+
+可以通过 **groupSuppressAutoColumn** 属性来隐藏多余的分组列，示例中：普通模式已配置，isCompute 模式未配置
+
+可以通过 **groupDefaultExpanded** 属性灵活配置展开层级，示例中：普通模式已配置，isCompute 模式未配置
+
+
+### 分页设置
+
+内部已集成组件集成 antd 中 Pagination 组件
+
+<code src="./demo/PageInfo.tsx" />
 
 ## API
 
