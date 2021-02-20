@@ -83,10 +83,10 @@ export default {
     }
     table th,
     table td {
-      height: 35px;
+      eight: 33px;
+      padding: 3px 5px!important;
       border: 1px solid #dedede;
       word-wrap:break-word;
-      padding: 0 10px;
     }
     table th {
       font-weight: bold;

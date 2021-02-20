@@ -282,16 +282,16 @@ manager.validate(data);
 
 7、其他 API
 
-|    属性     |   类型   |                        说明                        |
-| :---------: | :------: | :------------------------------------------------: |
-|  isChanged  | boolean  |                 表格数据是否有变化                 |
-|    undo     | function |                        回退                        |
-|    redo     | function |                        重做                        |
-|   cancel    | function |                      取消编辑                      |
-|    reset    | function | 重做操作，删除前面所有操作的历史记录，回到最初状态 |
-|    diff     |  object  |                   获取 diff 数据                   |
-| getRowData  | function |            获取 grid 最新数据带有脏标示            |
-| getPureData | function |                获取最新数据纯净数据                |
+| 属性        | 类型     | 说明                                               |
+| ----------- | -------- | -------------------------------------------------- |
+| isChanged   | boolean  | 表格数据是否有变化                                 |
+| undo        | function | 回退                                               |
+| redo        | function | 重做                                               |
+| cancel      | function | 取消编辑                                           |
+| reset       | function | 重做操作，删除前面所有操作的历史记录，回到最初状态 |
+| diff        | object   | 获取 diff 数据                                     |
+| getRowData  | function | 获取 grid 最新数据带有脏标示                       |
+| getPureData | function | 获取最新数据纯净数据                               |
 
 **cancel、save 方法需要在业务层手动修改 editable 来禁止编辑**
 
