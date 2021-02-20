@@ -306,6 +306,144 @@
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
 }
+.gant-color-picker-mainwrap,
+.gant-color-picker-small-mainwrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: content-box;
+  padding: 3px 0 0px 83px;
+  background: var(--component-background);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+}
+.gant-color-picker-preview,
+.gant-color-picker-small-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: stretch;
+  width: 80px;
+  height: 100%;
+  color: #fff;
+  font-size: 13px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 4px 0 0 4px;
+}
+.gant-color-picker-preview-text,
+.gant-color-picker-small-preview-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: not-allowed;
+}
+.gant-color-picker-preview input,
+.gant-color-picker-small-preview input {
+  color: inherit;
+}
+.gant-color-picker-onlypreview,
+.gant-color-picker-small-onlypreview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 32px;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+}
+.gant-color-picker-itemwrap,
+.gant-color-picker-small-itemwrap {
+  position: relative;
+}
+.gant-color-picker-mainitem,
+.gant-color-picker-small-mainitem {
+  width: 26px;
+  height: 26px;
+  margin: 0 3px 3px 0;
+  border-radius: 3px;
+}
+.gant-color-picker-picker,
+.gant-color-picker-small-picker {
+  position: absolute;
+  left: -3px;
+  z-index: 9;
+}
+.gant-color-picker-inputlabel,
+.gant-color-picker-small-inputlabel {
+  position: relative;
+  z-index: 9;
+  width: 20px;
+  height: 100%;
+}
+.gant-color-picker-inputlabel span,
+.gant-color-picker-small-inputlabel span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.gant-color-picker-input,
+.gant-color-picker-small-input {
+  flex: 1;
+  height: 24px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.gant-color-picker-subpicker,
+.gant-color-picker-small-subpicker {
+  background: var(--component-background);
+}
+.gant-color-picker-chromepicker,
+.gant-color-picker-small-chromepicker {
+  background: var(--component-background);
+}
+.gant-color-picker-small-mainwrap {
+  padding: 2px 0 0px 83px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
+}
+.gant-color-picker-small-preview {
+  line-height: 24px;
+  border-radius: 3px 0 0 3px;
+}
+.gant-color-picker-small-onlypreview {
+  height: 24px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
+}
+.gant-color-picker-small-mainitem {
+  width: 18px;
+  height: 18px;
+}
+.gant-color-picker-small-picker {
+  left: -7px;
+}
+.gant-input-group .gant-color-picker-mainwrap,
+.gant-input-group .gant-color-picker-small-mainwrap {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px 0 0 4px;
+  box-shadow: none;
+}
+.gant-input-group .gant-color-picker-preview,
+.gant-input-group .gant-color-picker-small-preview {
+  height: calc(100% + 2px);
+  margin: -1px 0 -1px -1px;
+}
+.gant-input-group .gant-color-picker-small-mainwrap {
+  border-radius: 3px 0 0 3px;
+}
+
+:root {
+  --primary-color: #2D2DA3;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+}
 :root {
   --submenu-collapsed-width: 30px;
 }
@@ -4858,6 +4996,222 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   top: 0;
   left: 0;
   pointer-events: none;
+}
+
+:root {
+  --primary-color: #2D2DA3;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+}
+.gant-taskboard {
+  width: 100%;
+  overflow: auto;
+}
+.gant-taskboard-drag-drop-content {
+  min-width: 100%;
+  display: inline-flex;
+}
+.gant-taskboard .gant-taskboard-column-wrapper {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 10px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 3px;
+  background-color: #f4f5f7;
+}
+.gant-taskboard .gant-taskboard-column-wrapper .gant-taskboard-column-container {
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.gant-taskboard-column-header-wrapper {
+  display: flex;
+  padding: 0 8px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.gant-taskboard-column-header-title {
+  font-weight: 600;
+  padding: 8px 0;
+  font-size: 14px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gant-taskboard-column-header-extra {
+  float: right;
+  margin-left: auto;
+  padding: 8px 0;
+}
+.gant-taskboard-task-drop-inner {
+  flex-grow: 1;
+  min-height: 600px;
+  padding: 8px;
+}
+.gant-taskboard-task-drop-inner .gant-taskboard-quick-add {
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+  background-color: #fff;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.gant-taskboard-task-drop-inner .gant-taskboard-quick-add:hover {
+  transition: all 0.3s;
+  box-shadow: 0 3px 5px 1px #e5f2ff;
+}
+.gant-taskboard-task-drop-inner .gant-taskboard-quick-add:hover i {
+  color: #1890FF;
+  transition: all 0.3s;
+}
+.gant-taskboard-task-container-wrapper {
+  margin-bottom: 8px;
+}
+.gant-taskboard-task-container {
+  position: relative;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.7);
+  border-style: solid;
+  border-color: rgba(128, 128, 128, 0.2);
+  border-width: 1px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.gant-taskboard-task-container:hover {
+  box-shadow: 0 3px 5px 1px #e5f2ff;
+  transition: all 0.3s;
+}
+.gant-taskboard-task-container:hover .taskHeaderIcon {
+  opacity: 1 !important;
+  transition: all 0.3s;
+  visibility: visible !important;
+}
+.gant-taskboard-task-container .taskHeader {
+  margin: 0;
+}
+.gant-taskboard-task-container .taskHeader p {
+  margin: 0;
+  max-width: 85%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  line-height: 24px;
+}
+.gant-taskboard-task-container .taskHeader p span {
+  font-weight: 600;
+}
+.gant-taskboard-task-container .taskHeader .taskHeaderIcon {
+  opacity: 0;
+  visibility: hidden;
+  padding: 5px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
+.gant-taskboard-task-container .ant-tag {
+  cursor: inherit;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.columnIcons {
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.columnIcons i {
+  cursor: pointer;
+}
+.columnIcons i:hover {
+  transition: color 0.3s;
+  color: #1890FF;
+}
+.forbiddenHeader {
+  cursor: not-allowed;
+}
+
+:root {
+  --primary-color: #2D2DA3;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+}
+:root {
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --primary-color: #1890FF;
+}
+.ant-btn-sm {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.ant-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  touch-action: manipulation;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+}
+.gant-auto-reload-container {
+  padding: 0 5px !important;
+  border-color: var(--btn-default-border-color) !important;
+  box-shadow: none !important;
+  line-height: 22px;
+  overflow: hidden;
+}
+.gant-auto-reload-container:hover {
+  background-color: transparent !important;
+  color: var(--btn-default-color) !important;
+}
+.gant-auto-reload-toolTipContainer p {
+  margin-bottom: 0px;
+  line-height: 20px;
+}
+.gant-auto-reload-autoSwitch {
+  margin-top: -2px !important;
+}
+.gant-auto-reload-toolTipTime {
+  display: inline-block;
+  line-height: 22px;
+  height: 22px !important;
+}
+.gant-auto-reload-toolTipTime:hover {
+  color: var(--primary-color);
+}
+.gant-auto-reload-autoTimeInput {
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 0px !important;
+  line-height: 22px !important;
+  height: 22px !important;
+  vertical-align: 0px;
+  width: 44px !important;
+  box-shadow: none !important;
+}
+.gant-auto-reload-autoTimeInput .ant-input-number-input {
+  padding: 0px;
+  padding-right: 22px;
+}
+.gant-auto-reload-autoTimeInput .ant-input-number-handler-wrap {
+  opacity: 1;
 }
 
 
