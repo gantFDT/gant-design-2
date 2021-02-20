@@ -9,5 +9,6 @@ import Modal from './modal';
 import Grid from './grid';
 import TaskBoard from './task-board';
 import AutoReload from './auto-reload';
+import Loading from './loading';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard, AutoReload };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard, AutoReload, Loading };

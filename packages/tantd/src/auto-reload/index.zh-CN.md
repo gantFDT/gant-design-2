@@ -25,7 +25,7 @@ group:
 <code src="./demo/demo3.tsx" />
 
 ## API
-### Anchor props
+### AutoReload props
 
 | 属性      | 说明                 | 类型     | 默认值     |
 | --------- | -------------------- | -------- | ---------- |
