@@ -151,7 +151,6 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
       wrapClassName={combineWrapClassName}
       title={titleElement}
       width={width}
-      closable={false}
       visible={modalVisible}
       zIndex={zIndex}
       style={_style}
@@ -163,6 +162,7 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
       cancelButtonProps={{ size: 'small', ...cancelButtonProps }}
       okButtonProps={{ size: 'small', ...okButtonProps }}
       {...restProps}
+      closable={false}
     >
       {/*弹窗内容 */}
       <div ref={contentRef} className={`${prefixCls}-resizableModalContent`} onClick={onFocus}>
