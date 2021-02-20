@@ -1,19 +1,27 @@
 import React, { useContext, useCallback } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { TaskBoardContext } from './index';
+import TaskBoardContext from './Context';
 
 const boxShadowColor = 'rgba(0, 0, 0, 0.2) 2px 2px 1px';
 
 const Task = (props) => {
-  const { task, column, index, isTaskDragDisabled } = props;
+  const { task, column, index } = props;
 
-  const { prefixCls, idKey, taskNameKey, hightLightWords, renderItem, highlightTasksBy } = useContext(TaskBoardContext);
+  const { prefixCls, config, hightLightWords, renderItem, highlightTasksBy } = useContext(TaskBoardContext);
+  const { idKey, taskNameKey, taskDragDisabled } = config;
 
-  const _highlightTasksBy = useCallback((keywords, task) => task[taskNameKey as string].indexOf(keywords) < 0, []);
+  const fn = useCallback(
+    (keywords, task) => {
+      if (!highlightTasksBy) {
+        return task[taskNameKey as string].indexOf(keywords) < 0;
+      }
+      return highlightTasksBy(keywords, task);
+    },
+    [taskNameKey, highlightTasksBy],
+  );
 
-  const fn = highlightTasksBy || _highlightTasksBy;
   return (
-    <Draggable draggableId={task[idKey as string]} index={index} isDragDisabled={isTaskDragDisabled}>
+    <Draggable draggableId={task[idKey as string]} index={index} isDragDisabled={taskDragDisabled}>
       {(provided, snapshot) => (
         <div
           className={prefixCls + '-task-container-wrapper'}
@@ -28,11 +36,14 @@ const Task = (props) => {
               opacity: hightLightWords && fn(hightLightWords, task) ? 0.4 : 1,
             }}
           >
-            {renderItem ? renderItem(task, column) : <div style={{ padding: 8 }}>{task[taskNameKey as string]}</div>}
+            <div>
+              {renderItem ? renderItem(task, column) : <div style={{ padding: 8 }}>{task[taskNameKey as string]}</div>}
+            </div>
           </div>
         </div>
       )}
     </Draggable>
   );
 };
+
 export default Task;

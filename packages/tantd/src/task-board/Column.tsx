@@ -1,12 +1,10 @@
 import React, { useContext, memo } from 'react';
-import Task from './Task';
 import { Tooltip } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import { isEqual, isEmpty } from 'lodash';
-import { TaskBoardContext } from './index';
+import { PlusOutlined } from '@ant-design/icons';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-
-const areEqual = (prevProps, nextProps) => isEqual(prevProps, nextProps);
+import TaskBoardContext from './Context';
+import Task from './Task';
 
 const InnerTasksList = (props) => {
   const { tasks, ...nextProps } = props;
@@ -14,14 +12,15 @@ const InnerTasksList = (props) => {
   return tasks.map((task, key) => <Task key={key} task={task} index={key} {...nextProps} />);
 };
 
-const TaskList = memo(InnerTasksList, areEqual);
+const TaskList = memo(InnerTasksList, isEqual);
 
 const Column = (props) => {
-  const { column, tasks, index, hideQuickAdd, isColumnDragDisabled, isTaskDropDisabled, ...nextProps } = props;
-  const { prefixCls, renderHeader, renderExtra, handleAddBtn, idKey, titleKey } = useContext(TaskBoardContext);
+  const { column, tasks, index, ...nextProps } = props;
+  const { prefixCls, config, renderHeader, renderExtra, handleAddBtn } = useContext(TaskBoardContext);
+  const { idKey, titleKey, hideQuickAdd, columnDragDisabled, taskDropDisabled } = config;
 
   return (
-    <Draggable index={index} draggableId={column[idKey as string]} isDragDisabled={isColumnDragDisabled}>
+    <Draggable index={index} draggableId={column[idKey as string]} isDragDisabled={columnDragDisabled}>
       {(provided, snapshot) => (
         <div className={prefixCls + '-column-wrapper'} ref={provided.innerRef} {...provided.draggableProps}>
           <div
@@ -45,7 +44,7 @@ const Column = (props) => {
                 </div>
               )}
             </div>
-            <Droppable droppableId={column[idKey as string]} type="task" isDropDisabled={isTaskDropDisabled}>
+            <Droppable droppableId={column[idKey as string]} type="task" isDropDisabled={taskDropDisabled}>
               {(provided, snapshot) => (
                 <div className={prefixCls + '-task-drop-inner'} ref={provided.innerRef} {...provided.droppableProps}>
                   <TaskList tasks={tasks} column={column} {...nextProps} />

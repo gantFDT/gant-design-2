@@ -22,7 +22,7 @@ group:
 <code src="./demo/highLight.tsx" />
 
 ### 拖拽功能
-<code src="./demo/dragUse.tsx" />
+<code src="./demo/dragUse.tsx" /> 
 
 ## API
 ### TaskBoard props

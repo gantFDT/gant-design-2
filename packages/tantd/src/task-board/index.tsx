@@ -1,35 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import TaskBoardContext from './Context';
 import Column from './Column';
+import type { Config, DefaultProps } from './interface';
 
-export const TaskBoardContext = React.createContext({} as ContextProps);
-
-type Data = {
-  [prop: string]: any;
-};
-
-export interface ContextProps {
-  prefixCls?: string;
-  idKey?: string;
-  titleKey?: string;
-  childrenKey?: string;
-  taskNameKey?: string;
-  hightLightWords?: string;
-  renderHeader?: (column: any) => React.ReactNode;
-  renderExtra?: (column: any) => React.ReactNode;
-  renderItem?: (task: any, column: any) => React.ReactNode;
-  highlightTasksBy?: (keywords: string, task: any) => boolean;
-  handleAddBtn?: (column: any) => void;
-}
-export interface TaskBoardProps extends ContextProps {
-  dataSource: Data[];
+export interface TaskBoardProps<T> extends DefaultProps {
   className?: string;
-  hideQuickAdd?: boolean;
-  isColumnDragDisabled?: boolean;
-  isColumnDropDisabled?: boolean;
-  isTaskDragDisabled?: boolean;
-  isTaskDropDisabled?: boolean;
+  config?: Config;
+  dataSource: T[];
   onBeforeDragStart?: (result) => void;
   onDragStart?: (result) => void;
   onDragUpdate?: (result) => void;
@@ -38,16 +17,13 @@ export interface TaskBoardProps extends ContextProps {
 
 const ColumnsList = React.memo((props: any) => <Column {...props} />);
 
-const TaskBoard = (props: TaskBoardProps) => {
+function TaskBoard<T>(props: TaskBoardProps<T>) {
   const {
-    dataSource,
+    prefixCls: customizePrefixCls = 'gant',
     className,
-    idKey,
-    titleKey,
-    childrenKey,
-    taskNameKey,
+    dataSource = [],
+    config,
     hightLightWords,
-    isColumnDropDisabled,
     renderHeader,
     renderExtra,
     renderItem,
@@ -57,23 +33,29 @@ const TaskBoard = (props: TaskBoardProps) => {
     onDragStart,
     onDragUpdate,
     onDragEnd,
-    ...nextProps
+    ...restProps
   } = props;
 
+  const {
+    idKey = 'id',
+    titleKey = 'title',
+    childrenKey = 'children',
+    taskNameKey = 'name',
+    columnDropDisabled,
+    ...restConfig
+  } = config || {};
+
+  const prefixCls = customizePrefixCls + '-taskboard';
+
   const ContextValue = {
+    hightLightWords,
+    config: { idKey, titleKey, taskNameKey, ...restConfig },
     renderHeader,
     renderExtra,
     renderItem,
     highlightTasksBy,
     handleAddBtn,
-    idKey,
-    titleKey,
-    childrenKey,
-    taskNameKey,
-    hightLightWords,
   };
-
-  const prefixCls = 'gant-taskboard';
 
   return (
     <TaskBoardContext.Provider value={{ ...ContextValue, prefixCls }}>
@@ -83,18 +65,18 @@ const TaskBoard = (props: TaskBoardProps) => {
         onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
-        <Droppable droppableId="all-columns" direction="horizontal" type="column" isDropDisabled={isColumnDropDisabled}>
-          {(provided) => (
+        <Droppable droppableId="all-columns" direction="horizontal" type="column" isDropDisabled={columnDropDisabled}>
+          {(provided, snapshot) => (
             <div className={classnames(prefixCls, className)}>
               <div className={prefixCls + '-drag-drop-content'} ref={provided.innerRef} {...provided.droppableProps}>
-                {dataSource.map((item, key) => {
+                {dataSource.map((item, index) => {
                   return (
                     <ColumnsList
-                      key={key}
-                      index={key}
+                      key={item[idKey]}
+                      index={index}
                       column={item}
                       tasks={item[childrenKey as string]}
-                      {...nextProps}
+                      {...restProps}
                     />
                   );
                 })}
@@ -106,23 +88,6 @@ const TaskBoard = (props: TaskBoardProps) => {
       </DragDropContext>
     </TaskBoardContext.Provider>
   );
-};
-TaskBoard.defaultProps = {
-  dataSource: [],
-  className: '',
-  hightLightWords: '',
-  idKey: 'id',
-  titleKey: 'title',
-  childrenKey: 'children',
-  taskNameKey: 'name',
-  hideQuickAdd: false,
-  isColumnDragDisabled: false,
-  isColumnDropDisabled: false,
-  isTaskDragDisabled: false,
-  isTaskDropDisabled: false,
-  onBeforeDragStart: (_) => _,
-  onDragStart: (_) => _,
-  onDragUpdate: (_) => _,
-  onDragEnd: (_) => _,
-};
+}
+
 export default TaskBoard;

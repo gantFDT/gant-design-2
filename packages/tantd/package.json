@@ -37,7 +37,7 @@
     "lodash-decorators": "^6.0.1",
     "moment": "^2.24.0",
     "prop-types": "^15.6.0",
-    "react-beautiful-dnd": "^10.1.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-color": "^2.19.3",
     "react-resize-detector": "^6.3.3",
     "recompose": "^0.30.0",
