@@ -9,27 +9,27 @@ import zh from './locale/zh-CN';
 
 const format = 'hh:mm:ss';
 export interface LocaleProps {
-  tips: string,
-  close: string,
-  open: string,
-  set: string,
-  unit: string,
+  tips: string;
+  close: string;
+  open: string;
+  set: string;
+  unit: string;
 }
 
 export interface Props {
-  locale?: LocaleProps,
-  customLocale?: LocaleProps,
-  prefixCls?: string,
-  auto?: boolean,
-  interval?: number,
-  refresh?: (currenttime?: string) => void,
-  time?: string,
-  className?: string,
-  style?: object,
+  locale?: LocaleProps;
+  customLocale?: LocaleProps;
+  prefixCls?: string;
+  auto?: boolean;
+  interval?: number;
+  refresh?: (currenttime?: string) => void;
+  time?: string;
+  className?: string;
+  style?: object;
 }
 
 const langs = {
-  'en': en,
+  en,
   'zh-cn': zh,
 };
 
@@ -45,7 +45,7 @@ export default function (props) {
     className,
     style,
     time,
-    refresh = () => { },
+    refresh = () => {},
   } = props;
 
   const prefixCls = customizePrefixCls + '-auto-reload';
@@ -79,49 +79,73 @@ export default function (props) {
     };
   }, [autoTime, handleRefresh, autoRefresh]);
 
-  const switchChange = useCallback((checked) => {
-    setAutoRefresh(checked);
-  }, [setAutoRefresh]);
+  const switchChange = useCallback(
+    (checked) => {
+      setAutoRefresh(checked);
+    },
+    [setAutoRefresh],
+  );
 
-  const inputChange = useCallback((value) => {
-    const reg = /(^[1-9]\d*$)/;
-    if (reg.test(value)) {
-      setAutoTime(value);
-    }
-  }, [setAutoTime]);
+  const inputChange = useCallback(
+    (value) => {
+      const reg = /(^[1-9]\d*$)/;
+      if (reg.test(value)) {
+        setAutoTime(value);
+      }
+    },
+    [setAutoTime],
+  );
 
-  return <LocaleReceiver>
-    {(local, localeCode: any = 'zh-cn') => {
-      actualLocale ? localeCode = actualLocale.locale : localeCode;
-      const lang = langs[localeCode] || langs['zh-cn'];
-      const locale = { ...lang, ...customLocale };
-      return <div className={classnames('ant-btn', 'ant-btn-sm', prefixCls + '-container', clsString)} style={style} >
-        <Tooltip title={locale.tips}>
-          <div onClick={handleRefresh} className={prefixCls + '-toolTipTime'} ><span style={{ verticalAlign: 0 }} ><RedoOutlined /></span> {updateTime}</div>
-        </Tooltip>
-        <Divider type="vertical" />
-        <Tooltip title={autoRefresh ? locale.close : locale.open} >
-          <Switch className={prefixCls + '-autoSwitch'} size="small" checked={autoRefresh} onChange={switchChange} />
-        </Tooltip>
-        {
-          autoRefresh && <>
+  return (
+    <LocaleReceiver>
+      {(local, localeCode: any = 'zh-cn') => {
+        actualLocale ? (localeCode = actualLocale.locale) : localeCode;
+        const lang = langs[localeCode] || langs['zh-cn'];
+        const locale = { ...lang, ...customLocale };
+        return (
+          <div className={classnames('ant-btn', 'ant-btn-sm', prefixCls + '-container', clsString)} style={style}>
+            <Tooltip title={locale.tips}>
+              <div onClick={handleRefresh} className={prefixCls + '-toolTipTime'}>
+                <span style={{ verticalAlign: 0 }}>
+                  <RedoOutlined />
+                </span>{' '}
+                {updateTime}
+              </div>
+            </Tooltip>
             <Divider type="vertical" />
-            <Tooltip title={<div className={prefixCls + '-toolTipContainer'} >
-              <p>{locale.set}</p>
-              <p>({locale.unit})</p>
-            </div>} >
-              <InputNumber value={autoTime}
-                min={1}
-                max={30}
-                size='small'
-                onChange={inputChange}
-                className={prefixCls + '-autoTimeInput'}
+            <Tooltip title={autoRefresh ? locale.close : locale.open}>
+              <Switch
+                className={prefixCls + '-autoSwitch'}
+                size="small"
+                checked={autoRefresh}
+                onChange={switchChange}
               />
             </Tooltip>
-          </>
-        }
-      </div>;
-    }
-    }
-  </LocaleReceiver>;
+            {autoRefresh && (
+              <>
+                <Divider type="vertical" />
+                <Tooltip
+                  title={
+                    <div className={prefixCls + '-toolTipContainer'}>
+                      <p>{locale.set}</p>
+                      <p>({locale.unit})</p>
+                    </div>
+                  }
+                >
+                  <InputNumber
+                    value={autoTime}
+                    min={1}
+                    max={30}
+                    size="small"
+                    onChange={inputChange}
+                    className={prefixCls + '-autoTimeInput'}
+                  />
+                </Tooltip>
+              </>
+            )}
+          </div>
+        );
+      }}
+    </LocaleReceiver>
+  );
 }

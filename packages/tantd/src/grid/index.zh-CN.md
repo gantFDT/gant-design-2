@@ -52,6 +52,7 @@ tantd不提供LicenseKey，此文档只做演示使用
 列定义可以通过设置children的方式做分组
 
 <code src="./demo/HeaderGroup.tsx" />
+
 ### 树形数据展示
 
 该示例为所有数据已加载完成的树形数据展示
@@ -70,6 +71,7 @@ tantd不提供LicenseKey，此文档只做演示使用
 
 可以通过 **groupDefaultExpanded** 属性灵活配置展开层级，示例中：普通模式已配置，isCompute 模式未配置
 
+<code src="./demo/TreeData.tsx" />
 
 ### 分页设置
 
@@ -318,7 +320,7 @@ manager.validate(data);
 
 **cancel、save 方法需要在业务层手动修改 editable 来禁止编辑**
 
-### 注意事项：
+### 注意事项
 
 1.rowkey 必须设置，否则会影响很多功能，rowkey 对应字段不能为 number！！！
 
