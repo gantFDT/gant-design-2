@@ -50,7 +50,7 @@ export default function (props) {
 
   const prefixCls = customizePrefixCls + '-auto-reload';
   const clsString = classnames(prefixCls, className);
-  const [updateTime, setUpdateTime] = useState(time as any);
+  const [updateTime, setUpdateTime] = useState(moment().format(format) as any);
 
   useEffect(() => {
     if (time) setUpdateTime(time);
