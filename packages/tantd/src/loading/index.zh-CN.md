@@ -18,11 +18,14 @@ group:
 ### 基本用法
 <code src="./demo/demo1.tsx" />
 
+### 自定义描述文案&将内容内嵌到Loading中
+<code src="./demo/demo2.tsx" />
+
 ### 自定义icon
-<code src="./demo/demo4.tsx" />
+<code src="./demo/demo3.tsx" />
 
 ### 提供多种动态样式
-<code src="./demo/demo5.tsx" />
+<code src="./demo/demo4.tsx" />
 
 ## API
 ### Loading props
@@ -30,5 +33,6 @@ group:
 | 参数   | 说明          | 类型   | 默认值 |
 | ------ | ------------- | ------ | ------ |
 | spinType  | 内部提供的几种加载样式,具体类型已在demo中罗列 | string |ball-clip-rotate |
-| height | 高度          | number | 200    |
-| indicator | 自定义样式          | ReactNode | -    |
+| indicator | 自定义样式                               | ReactNode | -    |
+| spinning  | 是否加载loading                          | boolean | true   |
+| content   | 内嵌内容                                 | ReactNode | -    |

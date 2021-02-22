@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Loading } from 'tantd';
 
+// 基本用法
 export default () => {
   return (
     <>
-      <div style={{ width: '100%', height: '100px', textAlign: 'center' }}>
-        <Loading />
-      </div>
+      <Loading />
     </>
   );
 };
