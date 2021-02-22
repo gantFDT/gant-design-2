@@ -1,12 +1,24 @@
 import React, { useContext, useEffect, useMemo, useCallback, memo } from 'react';
 import classnames from 'classnames';
 import { Modal } from 'antd';
+import type { ModalProps as antdModalProps } from 'antd/lib/modal';
 import { CloseOutlined, SwitcherOutlined, BorderOutlined } from '@ant-design/icons';
 import ModalContext from './Context';
 import { getModalState } from './Reducer';
 import { useDrag, useResize, usePrev } from './Hooks';
 import { ActionTypes } from './interface';
-import type { InnerModalProps } from './interface';
+import type { InitModalState } from './interface';
+
+export interface InnerModalProps extends antdModalProps {
+  id: string;
+  prefixCls?: string;
+  itemState?: InitModalState;
+  canMaximize?: boolean;
+  canResize?: boolean;
+  isModalDialog?: boolean;
+  children?: React.ReactNode | string;
+  contentRef?: React.RefObject<HTMLDivElement>;
+}
 
 const modalStyle: React.CSSProperties = { position: 'absolute', margin: 0, paddingBottom: 0 };
 
@@ -27,11 +39,11 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
     //** 弹窗层自定义class */
     wrapClassName,
     //** 是否可以最大化 */
-    canMaximize,
+    canMaximize = true,
     //** 是否可以拖动 */
-    canResize,
+    canResize = true,
     //** 是否为模态窗口 */
-    isModalDialog,
+    isModalDialog = false,
     /** antd-按钮属性 */
     cancelButtonProps,
     //** antd-按钮属性 */
@@ -54,12 +66,13 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
   const visiblePrev = usePrev(visible);
 
   useEffect(() => {
-    dispatch({ type: ActionTypes.mount, id, itemState });
-    return () => dispatch({ type: ActionTypes.unmount, id });
+    dispatch({ type: ActionTypes.mount, payload: { id, itemState } });
+    return () => dispatch({ type: ActionTypes.unmount, payload: { id } });
   }, []);
 
   useEffect(() => {
-    if (visible || visible !== visiblePrev) dispatch({ type: visible ? ActionTypes.show : ActionTypes.hide, id });
+    if (visible || visible !== visiblePrev)
+      dispatch({ type: visible ? ActionTypes.show : ActionTypes.hide, payload: { id } });
   }, [visible]);
 
   const { visible: modalVisible, zIndex, x, y, width, height, isMaximized } = modalState;
@@ -75,7 +88,7 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
     () =>
       dispatch({
         type: ActionTypes.focus,
-        id,
+        payload: { id },
       }),
     [id, dispatch],
   );
@@ -84,8 +97,7 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
     (payload) =>
       dispatch({
         type: ActionTypes.drag,
-        id,
-        ...payload,
+        payload: { id, ...payload },
       }),
     [id, dispatch],
   );
@@ -94,19 +106,18 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
     (payload) =>
       dispatch({
         type: ActionTypes.resize,
-        id,
-        ...payload,
+        payload: { id, ...payload },
       }),
     [id, dispatch],
   );
 
   const toggleMaximize = useCallback(() => {
     if (!canMaximize) return;
-    dispatch({ type: isMaximized ? ActionTypes.reset : ActionTypes.max, id });
+    dispatch({ type: isMaximized ? ActionTypes.reset : ActionTypes.max, payload: { id } });
   }, [id, isMaximized, canMaximize, dispatch]);
 
-  const onMouseDrag = useDrag(x || 0, y || 0, onDrag);
-  const onMouseResize = useResize(x || 0, y || 0, Number(width), Number(height), onResize);
+  const onMouseDrag = useDrag(x, y, onDrag);
+  const onMouseResize = useResize(x, y, Number(width), Number(height), onResize);
 
   const titleElement = useMemo(
     () => (
@@ -128,7 +139,7 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
             </div>
           )}
           {/*关闭按钮 */}
-          <div className={`${prefixCls}-closeIcon`} onClick={onCancel}>
+          <div className={`${prefixCls}-closeIcon`} onClick={(e) => onCancel && onCancel(e)}>
             <CloseOutlined />
           </div>
         </div>
@@ -177,17 +188,6 @@ const ModalInner: React.FC<InnerModalProps> = (props) => {
     </Modal>
   );
 };
-
-const defaultProps = {
-  itemState: {},
-  style: {},
-  canMaximize: true,
-  canResize: true,
-  isModalDialog: false,
-  onCancel: () => {},
-  onOk: () => {},
-};
-ModalInner.defaultProps = defaultProps;
 
 const ResizableModal = memo<InnerModalProps>(ModalInner);
 export default ResizableModal;

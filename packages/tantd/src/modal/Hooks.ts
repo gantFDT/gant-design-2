@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useEffect, useCallback, useRef } from 'react';
 
-type OnDragFunc = (c: { x: number; y: number }) => void;
+export type OnDragFunc = (c: { x: number; y: number }) => void;
 
 function useDrag(x: number, y: number, onDrag: OnDragFunc) {
   const isDragging = useRef(false);
@@ -58,7 +58,7 @@ function useDrag(x: number, y: number, onDrag: OnDragFunc) {
   return onMouseDown;
 }
 
-type OnResizeFunc = (c: { x: number; y: number; width: number; height: number }) => void;
+export type OnResizeFunc = (c: { x: number; y: number; width: number; height: number }) => void;
 
 function useResize(x: number, y: number, width: number, height: number, onResize: OnResizeFunc) {
   const isDragging = useRef(false);
