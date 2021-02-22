@@ -32,7 +32,7 @@ export default () => {
         <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="line-scale-pulse-out" /></div>
         <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="line-scale-pulse-out-rapid" /></div>
         <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="line-scale-party" /></div>
-        <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="pacmanpacman" /></div>
+        <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="pacman" /></div>
         <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="ball-grid-beat" /></div>
         <div style={{ width: '110px', height: '110px', float: 'left' }}><Loading spinType="ball-grid-pulse" /></div>
       </div>
