@@ -1,8 +1,8 @@
 import React from 'react';
-import { Avatar, Button } from 'antd';
+import { Button } from 'antd';
 import { ProfileCard } from 'tantd';
-import classnames from 'classnames'
-
+import { MessageOutlined, WhatsAppOutlined, AliwangwangOutlined } from '@ant-design/icons';
+//底部添加额外标签
 const profileCardFields: Array<any> = [
   {
     label: '姓名',
@@ -28,17 +28,15 @@ const profileCardFields: Array<any> = [
 
 // 基本用法
 export default () => {
-  const userInfo = { userName: 'Gantd', orgName: 'Gantd前端组', email: "abc112233456ssss7@qq.com", mobil: "18010001002", avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' }
+  const userInfo = { userName: 'Gantd', orgName: 'Gantd前端组', email: "abc112233456ssss7@qq.com", mobil: "18010001002", avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' };
   return (
     <div style={{ display: 'inline-block' }} onClick={(e) => e.stopPropagation()}>
       <ProfileCard
         data={userInfo}
         width={300}
-        height={150}
         fields={profileCardFields}
+        height={160}
         avatarAlign="left"
-        backgroundBlur={false}
-        backgroundImage={false}
         layout={{
           labelCol: { span: 8 },
           wrapperCol: { span: 16 },
@@ -46,6 +44,13 @@ export default () => {
         placement="right"
         trigger='click'
         onAvatarClick={() => { console.log(1) }}
+        extraBottom={
+          <div style={{width:'100%',borderTop:'1px solid #e5e5e5',display:'flex',paddingTop:'10px'}}>
+            <MessageOutlined style={{flex:1}}/>
+            <WhatsAppOutlined style={{flex:1,borderLeft:'1px solid #e5e5e5',borderRight:'1px solid #e5e5e5'}}/>
+            <AliwangwangOutlined style={{flex:1}}/>
+          </div>
+        }
       >
         <Button>点击</Button>
       </ProfileCard>
