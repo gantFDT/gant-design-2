@@ -18,6 +18,9 @@ group:
 ### 基本用法
 <code src="./demo/demo1.tsx" />
 
+### 底部添加额外标签
+<code src="./demo/demo2.tsx" />
+
 ## API
 ### ProfileCard props
 
@@ -31,8 +34,8 @@ group:
 | extraLeftTop | 左上方额外组件 | ReactNode  | -    |
 | extraRightTop | 右上方额外组件 | ReactNode  | -    |
 | extraBottom   | 底部额外组件 | ReactNode | - |
-| backgroundImage   | 头像部分的背景图片 | `string或boolean` | - |
-| backgroundBlur | 头像部分的背景图片设置高斯模糊值 | `number或boolean`  | -    |
+| backgroundImage   | 头像部分的背景图片,当设置为false时不显示 | `string或boolean` | avatarUrl |
+| backgroundBlur | 头像部分的背景图片设置高斯模糊值，设置为false时失效 | `number或boolean`  | 3    |
 | layout | 头像与item的占比 | object | `{ labelCol: {xs: { span: 12 },sm: { span: 12 },},wrapperCol: {xs: { span: 12 },sm: { span: 12 },},}`  |
 | trigger   | 显示气泡的方式（'hover', 'click'） | string | `hover` |
 | placement   | 气泡所在位置 `topLeft`, `top`, `topRight`,`leftTop`, `left`, `leftBottom`,`rightTop`, `right`, `rightBottom`,`bottomLeft`, `bottom`, `bottomRight` | string | `bottom` |
