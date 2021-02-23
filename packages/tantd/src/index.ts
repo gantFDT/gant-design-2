@@ -11,6 +11,7 @@ import TaskBoard from './task-board';
 import AutoReload from './auto-reload';
 import Loading from './loading';
 import DataCell from './data-cell';
+import ProfileCard from './profile-card';
 
 export {
   Toolbar,
@@ -25,5 +26,6 @@ export {
   TaskBoard,
   AutoReload,
   Loading,
+  ProfileCard,
   DataCell,
 };
