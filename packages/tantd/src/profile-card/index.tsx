@@ -17,7 +17,7 @@ export interface ProfileCardProps {
   extraBottom?: ReactNode;
   backgroundImage?: string | boolean;
   backgroundBlur?: number | boolean;
-  layout?: object;
+  layout?: Record<string, unknown>;
   trigger?: string;
   placement?: any;
   overlayClassName?: string;
@@ -33,7 +33,7 @@ const ProfileCard = (props: ProfileCardProps) => {
   const {
     prefixCls: customizePrefixCls = 'gant',
     data,
-    fields,
+    fields = [],
     showAvatar = true,
     labelAlign = 'default',
     avatarAlign = 'top',
@@ -64,60 +64,71 @@ const ProfileCard = (props: ProfileCardProps) => {
 
   const prefixCls = customizePrefixCls + '-profilecard';
   const content = (
-    <div className={classnames(prefixCls, avatarAlign, className)} style={{ height: height || 'auto', width: width || 'auto', paddingBottom: extraBottom ? 40 : 0 }}>
+    <div
+      className={classnames(prefixCls, avatarAlign, className)}
+      style={{ height: height || 'auto', width: width || 'auto', paddingBottom: extraBottom ? 40 : 0 }}
+    >
       {/* 左上角 */}
-      {extraLeftTop && (
-        <div className={`${prefixCls}-fixedlefttop`}>{extraLeftTop}</div>
-      )}
+      {extraLeftTop && <div className={`${prefixCls}-fixedlefttop`}>{extraLeftTop}</div>}
       {/* 右上角 */}
-      {extraRightTop && (
-        <div className={`${prefixCls}-fixedrighttop`}>{extraRightTop}</div>
-      )}
+      {extraRightTop && <div className={`${prefixCls}-fixedrighttop`}>{extraRightTop}</div>}
       {/* 头像 */}
-      {showAvatar &&
+      {showAvatar && (
         <div className={classnames(`${prefixCls}-avatarBox`, avatarAlign)}>
-          <div className={classnames(`${prefixCls}-avatarBox-bg`, avatarAlign)} style={backgroundImage === false ? {} : { backgroundImage: `url(${backgroundImage || data.avatarUrl})`, backgroundSize: 'cover', filter: `blur( ${backgroundBlur}px )` }}></div>
-          <div className={classnames(`${prefixCls}-avatarBox-avatar`, avatarAlign)} style={{ backgroundImage: `url(${data.avatarUrl})`, cursor: onAvatarClick ? 'pointer' : 'default' }} onClick={onAvatarClick && onAvatarClick}>
+          <div
+            className={classnames(`${prefixCls}-avatarBox-bg`, avatarAlign)}
+            style={
+              backgroundImage === false
+                ? {}
+                : {
+                    backgroundImage: `url(${backgroundImage || data.avatarUrl})`,
+                    backgroundSize: 'cover',
+                    filter: `blur( ${backgroundBlur}px )`,
+                  }
+            }
+          ></div>
+          <div
+            className={classnames(`${prefixCls}-avatarBox-avatar`, avatarAlign)}
+            style={{ backgroundImage: `url(${data.avatarUrl})`, cursor: onAvatarClick ? 'pointer' : 'default' }}
+            onClick={onAvatarClick && onAvatarClick}
+          >
             {!data.avatarUrl && <UserOutlined />}
           </div>
         </div>
-      }
+      )}
       {/* form表单 */}
-      <div className={classnames(`${prefixCls}-fields`, labelAlign == 'left' && 'dataform', avatarAlign,)} style={{ overflowY: 'auto', width: 'auto' }}>
+      <div
+        className={classnames(`${prefixCls}-fields`, labelAlign == 'left' && 'dataform', avatarAlign)}
+        style={{ overflowY: 'auto', width: 'auto' }}
+      >
         <Form labelAlign={labelAlign} style={{ height: '100%' }}>
           <Row gutter={24} style={{ marginBottom: '10px', width: '100%' }}>
-            {
-              fields.map(field => {
-                return (
-                  <Col key={field.key} style={{ minWidth: 200, width: '100%' }}>
-                    <Form.Item
-                      label={field.label}
-                      {...layout}
-                    >
-                      <Item value={data[field.key]}{...field} />
-                    </Form.Item>
-                  </Col>
-                );
-              })
-            }
+            {fields.map((field) => {
+              return (
+                <Col key={field.key} style={{ minWidth: 200, width: '100%' }}>
+                  <Form.Item label={field.label} {...layout}>
+                    <Item value={data[field.key]} {...field} />
+                  </Form.Item>
+                </Col>
+              );
+            })}
           </Row>
         </Form>
       </div>
       {/* 底部 */}
-      {extraBottom && (
-        <div className={`${prefixCls}-fixedbottom`}>{extraBottom}</div>
-      )}
+      {extraBottom && <div className={`${prefixCls}-fixedbottom`}>{extraBottom}</div>}
     </div>
   );
 
   return (
-    data && (children ?
-      (
-        <Popover placement={placement} content={content} trigger={trigger} overlayClassName={overlayClassName}>
-          {children}
-        </Popover>
-      ) : content
-    )
+    data &&
+    (children ? (
+      <Popover placement={placement} content={content} trigger={trigger} overlayClassName={overlayClassName}>
+        {children}
+      </Popover>
+    ) : (
+      content
+    ))
   );
 };
 
