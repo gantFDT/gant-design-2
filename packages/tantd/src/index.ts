@@ -10,5 +10,6 @@ import Grid from './grid';
 import TaskBoard from './task-board';
 import AutoReload from './auto-reload';
 import Loading from './loading';
+import ProfileCard from './profile-card';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard, AutoReload, Loading };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, TaskBoard, AutoReload, Loading, ProfileCard, };
