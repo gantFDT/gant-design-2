@@ -4,7 +4,7 @@ import type { ColGroupDef, ColDef, IsColumnFunc, RowNode, GridApi } from '@ag-gr
 import { IServerSideGetRowsParams } from '@ag-grid-community/core';
 import { get, isEmpty } from 'lodash';
 import { isEqualObj } from './gridManager/utils';
-import type { Size, GantPaginationProps, ColumnEdiatble, Columns } from './interface';
+import type { Size, GantPaginationProps, ColumnEdiatble, Column } from './interface';
 import { DataActions } from './interface';
 import EditorCol from './GridEidtColumn';
 import type { Rules, RuleItem } from 'async-validator';
@@ -76,7 +76,7 @@ const serialNumberCol: ColDef = {
     return serial;
   },
 };
-export const selectedMapColumns = <T>(columns: Columns<T>[], index: number | string | string[] = 0) => {
+export const selectedMapColumns = <T>(columns: Column<T>[], index: number | string | string[] = 0) => {
   if (!columns || columns.length <= 0) return [];
   let colArray: any[] = [];
   if (typeof index !== 'number') {
@@ -94,7 +94,7 @@ export const selectedMapColumns = <T>(columns: Columns<T>[], index: number | str
   return [{ ...defaultCheckboxColSelectionCol, headerCheckboxSelection: 'multiple' }, ...selectedCol];
 };
 export const mapColumns = <T>(
-  columns?: Columns<T>[],
+  columns?: Column<T>[],
   getRowNodeId?: any,
   defaultSelection?: boolean,
   defaultSelectionCol?: ColDef,
@@ -106,7 +106,7 @@ export const mapColumns = <T>(
   validateFields: Rules;
 } => {
   // 移除所有已添加事件
-  function getColumnDefs(columns: Columns<T>[]) {
+  function getColumnDefs(columns: Column<T>[]) {
     let validateFields: Rules = {};
     const columnDefs = columns.map(
       (

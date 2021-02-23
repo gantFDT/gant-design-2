@@ -31,7 +31,7 @@ import {
   groupNodeSelectedToggle,
   checkParentGroupSelectedStatus,
 } from './utils';
-import type { GridPropsPartial, RowSelection } from './interface';
+import type { GridProps, RowSelection } from './interface';
 import { Size, DataActions } from './interface';
 import SelectedGrid from './SelectedGrid';
 import GantPagination from './Pagination';
@@ -57,11 +57,7 @@ export const GridContext = createContext<any>({});
 export const defaultProps = {
   /**加载状态 */
   loading: false,
-  resizable: true,
   /**是否处于编辑状态 */
-  editable: false,
-  /**单列的过滤器 */
-  filter: true,
   /**禁止调整列顺序 */
   // lockPosition: false,
   /**直接在列头下面显示过滤器 */
@@ -88,7 +84,7 @@ export const defaultRowSelection: RowSelection = {
   rowDeselection: true,
 };
 
-const Grid = function Grid<T extends any>(props: GridPropsPartial<T>) {
+const Grid = function Grid<T extends any>(props: GridProps<T>) {
   const {
     dataSource: initDataSource,
     onReady,
@@ -98,9 +94,6 @@ const Grid = function Grid<T extends any>(props: GridPropsPartial<T>) {
     size,
     rowkey,
     gridKey,
-    resizable,
-    filter,
-    sortable,
     width,
     height,
     treeData,
@@ -644,9 +637,9 @@ const Grid = function Grid<T extends any>(props: GridPropsPartial<T>) {
                     }}
                     isRowSelectable={onRowSelectable}
                     defaultColDef={{
-                      resizable,
-                      sortable,
-                      filter,
+                      resizable: true,
+                      sortable: true,
+                      filter: true,
                       minWidth: 30,
                       tooltipValueGetter: (params: any) => params,
                       tooltipComponent: 'gantValidateTooltip',

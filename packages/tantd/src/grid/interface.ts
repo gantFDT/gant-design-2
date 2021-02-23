@@ -1,16 +1,16 @@
 import type { AgGridReactProps } from '@ag-grid-community/react';
 import type {
-  GridApi as AgGridApi,
+  GridApi,
   ITooltipParams,
   GridReadyEvent,
   ValueFormatterParams,
   ColDef,
   IServerSideGetRowsParams,
   GetContextMenuItemsParams,
-  ColumnApi as AgColumnApi,
+  ColumnApi,
   RowNode,
 } from '@ag-grid-community/core';
-import type { defaultProps} from './index';
+import type { defaultProps } from './index';
 import { defaultRowSelection } from './index';
 import type { RuleItem } from 'async-validator';
 import { Rules, RuleType } from 'async-validator';
@@ -59,13 +59,6 @@ export type PartRequired<T, U extends keyof T> = Required<Pick<T, U>> & Partial<
 
 /**删除数据时的回调方法，可以返回boolean、array或者是一个能够提供boolean、array类型返回值的promise */
 export type RemoveCallBack = (selected: any[]) => Promise<boolean> | boolean;
-
-export type OnReady = (api: GridReadyEvent, gridManager: GridManager) => void;
-
-export type GridApi = AgGridApi;
-
-export type ColumnApi = AgColumnApi;
-
 export type RowSelection = {
   /**是否多选 */
   type?: 'single' | 'multiple';
@@ -89,7 +82,7 @@ export type EditConfig<T> = {
   component: React.ComponentClass<EditComponentProps> | React.FunctionComponent<EditComponentProps>;
   /**是否开启编辑，当全局editable为true时生效 */
   editable?: ColumnEdiatble<T>;
-  props?: (record: T, rowIndex: number) => Object;
+  props?: any | ((record: T, rowIndex: number) => any);
   changeFormatter?: (v: any, record: any) => any;
   onCellChange?: (value: any, record: T, records: T[]) => void;
   refName?: string;
@@ -109,7 +102,7 @@ export type ColumnSignable = boolean | ((params: any) => boolean);
 export type RowKey<T> = (data: T) => string;
 
 // Column Api
-export interface Columns<T extends any> extends ColDef {
+export interface Column<T extends any> extends ColDef {
   /**标题 */
   title?: React.ReactNode;
   /**索引的字段名 */
@@ -117,7 +110,7 @@ export interface Columns<T extends any> extends ColDef {
   /**单元格渲染函数 */
   render?: (text: string, record: any, rowIndex: number, params: any) => React.ReactNode;
   /**子节点 */
-  children?: Columns<T>[];
+  children?: Column<T>[];
   /**当前列宽度,如果没有，将以defaultColumnWidth显示 */
   /**是否显示选择器 */
   checkboxSelection?: boolean;
@@ -172,11 +165,16 @@ export interface DefaultJsonParams {
   coverData?: boolean;
 }
 // Grid Api
-export interface Props<T extends any> {
-  columns?: Columns<T>[];
+export interface GridProps<T>
+  extends Omit<
+    AgGridReactProps,
+    'pagination' | 'rowSelection' | 'paginationPageSize' | 'suppressPaginationPanel' | 'paginateChildRows'
+  > {
+  columns?: Column<T>[];
+  size?: Size;
   boxColumnIndex?: number | string[] | string;
   dataSource?: T[];
-  onReady?: OnReady;
+  onReady?: (api: GridReadyEvent, gridManager: GridManager) => void;
   rowSelection?: RowSelection | true;
   rowkey: RowKey<T> | string;
   gridKey?: string;
@@ -189,7 +187,7 @@ export interface Props<T extends any> {
   className?: string;
   isServerSideGroup?: (data: any) => boolean;
   treeDataChildrenName?: string;
-  locale?: object;
+  locale?: any;
   defaultJsonParams?: DefaultJsonParams;
   serverGroupExpend?: (param: IServerSideGetRowsParams, cd: (row: any[]) => void) => void;
   serialNumber?: boolean | ColDef;
@@ -216,11 +214,3 @@ export interface Props<T extends any> {
     | null
     | false;
 }
-
-export type CustomProps<T> = ProtoExtends<typeof defaultProps, Props<T>>;
-
-// export type GridProps<T> = CustomProps<T>
-
-export type GridProps<T> = ProtoExtends<AgGridReactProps, CustomProps<T>>;
-
-export type GridPropsPartial<T> = PartRequired<GridProps<T>, 'rowkey'>;

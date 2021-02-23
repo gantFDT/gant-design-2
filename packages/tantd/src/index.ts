@@ -7,5 +7,6 @@ import Submenu from './submenu';
 import Selector from './selector';
 import Modal from './modal';
 import Grid from './grid';
+import DataCell from './data-cell';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid };
+export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, DataCell };
