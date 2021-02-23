@@ -13,9 +13,6 @@ export default () => {
     { label: 'Tom', value: 'tom' },
     { label: 'Mike', value: 'mike' },
     { label: 'John', value: 'john' },
-  ]
-  return <Selector
-    options={options}
-    style={{ width: 200 }}
-  />
-}
+  ];
+  return <Selector options={options} />;
+};

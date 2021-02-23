@@ -1,35 +1,14 @@
 @import '../../../../../style/index.less';
 
-.selector {
-    .storageItemContent {
-        .deleteIcon {
-            display: none;
-        }
-    }
-}
+.dataCellSelector {
+    padding: 0;
 
-.dropdown {
     :global {
-        .ant-select-item-option-state {
-            margin-left: 5px;
-        }
-    }
-
-    .storageOption {
-        .storageItemContent {
-            display: flex;
-            align-items: center;
-
-            .deleteIcon {
-                opacity: 0;
-                transition: opacity .3s;
-            }
-        }
-
-        &:hover {
-            .storageItemContent .deleteIcon {
-                opacity: 0.45;
-            }
+        .ant-select-selector {
+            border: 0 !important;
         }
     }
 }
+
+
+@import './generate.less';
