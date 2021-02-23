@@ -1,34 +1,40 @@
 import React from 'react';
-import { Avatar, Button } from 'antd';
+import { Button } from 'antd';
 import { ProfileCard } from 'tantd';
-import classnames from 'classnames'
 
 const profileCardFields: Array<any> = [
   {
     label: '姓名',
-    dataIndex: "userName",
-    key: "userName",
+    dataIndex: 'userName',
+    key: 'userName',
   },
   {
     label: '组织',
-    dataIndex: "orgName",
-    key: "orgName",
+    dataIndex: 'orgName',
+    key: 'orgName',
   },
   {
     label: '邮箱',
-    dataIndex: "email",
-    key: "email",
+    dataIndex: 'email',
+    key: 'email',
   },
   {
     label: '电话',
-    dataIndex: "mobil",
-    key: "mobil",
+    dataIndex: 'mobil',
+    key: 'mobil',
   },
-]
+];
 
 // 基本用法
 export default () => {
-  const userInfo = { userName: 'Gantd', orgName: 'Gantd前端组', email: "abc112233456ssss7@qq.com", mobil: "18010001002", avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' }
+  const userInfo = {
+    userName: 'Gantd',
+    orgName: 'Gantd前端组',
+    email: 'abc112233456ssss7@qq.com',
+    mobil: '18010001002',
+    avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+  };
+
   return (
     <div style={{ display: 'inline-block' }} onClick={(e) => e.stopPropagation()}>
       <ProfileCard
@@ -37,15 +43,15 @@ export default () => {
         height={150}
         fields={profileCardFields}
         avatarAlign="left"
-        backgroundBlur={false}
-        backgroundImage={false}
         layout={{
           labelCol: { span: 8 },
           wrapperCol: { span: 16 },
         }}
         placement="right"
-        trigger='click'
-        onAvatarClick={() => { console.log(1) }}
+        trigger="click"
+        onAvatarClick={() => {
+          console.log(1);
+        }}
       >
         <Button>点击</Button>
       </ProfileCard>
