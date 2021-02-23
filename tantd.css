@@ -6644,6 +6644,15 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   }
 }
 
+:root {
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
+}
 .data-cell {
   position: relative;
   display: inline-block;
@@ -6676,14 +6685,22 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 .data-cell.data-cell-inner-edit:hover {
   border: 1px solid var(--primary-color-5);
 }
-.data-cell.data-cell-read {
+.data-cell.data-cell-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border: none;
+}
+.data-cell.data-cell-disabled:hover {
+  border: none;
+}
+.data-cell.data-cell-onlyread {
   border: none;
   padding-right: 0px;
 }
-.data-cell.data-cell-read .cell-setting-icon {
+.data-cell.data-cell-onlyread .cell-setting-icon {
   display: none;
 }
-.data-cell.data-cell-read:hover {
+.data-cell.data-cell-onlyread:hover {
   border: none;
 }
 .data-cell .cell-setting-icon {
