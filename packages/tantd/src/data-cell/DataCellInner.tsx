@@ -1,19 +1,9 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  forwardRef,
-} from 'react';
+import React, { useState, useCallback, useEffect, useMemo, useRef, forwardRef } from 'react';
 import { DataCellInnerProps } from './interface';
 
 import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 
-const DataCellInner = forwardRef(function(
-  props: DataCellInnerProps<any>,
-  ref: any,
-) {
+const DataCellInner = forwardRef(function (props: DataCellInnerProps<any>, ref: any) {
   const {
     children,
     value,
@@ -29,7 +19,7 @@ const DataCellInner = forwardRef(function(
     ...restProps
   } = props;
 
-  const [innerValue, setInnerValue] = useState<any>();
+  const [innerValue, setInnerValue] = useState<any>(value);
 
   const agsRef = useRef<any>();
 
@@ -39,9 +29,7 @@ const DataCellInner = forwardRef(function(
 
   const handleChange = useCallback(
     (value: any, ...ags: any[]) => {
-      const newValue = getValueFromEvent
-        ? getValueFromEvent(...[value, ...ags])
-        : value;
+      const newValue = getValueFromEvent ? getValueFromEvent(...[value, ...ags]) : value;
       agsRef.current = ags;
       setInnerValue(newValue);
     },
@@ -82,7 +70,6 @@ const DataCellInner = forwardRef(function(
     onChange(innerValue as any, ...ags);
     onEditOver();
   }, [onConfirm, innerValue, onChange, onEditOver]);
-
   const label = useMemo(() => {
     if (renderLabel) {
       return renderLabel(value as any, { ...restProps, editable, disabled });
@@ -95,20 +82,14 @@ const DataCellInner = forwardRef(function(
       {!innerEditable ? (
         <>
           <div className="cell-label">{label as string}</div>
-          <div
-            className="cell-setting-icon cell-setting-edit"
-            onClick={() => setInnerEditable(true)}
-          >
+          <div className="cell-setting-icon cell-setting-edit" onClick={() => setInnerEditable(true)}>
             <EditOutlined />
           </div>
         </>
       ) : (
         <>
           {ChildrenComponet}
-          <div
-            className="cell-setting-icon cell-setting-ok"
-            onClick={handleConfirm}
-          >
+          <div className="cell-setting-icon cell-setting-ok" onClick={handleConfirm}>
             <CheckOutlined />
           </div>
           <div className="cell-setting-icon" onClick={handleCancel}>

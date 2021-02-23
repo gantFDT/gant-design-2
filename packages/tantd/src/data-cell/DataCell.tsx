@@ -2,13 +2,14 @@ import React, { useMemo, isValidElement, forwardRef, useState, useEffect, useCal
 import DataCellInner from './DataCellInner';
 import classnames from 'classnames';
 import { DataCellProps } from './interface';
+import { set } from 'lodash';
 
 const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
   const {
     native,
     wrapperClassName,
     wrapperStyle,
-    defalutValue,
+    defaultValue,
     valuePropName = 'value',
     [valuePropName as 'value']: propValue,
     onChange,
@@ -32,7 +33,7 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
 
   const [innerEditable, setInnerEditable] = useState(false);
 
-  const [value, setValue] = useState(defalutValue);
+  const [value, setValue] = useState(defaultValue);
 
   const hasValue = Reflect.has(props, valuePropName);
 
@@ -48,6 +49,9 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
     },
     [onChange, getValueFromEvent, hasValue],
   );
+  useEffect(() => {
+    setInnerEditable(false);
+  }, [native]);
 
   const onInnerChange = useCallback(
     (value, ...ags) => {
@@ -63,13 +67,15 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
       onChange: onValueChange,
       value,
       size,
+      disabled,
     });
-  }, [children, restProps, value, onValueChange, size]);
+  }, [children, restProps, value, onValueChange, size, disabled]);
 
   const mergeClassnames = classnames('data-cell', wrapperClassName, {
     'data-cell-sm': size === 'small',
     'data-cell-lg': size === 'large',
-    'data-cell-read': !editable,
+    'data-cell-onlyread': !editable,
+    'data-cell-disabled': disabled,
     'data-cell-edit': !native && editable,
     'data-cell-inner-edit': !native && innerEditable && editable,
   });
@@ -85,6 +91,7 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
           innerEditable={innerEditable}
           setInnerEditable={setInnerEditable}
           ref={ref}
+          disabled={disabled}
         >
           {ChildrenComponet}
         </DataCellInner>

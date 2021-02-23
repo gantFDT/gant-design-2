@@ -12,7 +12,7 @@ interface DataCellCommonProps<ValueType> {
   value?: ValueType;
   getValueFromEvent?: (...ags: any[]) => any;
   valuePropName?: string;
-  defalutValue?: ValueType;
+  defaultValue?: ValueType;
   size?: SizeType;
   editable?: boolean;
   disabled?: boolean;
