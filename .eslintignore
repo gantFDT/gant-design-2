@@ -1,0 +1,6 @@
+**/demo
+gulpfile.js
+.eslintrc.js
+postcss.config.js
+typings.d.ts
+scripts/**/*

@@ -1,3 +1,9 @@
+/**
+ *
+ *
+ * desc.zh-CN: 列头红色星号代表此列必填，列头蓝色星号代表此列可填，单元格蓝色角标代表可编辑，红色角标代表数据脏标识
+ */
+
 import React, { useCallback, useRef, useState } from 'react';
 import { Tag, Space, Button } from 'antd';
 import { Anchor, Grid, Header, Selector } from 'tantd';
@@ -160,6 +166,7 @@ export default () => {
         editable={editable}
         serialNumber
         openEditSign
+        height={300}
         rowSelection={{
           type: 'multiple',
           selectedKeys,

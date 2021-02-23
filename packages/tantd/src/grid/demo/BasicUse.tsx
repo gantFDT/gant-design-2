@@ -74,7 +74,7 @@ export default () => {
 
   return (
     <>
-      <Grid columns={columns} dataSource={dataSource} />
+      <Grid rowkey="id" height={300} columns={columns} dataSource={dataSource} />
     </>
   );
 };

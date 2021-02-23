@@ -1,20 +1,9 @@
-import React, {
-  useMemo,
-  isValidElement,
-  forwardRef,
-  useState,
-  useEffect,
-  useCallback,
-} from 'react';
+import React, { useMemo, isValidElement, forwardRef, useState, useEffect, useCallback } from 'react';
 import DataCellInner from './DataCellInner';
 import classnames from 'classnames';
 import { DataCellProps } from './interface';
-import './index.less';
 
-const DataCell = forwardRef(function<ValueType extends any>(
-  props: DataCellProps<ValueType>,
-  ref: any,
-) {
+const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
   const {
     native,
     wrapperClassName,
@@ -52,10 +41,8 @@ const DataCell = forwardRef(function<ValueType extends any>(
   }, [propValue]);
 
   const onValueChange = useCallback(
-    (value: ValueType, ...ags) => {
-      const newValue = getValueFromEvent
-        ? getValueFromEvent(...[value, ...ags])
-        : value;
+    (value, ...ags) => {
+      const newValue = getValueFromEvent ? getValueFromEvent(...[value, ...ags]) : value;
       onChange && onChange(newValue, ...ags);
       !hasValue && setValue(newValue);
     },
@@ -63,7 +50,7 @@ const DataCell = forwardRef(function<ValueType extends any>(
   );
 
   const onInnerChange = useCallback(
-    (value: ValueType, ...ags) => {
+    (value, ...ags) => {
       onChange && onChange(value, ...ags);
       !hasValue && setValue(value);
     },

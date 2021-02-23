@@ -3,7 +3,26 @@ import { pick, omit, throttle } from 'lodash';
 import ModalContext from './Context';
 import ResizableModal from './ResizableModal';
 import ResizableProvider from './ResizableProvider';
-import type { ModalProps, ContextContentProps } from './interface';
+import type { InnerModalProps } from './ResizableModal';
+import type { ResizableProviderProps } from './interface';
+
+export declare type OnSizeChangeFunc = (width: number, height: number, contentEl?: HTMLDivElement | null) => void;
+
+export interface ContextContentProps {
+  id: string;
+  children: React.ReactNode;
+  /** resize时的节流时长控制 */
+  throttleTime?: number;
+  /** 弹窗尺寸变化时的回调 */
+  onSizeChange?: OnSizeChangeFunc;
+  /** 获取弹窗内容元素的回调 */
+  getContentEl: () => HTMLDivElement | null;
+}
+
+export interface ModalProps extends InnerModalProps, ResizableProviderProps {
+  throttle?: number;
+  onSizeChange?: OnSizeChangeFunc;
+}
 
 const PROVIDER_PROPS = ['initalState', 'maxZIndex', 'minWidth', 'minHeight'];
 
@@ -14,6 +33,7 @@ const ContextContent: React.FC<ContextContentProps> = (props) => {
   } = useContext(ModalContext);
 
   const { width, height } = modals[id];
+  console.log('modals: ', modals);
 
   const sizeChange = useCallback(
     throttle((w, h) => {
@@ -45,7 +65,7 @@ class Modal extends React.Component<ModalProps> {
 
   static defaultProps = {
     id: 'modal-uuid',
-    throttle: 0,
+    throttle: 200,
     maxZIndex: 999,
     isModalDialog: true,
   };

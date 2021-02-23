@@ -1,18 +1,24 @@
-import type { ModalProps as antdModalProps } from 'antd/lib/modal';
-
-export interface WindowSize {
+export interface Size {
   width: number;
   height: number;
 }
-export interface ModalPositionSize {
+
+export interface PositionSize extends Size {
+  x: number;
+  y: number;
+}
+
+export interface InitPositionSize {
+  /* 支持百分比情况 */
   width?: number | string;
   height?: number | string;
   x?: number;
   y?: number;
 }
 
-export interface ModalStateProps extends ModalPositionSize {
+export interface Config {
   zIndex?: number;
+  /** 弹窗是否可见 */
   visible?: boolean;
   /** 默认窗口是否最大化 */
   maximize?: boolean;
@@ -20,56 +26,24 @@ export interface ModalStateProps extends ModalPositionSize {
   keepStateOnClose?: boolean;
 }
 
-export interface PrivateModalStateProps extends ModalStateProps {
+export interface ModalState extends PositionSize, Config {}
+
+export interface InitModalState extends InitPositionSize, Config {}
+
+export interface PrivateModalState extends ModalState {
   /** 内部记录当前弹窗的状态 */
   isMaximized?: boolean;
   /** 存储用户传递的弹窗信息 */
-  inital?: ModalPositionSize;
+  inital: InitPositionSize;
   /** 存储最大化切换时小窗口的定位与尺寸信息 */
-  history?: ModalPositionSize;
+  history?: PositionSize;
 }
 
 export interface ResizableProviderProps {
-  initalState?: ModalStateProps;
+  initalState?: InitModalState;
   maxZIndex?: number;
   minWidth?: number;
   minHeight?: number;
-}
-
-export interface ModalsState {
-  modals: Record<string, PrivateModalStateProps>;
-  maxZIndex?: number;
-  minWidth?: number;
-  minHeight?: number;
-  windowSize: WindowSize;
-  initialModalState: ModalStateProps;
-}
-export interface InnerModalProps extends antdModalProps {
-  id: string;
-  prefixCls?: string;
-  itemState?: ModalStateProps;
-  canMaximize?: boolean;
-  canResize?: boolean;
-  isModalDialog?: boolean;
-  children?: React.ReactNode | string;
-  contentRef?: React.RefObject<HTMLDivElement>;
-}
-
-export declare type OnSizeChangeFunc = (width: number, height: number, contentEl?: HTMLDivElement | null) => void;
-
-export interface ModalProps extends InnerModalProps, ResizableProviderProps {
-  throttle?: number;
-  onSizeChange?: OnSizeChangeFunc;
-}
-export interface ContextContentProps {
-  id: string;
-  children: React.ReactNode;
-  /** resize时的节流时长控制 */
-  throttleTime?: number;
-  /** 弹窗尺寸变化时的回调 */
-  onSizeChange?: OnSizeChangeFunc;
-  /** 获取弹窗内容元素的回调 */
-  getContentEl: () => HTMLDivElement | null;
 }
 
 export enum ActionTypes {
@@ -84,5 +58,3 @@ export enum ActionTypes {
   drag = 'drag',
   windowResize = 'windowResize',
 }
-
-export type Action = { type: ActionTypes; [key: string]: any };

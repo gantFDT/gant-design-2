@@ -7,6 +7,23 @@ import Submenu from './submenu';
 import Selector from './selector';
 import Modal from './modal';
 import Grid from './grid';
+import TaskBoard from './task-board';
+import AutoReload from './auto-reload';
+import Loading from './loading';
 import DataCell from './data-cell';
 
-export { Toolbar, Utils, Header, Anchor, ColorPicker, Submenu, Selector, Modal, Grid, DataCell };
+export {
+  Toolbar,
+  Utils,
+  Header,
+  Anchor,
+  ColorPicker,
+  Submenu,
+  Selector,
+  Modal,
+  Grid,
+  TaskBoard,
+  AutoReload,
+  Loading,
+  DataCell,
+};

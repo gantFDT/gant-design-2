@@ -1,12 +1,12 @@
 import React, { useRef, useState, forwardRef } from 'react';
 import { DataCell } from 'tantd';
 import { Input, Button } from 'antd';
-import { DataCellProps } from 'tantd/lib/data-cell';
+import { DataCellProps } from 'tantd/es/data-cell';
 import { InputProps } from 'antd/lib/input';
 
-interface InputDataCellProps extends InputProps, DataCellProps<string> {}
+interface InputDataCellProps extends Omit<InputProps, 'value' | 'onChange' | 'children'>, DataCellProps<string> {}
 
-const InputDataCell = forwardRef<any, InputDataCellProps>(function InputDataCell(props: InputDataCellProps, ref: any) {
+const InputDataCell = forwardRef<Input, InputDataCellProps>(function InputDataCell(props, ref) {
   const getValueFromEvent = (event) => {
     return event.target.value;
   };
@@ -19,7 +19,7 @@ const InputDataCell = forwardRef<any, InputDataCellProps>(function InputDataCell
 
 export default () => {
   const [native, setNative] = useState(false);
-  const inputRef = useRef(Input);
+  const inputRef = useRef<Input>();
   return (
     <div>
       <div style={{ marginTop: 30 }}>
@@ -41,13 +41,13 @@ export default () => {
           </Button>
         </Input.Group>
         <div style={{ marginTop: 10 }}>
-          <InputDataCell native={native} defalutValue="基本使用方式" />
+          <InputDataCell defaultValue="基本使用方式" />
         </div>
       </div>
       <div style={{ marginTop: 30 }}>
         <p>ref传递:</p>
         <Input.Group compact>
-          <InputDataCell native ref={inputRef} wrapperStyle={{ width: '80%' }} />
+          <InputDataCell ref={inputRef} />
           <Button
             onClick={() => {
               inputRef.current?.focus();

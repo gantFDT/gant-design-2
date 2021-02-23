@@ -1,32 +1,15 @@
-import React, {
-  useState,
-  useMemo,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-} from 'react';
+import React, { useState, useMemo, useEffect, forwardRef, useImperativeHandle } from 'react';
 import classNames from 'classnames';
 import { Select, Tooltip } from 'antd';
 import { uniqBy } from 'lodash';
 import { DeleteOutlined } from '@ant-design/icons';
 import useLocalStorage from './hooks/useLocalStorage';
 import useUpdateEffect from './hooks/useUpdateEffect';
-import type {
-  SelectProps,
-  LabeledValue,
-  SelectValue,
-  RefSelectProps,
-} from 'antd/lib/select';
+import type { SelectProps, LabeledValue, SelectValue, RefSelectProps } from 'antd/lib/select';
 import type { OptionsType, OptionData } from 'rc-select/lib/interface';
 import type { DataType, DataConfig } from './interface';
 import langs from './locale';
-import {
-  filterOptions,
-  flatOptions,
-  formatValue,
-  toOuterValueAndOption,
-  coverDataSourceToOptions,
-} from './utils';
+import { filterOptions, flatOptions, formatValue, toOuterValueAndOption, coverDataSourceToOptions } from './utils';
 import styles from './style/index.less';
 
 const defaultDataConfig = {
@@ -41,8 +24,7 @@ export interface RefApiProps {
   setStorageList: (storages?: StorageOption[]) => void;
 }
 
-export interface SelectorProps<VT extends SelectValue = SelectValue>
-  extends SelectProps<VT> {
+export interface SelectorProps<VT extends SelectValue = SelectValue> extends SelectProps<VT> {
   apiRef?: React.RefObject<RefApiProps>;
   dataConfig?: DataConfig;
   storageCount?: number;
@@ -57,10 +39,10 @@ export interface StorageOption extends Omit<OptionData, 'key'> {
   source?: DataType;
 }
 
-const Selector: React.ForwardRefRenderFunction<
-  RefSelectProps,
-  Omit<SelectorProps<SelectValue>, 'children'>
-> = (props, ref) => {
+const Selector: React.ForwardRefRenderFunction<RefSelectProps, Omit<SelectorProps<SelectValue>, 'children'>> = (
+  props,
+  ref,
+) => {
   const {
     apiRef,
     dataConfig,
@@ -87,10 +69,7 @@ const Selector: React.ForwardRefRenderFunction<
   }
 
   const [searchValue, setSearchValue] = useState<string>('');
-  const [storageList, setStorageList] = useLocalStorage<StorageOption[]>(
-    selectorId || '',
-    [],
-  );
+  const [storageList, setStorageList] = useLocalStorage<StorageOption[]>(selectorId || '', []);
   const storageListValues = storageList.map((i) => i.value);
   const keywordsExist = !!searchValue;
 
@@ -114,28 +93,17 @@ const Selector: React.ForwardRefRenderFunction<
   }, [dataConfig, props.optionLabelProp]);
 
   const resultOptions = useMemo(() => {
-    return (
-      options ||
-      (coverDataSourceToOptions(
-        dataSource || [],
-        mergeDataConfig,
-        locale.otherGroup,
-      ) as OptionsType)
-    );
+    return options || (coverDataSourceToOptions(dataSource || [], mergeDataConfig, locale.otherGroup) as OptionsType);
   }, [mergeDataConfig, dataSource, options]);
 
   // update storageList
   useEffect(() => {
     if (!useStorage) return;
-    const filters = flatOptions(resultOptions).filter((item) =>
-      storageListValues.includes(item.value),
-    );
+    const filters = flatOptions(resultOptions).filter((item) => storageListValues.includes(item.value));
     if (!filters.length) return;
     const newOptionsMap = new Map();
     filters.forEach((item) => newOptionsMap.set(item.value, item));
-    const newStorageList = storageList.map(
-      (item) => newOptionsMap.get(item.value) || item,
-    );
+    const newStorageList = storageList.map((item) => newOptionsMap.get(item.value) || item);
     setStorageList(newStorageList);
   }, [resultOptions]);
 
@@ -143,23 +111,12 @@ const Selector: React.ForwardRefRenderFunction<
     if (onSearchValueChange) onSearchValueChange(searchValue);
   }, [searchValue]);
 
-  function handleChange(
-    changeValue: LabeledValue | LabeledValue[],
-    option: OptionsType[number] | OptionsType,
-  ) {
-    // console.log('change-value', value); // { value: 'lucy', key: 'lucy', label: 'Lucy (101)' }
-    // console.log('change-option', option); // { value: 'lucy', key: 'lucy', label: 'Lucy (101)' }
+  function handleChange(changeValue: LabeledValue | LabeledValue[], option: OptionsType[number] | OptionsType) {
     setSearchValue('');
-    const {
-      values: outerValues,
-      options: outerOptions,
-    } = toOuterValueAndOption(changeValue, option);
+    const { values: outerValues, options: outerOptions } = toOuterValueAndOption(changeValue, option);
     const multiple = props.mode == 'multiple';
     if (onChange) {
-      onChange(
-        multiple ? outerValues : outerValues[0],
-        multiple ? outerOptions : outerOptions[0],
-      );
+      onChange(multiple ? outerValues : outerValues[0], multiple ? outerOptions : outerOptions[0]);
     }
   }
 
@@ -170,19 +127,13 @@ const Selector: React.ForwardRefRenderFunction<
 
   function handleSelect(val: LabeledValue, option: OptionsType[number]) {
     //add option to storageList after handleSelect
-    const fromStorage =
-      storageList.findIndex(
-        (item: StorageOption) => item.value == option.value,
-      ) > -1;
+    const fromStorage = storageList.findIndex((item: StorageOption) => item.value == option.value) > -1;
     if (!fromStorage && useStorage) {
       const ownProperty: any = {};
       Object.keys(option).forEach((key) => {
         ownProperty[key] = option[key];
       });
-      const newStorageList = uniqBy(
-        [ownProperty, ...storageList].slice(0, storageCount),
-        'value',
-      );
+      const newStorageList = uniqBy([ownProperty, ...storageList].slice(0, storageCount), 'value');
       setStorageList(newStorageList);
     }
     if (onSelect) onSelect(val, option);
@@ -200,16 +151,11 @@ const Selector: React.ForwardRefRenderFunction<
           <span>{locale.currentOptions}</span>
         </span>
         <Tooltip title={locale.clearCurrentOptions}>
-          <DeleteOutlined
-            style={{ fontSize: 12, lineHeight: '22px' }}
-            onClick={() => setStorageList()}
-          />
+          <DeleteOutlined style={{ fontSize: 12, lineHeight: '22px' }} onClick={() => setStorageList()} />
         </Tooltip>
       </div>
     );
-    const emtpyOptions = [
-      { key: 'empty', disabled: true, label: locale.noCurrentOptions },
-    ];
+    const emtpyOptions = [{ key: 'empty', disabled: true, label: locale.noCurrentOptions }];
     return [
       {
         key: 'recent',
@@ -231,9 +177,7 @@ const Selector: React.ForwardRefRenderFunction<
                         className={styles.deleteIcon}
                         onClick={(e) => {
                           if (e) e.stopPropagation();
-                          setStorageList(
-                            list.filter((item) => item.value != i.value),
-                          );
+                          setStorageList(list.filter((item) => item.value != i.value));
                         }}
                       />
                     </Tooltip>
@@ -259,8 +203,7 @@ const Selector: React.ForwardRefRenderFunction<
     ];
   }
 
-  const showStorageGroup =
-    useStorage && !keywordsExist && resultOptions.length > 0;
+  const showStorageGroup = useStorage && !keywordsExist && resultOptions.length > 0;
 
   const result = useMemo(() => {
     if (!showStorageGroup) return resultOptions;
@@ -271,19 +214,14 @@ const Selector: React.ForwardRefRenderFunction<
     <Select
       ref={ref}
       labelInValue
-      optionFilterProp='label'
+      optionFilterProp="label"
       value={formatValue(value)}
       defaultValue={formatValue(defaultValue)}
       className={classNames(styles.selector, className)}
       dropdownClassName={classNames(styles.dropdown, dropdownClassName)}
       notFoundContent={keywordsExist ? locale.noDataFound : locale.noData}
       options={
-        showStorageGroup
-          ? [
-              ...createStorageOptGroup(storageList),
-              ...filterOptions(result, storageListValues),
-            ]
-          : result
+        showStorageGroup ? [...createStorageOptGroup(storageList), ...filterOptions(result, storageListValues)] : result
       }
       onSelect={handleSelect}
       onChange={handleChange}

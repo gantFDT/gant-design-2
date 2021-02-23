@@ -1,2 +1,126 @@
-@import '../../../../../style/index.less';
+.data-cell {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 32px;
+  border: 1px solid var(--border-color-base);
+  > * {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 11px;
+    border-radius: 0px;
+    border: none;
+  }
+  > *:not(.cell-setting-icon) {
+    display: inline-block;
+    width: 100%;
+  }
+  &.data-cell-edit {
+    padding-right: 32px;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid var(--border-color-base);
+    }
+  }
+  &.data-cell-inner-edit {
+    padding-right: 64px;
+    border: 1px solid var(--primary-color-5);
+    &:hover {
+      border: 1px solid var(--primary-color-5);
+    }
+  }
 
+  &.data-cell-read {
+    .cell-setting-icon {
+      display: none;
+    }
+    border: none;
+    padding-right: 0px;
+    &:hover {
+      border: none;
+    }
+  }
+  .cell-setting-icon {
+    height: 30px;
+    width: 32px;
+  }
+  .cell-setting-ok {
+    right: 32px;
+  }
+}
+
+.data-cell-sm {
+  min-height: 24px;
+  &.data-cell-edit {
+    padding-right: 24px;
+  }
+  &.data-cell-inner-edit {
+    padding-right: 48px;
+  }
+  &.data-cell-read {
+    padding-right: 0px;
+  }
+  > * {
+    font-size: 12px;
+    padding: 0px 11px;
+  }
+  .cell-setting-icon {
+    width: 24px;
+    height: 22px;
+  }
+  .cell-setting-ok {
+    right: 24px;
+  }
+}
+.data-cell-lg {
+  min-height: 40px;
+  &.data-cell-edit {
+    padding-right: 40px;
+  }
+  &.data-cell-inner-edit {
+    padding-right: 80px;
+  }
+  &.data-cell-read {
+    padding-right: 0px;
+  }
+  > * {
+    padding: 6px 11px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .cell-setting-icon {
+    width: 40px;
+    height: 38px;
+  }
+  .cell-setting-ok {
+    right: 40px;
+  }
+}
+.data-cell-edit:hover {
+  .cell-setting-edit {
+    display: flex;
+  }
+}
+.cell-setting-icon {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    color: var(--primary-color-5);
+  }
+}
+.cell-setting-edit {
+  display: none;
+}
+.cell-setting-ok {
+  right: 32px;
+}
+.cell-label {
+  // border: 1px solid transparent;
+}

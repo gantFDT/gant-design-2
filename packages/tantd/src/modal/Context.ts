@@ -1,5 +1,16 @@
 import React from 'react';
-import type { ModalsState, Action } from './interface';
+import type { Size, PrivateModalState, InitModalState, ActionTypes } from './interface';
+
+export interface ModalsState {
+  modals: Record<string, PrivateModalState>;
+  maxZIndex: number;
+  minWidth: number;
+  minHeight: number;
+  windowSize: Size;
+  initialModalState: InitModalState;
+}
+
+export type Action = { type: ActionTypes; [key: string]: any };
 
 const ModalContext = React.createContext(
   {} as {

@@ -1,6 +1,6 @@
 {
   "name": "tantd",
-  "version": "1.0.22",
+  "version": "1.0.24",
   "description": "react tantd library",
   "keywords": [
     "tantd",
@@ -37,10 +37,11 @@
     "lodash-decorators": "^6.0.1",
     "moment": "^2.24.0",
     "prop-types": "^15.6.0",
+    "react-beautiful-dnd": "^13.0.0",
     "react-color": "^2.19.3",
     "react-resize-detector": "^6.3.3",
     "recompose": "^0.30.0",
-    "utils_t": "^0.0.16"
+    "utils_t": "^0.0.18"
   },
   "peerDependencies": {
     "react": "16.x",

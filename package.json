@@ -16,8 +16,6 @@
     "lint:fix": "eslint --fix --ignore-pattern **/__tests__/* --ignore-pattern **/demo/* \"packages/*/src/**/*.{ts,tsx}\"",
     "lint": "eslint --ignore-pattern **/__tests__/* --ignore-pattern \"packages/*/src/**/*.{ts,tsx}\"",
     "build:doc": "dumi build && gulp --gulpfile scripts/cssindoc.js",
-    "pub:doc": "surge ./dist --domain ahooks.js.org",
-    "pub:doc-gitee": "cd ./dist && rm -rf .git && touch .spa && touch .nojekyll && git init && git remote add origin git@gitee.com:ahooks/ahooks.git && git add -A && git commit -m \"publish docs\" && git push origin master -f",
     "pub": "lerna publish"
   },
   "publishConfig": {
@@ -93,6 +91,16 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "eslint": "^7.20.0",
+    "mockjs": "^1.1.0",
+    "react-beautiful-dnd": "^13.0.0",
     "react-color": "^2.19.3"
-  }
+  },
+  "description": "",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "gant",
+  "license": "ISC"
 }
