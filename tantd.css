@@ -1,9 +1,11 @@
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-toolbar {
   display: flex;
@@ -48,11 +50,13 @@
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-header {
   width: 100%;
@@ -173,11 +177,13 @@
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .ant-tooltip-inner {
   min-height: 20px !important;
@@ -308,11 +314,13 @@
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-color-picker-mainwrap,
 .gant-color-picker-small-mainwrap {
@@ -448,11 +456,13 @@
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 :root {
   --submenu-collapsed-width: 30px;
@@ -582,11 +592,13 @@
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .selector .storageItemContent .deleteIcon {
   display: none;
@@ -5032,11 +5044,13 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-taskboard {
   width: 100%;
@@ -5172,11 +5186,13 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-auto-reload-container {
   position: relative;
@@ -5243,11 +5259,13 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 :root {
-  --primary-color: #2D2DA3;
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
   --component-background: #ffffff;
   --text-color: rgba(0, 0, 0, 0.85);
   --btn-default-color: rgba(0, 0, 0, 0.5);
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
 }
 .gant-pageloading {
   background: rgba(225, 225, 225, 0.78);
@@ -6624,6 +6642,296 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
     transform: scale(0.5);
     opacity: 0.4;
   }
+}
+
+.data-cell {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 32px;
+  border: 1px solid var(--border-color-base);
+}
+.data-cell > * {
+  font-size: 14px;
+  line-height: 22px;
+  padding: 4px 11px;
+  border-radius: 0px;
+  border: none;
+}
+.data-cell > *:not(.cell-setting-icon) {
+  display: inline-block;
+  width: 100%;
+}
+.data-cell.data-cell-edit {
+  padding-right: 32px;
+  border: 1px solid transparent;
+}
+.data-cell.data-cell-edit:hover {
+  border: 1px solid var(--border-color-base);
+}
+.data-cell.data-cell-inner-edit {
+  padding-right: 64px;
+  border: 1px solid var(--primary-color-5);
+}
+.data-cell.data-cell-inner-edit:hover {
+  border: 1px solid var(--primary-color-5);
+}
+.data-cell.data-cell-read {
+  border: none;
+  padding-right: 0px;
+}
+.data-cell.data-cell-read .cell-setting-icon {
+  display: none;
+}
+.data-cell.data-cell-read:hover {
+  border: none;
+}
+.data-cell .cell-setting-icon {
+  height: 30px;
+  width: 32px;
+}
+.data-cell .cell-setting-ok {
+  right: 32px;
+}
+.data-cell-sm {
+  min-height: 24px;
+}
+.data-cell-sm.data-cell-edit {
+  padding-right: 24px;
+}
+.data-cell-sm.data-cell-inner-edit {
+  padding-right: 48px;
+}
+.data-cell-sm.data-cell-read {
+  padding-right: 0px;
+}
+.data-cell-sm > * {
+  font-size: 12px;
+  padding: 0px 11px;
+}
+.data-cell-sm .cell-setting-icon {
+  width: 24px;
+  height: 22px;
+}
+.data-cell-sm .cell-setting-ok {
+  right: 24px;
+}
+.data-cell-lg {
+  min-height: 40px;
+}
+.data-cell-lg.data-cell-edit {
+  padding-right: 40px;
+}
+.data-cell-lg.data-cell-inner-edit {
+  padding-right: 80px;
+}
+.data-cell-lg.data-cell-read {
+  padding-right: 0px;
+}
+.data-cell-lg > * {
+  padding: 6px 11px;
+  font-size: 16px;
+  line-height: 26px;
+}
+.data-cell-lg .cell-setting-icon {
+  width: 40px;
+  height: 38px;
+}
+.data-cell-lg .cell-setting-ok {
+  right: 40px;
+}
+.data-cell-edit:hover .cell-setting-edit {
+  display: flex;
+}
+.cell-setting-icon {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell-setting-icon:hover {
+  color: var(--primary-color-5);
+}
+.cell-setting-edit {
+  display: none;
+}
+.cell-setting-ok {
+  right: 32px;
+}
+
+:root {
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
+}
+.gant-profilecard {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.gant-profilecard.left {
+  flex-direction: row;
+}
+.gant-profilecard.right {
+  flex-direction: row-reverse;
+}
+.gant-profilecard-avatarBox {
+  min-width: 90px;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gant-profilecard-avatarBox.left,
+.gant-profilecard-avatarBox.right {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  align-items: flex-start;
+  padding-top: 25px;
+}
+.gant-profilecard-avatarBox-bg {
+  position: absolute;
+  top: 0;
+  height: 100px;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.gant-profilecard-avatarBox-bg.left,
+.gant-profilecard-avatarBox-bg.right {
+  height: 100%;
+}
+.gant-profilecard-avatarBox-avatar {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 9;
+  box-shadow: 0 0 0 5px rgba(128, 128, 128, 0.1);
+}
+.gant-profilecard-avatarBox-avatar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+}
+.gant-profilecard-avatarBox-avatar i svg {
+  height: 40%;
+  width: 40%;
+  color: #fefefe;
+}
+.gant-profilecard-avatarBox-avatar.left,
+.gant-profilecard-avatarBox-avatar.right {
+  width: 70px;
+  height: 70px;
+}
+.gant-profilecard-fields {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex: 2;
+  position: relative;
+  display: flex;
+}
+.gant-profilecard-fields > .ant-form {
+  width: 100%;
+}
+.gant-profilecard-fields.top {
+  justify-content: center;
+  align-items: center;
+}
+.gant-profilecard-fields .itemText {
+  margin-bottom: 0;
+  padding-right: 15px;
+  color: #ccc;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.gant-profilecard-fixedtop {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #ccc;
+  font-size: 24px;
+}
+.gant-profilecard-fixedtop.hidden {
+  display: none;
+}
+.gant-profilecard-fixedbottom {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.gant-profilecard-fixedlefttop {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 10;
+}
+.gant-profilecard-fixedrighttop {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 10;
+}
+.gant-profilecard-socialAccount {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 18px;
+  line-height: 1;
+}
+.gant-profilecard-socialAccount-anticon {
+  margin-left: 6px;
+}
+.gant-profilecard .ant-form-item {
+  margin-bottom: 0;
+}
+.dataform .ant-form-item-control-wrapper {
+  width: calc(100% - 120px) !important;
+}
+.dataform .ant-form-item-label-left {
+  width: 120px !important;
+}
+.dataform .ant-form-item-label > label {
+  color: rgba(125, 125, 125, 0.65) !important;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dataform .ant-form-item {
+  color: rgba(125, 125, 125, 0.9) !important;
+}
+.dataform.readform .has-error .ant-form-explain {
+  display: none;
 }
 
 
