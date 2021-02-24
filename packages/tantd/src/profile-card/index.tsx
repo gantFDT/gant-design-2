@@ -92,7 +92,7 @@ const ProfileCard = (props: ProfileCardProps) => {
             style={{ backgroundImage: `url(${data.avatarUrl})`, cursor: onAvatarClick ? 'pointer' : 'default' }}
             onClick={onAvatarClick && onAvatarClick}
           >
-            {!data.avatarUrl && <UserOutlined />}
+            {!data.avatarUrl && <UserOutlined className={`${prefixCls}-avatarBox-avatar-user`} />}
           </div>
         </div>
       )}
