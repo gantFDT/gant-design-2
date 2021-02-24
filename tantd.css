@@ -736,12 +736,14 @@
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
   --border-color-base: #d9d9d9;
 }
-.dataCellSelector {
-  padding: 0;
+.cellWrap :global .ant-select {
+  padding: 0px;
+  line-height: normal;
 }
-.dataCellSelector :global .ant-select-selector {
-  border: 0 !important;
-  border-radius: 0 !important;
+.cellWrap :global .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  font-size: 14px;
+  border: none;
+  border-radius: 0px;
 }
 .selector .storageItemContent .deleteIcon {
   display: none;
