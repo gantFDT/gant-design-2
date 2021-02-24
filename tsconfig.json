@@ -17,6 +17,7 @@
     "declaration": false,
     "strictNullChecks": true,
     "experimentalDecorators": true, // 启用实验性的ES装饰器
+    "resolveJsonModule": true,
   },
   "exclude": [
     "node_modules",

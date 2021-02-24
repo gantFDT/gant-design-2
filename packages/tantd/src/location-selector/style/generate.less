@@ -1,0 +1,18 @@
+@import '../../../../../style/index.less';
+@gant-prefix: gant;
+@component: ~'@{gant-prefix}-location';
+
+.ant-cascader-picker-small {
+  font-size: 12px;
+}
+
+.@{component}-cascader {
+  vertical-align: middle;
+
+  &:not(:last-child) {
+    .ant-cascader-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

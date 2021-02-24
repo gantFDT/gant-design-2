@@ -10,7 +10,7 @@ import styles from './style/index.less';
 export interface ForwardSelectorProps extends DataCellProps<SelectValue>, Omit<SelectorProps, 'value' | 'onChange'> {}
 
 const ForwardSelector = forwardRef<RefSelectProps, ForwardSelectorProps>((props, ref) => {
-  const { className, style, ...restProps } = props;
+  const { wrapperClassName, ...restProps } = props;
   const renderLabel = (value) => {
     if (!value) return;
     const valArr = Array.isArray(value) ? value : [value];
@@ -18,8 +18,13 @@ const ForwardSelector = forwardRef<RefSelectProps, ForwardSelectorProps>((props,
     return showValue;
   };
   return (
-    <DataCell {...restProps} ref={ref} renderLabel={renderLabel}>
-      <Selector className={classNames(styles.dataCellSelector, className)} style={{ width: '100%', ...style }} />
+    <DataCell
+      {...restProps}
+      ref={ref}
+      renderLabel={renderLabel}
+      wrapperClassName={classNames(styles.cellWrap, wrapperClassName)}
+    >
+      <Selector />
     </DataCell>
   );
 });
