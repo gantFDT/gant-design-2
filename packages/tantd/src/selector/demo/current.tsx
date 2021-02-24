@@ -13,11 +13,6 @@ export default () => {
     { label: 'Tom', value: 'tom' },
     { label: 'Mike', value: 'mike' },
     { label: 'John', value: 'john' },
-  ]
-  return <Selector
-    selectorId='demo-default'
-    useStorage
-    options={options}
-    style={{ width: 200 }}
-  />
-}
+  ];
+  return <Selector native selectorId="demo-default" useStorage options={options} wrapperStyle={{ width: 200 }} />;
+};
