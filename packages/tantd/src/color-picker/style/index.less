@@ -1,145 +1,57 @@
 @import '../../../../../style/index.less';
 
-.gant-color-picker,
-.gant-color-picker-small {
-  &-mainwrap {
-    position: relative;
+.data-cell-color-picker {
+  .cell-label {
+    padding: 0;
+
+    .gant-color-picker-onlypreview {
+      height: 30px;
+    }
+  }
+
+  .gant-color-picker-mainwrap {
     display: flex;
-    flex-wrap: wrap;
-    box-sizing: content-box;
-    padding: 3px 0 0px 83px;
-    background: var(--component-background);
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
-  }
+    box-shadow: none;
 
-  &-preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: stretch;
-    width: 80px;
-    height: 100%;
-    color: #fff;
-    font-size: 13px;
-    line-height: 32px;
-    text-align: center;
-    border-radius: 4px 0 0 4px;
-
-    &-text {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      cursor: not-allowed;
+    .gant-color-picker-preview {
+      line-height: 30px;
     }
 
-    input {
-      color: inherit;
+    .gant-color-picker-itemwrap {
+      .gant-color-picker-mainitem {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
-  &-onlypreview {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 32px;
-    color: #fff;
-    font-size: 13px;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
-  }
-
-  &-itemwrap {
-    position: relative;
-  }
-
-  &-mainitem {
-    width: 26px;
-    height: 26px;
-    margin: 0 3px 3px 0;
-    border-radius: 3px;
-  }
-
-  &-picker {
-    position: absolute;
-    left: -3px;
-    z-index: 9;
-  }
-
-  &-inputlabel {
-    position: relative;
-    z-index: 9;
-    width: 20px;
-    height: 100%;
-
-    span {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: 100%;
-    }
-  }
-
-  &-input {
-    flex: 1;
-    height: 24px;
-    font-size: 14px;
-    border: none;
-    outline: none;
-  }
-
-  &-subpicker {
-    background: var(--component-background);
-  }
-
-  &-chromepicker {
-    background: var(--component-background);
-  }
 }
-.gant-color-picker-small {
-  &-mainwrap {
-    padding: 2px 0 0px 83px;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
-  }
 
-  &-preview {
-    line-height: 24px;
-    border-radius: 3px 0 0 3px;
-  }
+.data-cell-color-picker.data-cell-sm {
+  .cell-label {
+    padding: 0;
 
-  &-onlypreview {
-    height: 24px;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px;
-  }
-
-  &-mainitem {
-    width: 18px;
-    height: 18px;
-  }
-
-  &-picker {
-    left: -7px;
-  }
-}
-.gant-input-group {
-  .gant-color-picker,
-  .gant-color-picker-small {
-    &-mainwrap {
-      border: 1px solid #d9d9d9;
-      border-radius: 4px 0 0 4px;
-      box-shadow: none;
-    }
-    &-preview {
-      height: calc(100% + 2px);
-      margin: -1px 0 -1px -1px;
+    .gant-color-picker-onlypreview {
+      height: 22px;
     }
   }
+
   .gant-color-picker-small-mainwrap {
-    border-radius: 3px 0 0 3px;
+    display: flex;
+    box-shadow: none;
+
+    .gant-color-picker-small-preview {
+      line-height: 22px;
+    }
+
+    .gant-color-picker-small-itemwrap {
+      .gant-color-picker-small-mainitem {
+        width: 17px;
+        height: 17px;
+      }
+    }
   }
 }
+
+
+@import './generate.less';

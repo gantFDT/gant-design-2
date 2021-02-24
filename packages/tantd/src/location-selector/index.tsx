@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import DataCell from '../data-cell';
-import LocationSelector, { getLocationName } from './generate';
+import PureLocationSelector, { getLocationName } from './LocationSelector';
 import type { DataCellProps } from '../data-cell';
-import type { LocationSelectorProps } from './generate';
-import styles from './style/index.less';
+import type { LocationSelectorProps as PureLocationSelectorProps } from './LocationSelector';
+import './style';
 
-export interface ForwardLocationSelectorProps
+export interface LocationSelectorProps
   extends DataCellProps<string[]>,
-    Omit<LocationSelectorProps, 'defaultValue' | 'value' | 'onChange'> {}
+    Omit<PureLocationSelectorProps, 'defaultValue' | 'value' | 'onChange'> {}
 
-const ForwardSelector = forwardRef<any, ForwardLocationSelectorProps>((props, ref) => {
+const ForwardLocationSelector = forwardRef<any, LocationSelectorProps>((props, ref) => {
   const { wrapperClassName, ...restProps } = props;
 
   const renderLabel = (value) => {
@@ -22,18 +22,20 @@ const ForwardSelector = forwardRef<any, ForwardLocationSelectorProps>((props, re
       {...restProps}
       ref={ref}
       renderLabel={renderLabel}
-      wrapperClassName={classNames(styles.cellWrap, wrapperClassName)}
+      wrapperClassName={classNames('data-cell-location-selector', wrapperClassName)}
     >
-      <LocationSelector />
+      <PureLocationSelector />
     </DataCell>
   );
 });
 
-export default class LocationWrapper extends React.Component<ForwardLocationSelectorProps> {
+class LocationSelector extends React.Component<LocationSelectorProps> {
   static getLocationName: (list: string[]) => string[];
   render() {
-    return <ForwardSelector {...this.props} />;
+    return <ForwardLocationSelector {...this.props} />;
   }
 }
 
-LocationWrapper.getLocationName = getLocationName;
+LocationSelector.getLocationName = getLocationName;
+
+export default LocationSelector;

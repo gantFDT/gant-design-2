@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import DataCell from '../data-cell';
-import Selector from './generate';
+import PureSelector from './Selector';
 import type { DataCellProps } from '../data-cell';
 import type { SelectValue, RefSelectProps } from 'antd/lib/select';
-import type { SelectorProps } from './generate';
-import styles from './style/index.less';
+import type { SelectorProps as PureSelectorProps } from './Selector';
+import './style';
 
-export interface ForwardSelectorProps extends DataCellProps<SelectValue>, Omit<SelectorProps, 'value' | 'onChange'> {}
+export interface SelectorProps extends DataCellProps<SelectValue>, Omit<PureSelectorProps, 'value' | 'onChange'> {}
 
-const ForwardSelector = forwardRef<RefSelectProps, ForwardSelectorProps>((props, ref) => {
+const Selector = forwardRef<RefSelectProps, SelectorProps>((props, ref) => {
   const { wrapperClassName, ...restProps } = props;
   const renderLabel = (value) => {
     if (!value) return;
@@ -22,11 +22,11 @@ const ForwardSelector = forwardRef<RefSelectProps, ForwardSelectorProps>((props,
       {...restProps}
       ref={ref}
       renderLabel={renderLabel}
-      wrapperClassName={classNames(styles.cellWrap, wrapperClassName)}
+      wrapperClassName={classNames('data-cell-selector', wrapperClassName)}
     >
-      <Selector />
+      <PureSelector />
     </DataCell>
   );
 });
 
-export default ForwardSelector;
+export default Selector;
