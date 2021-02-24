@@ -6855,6 +6855,9 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   position: relative;
   z-index: 9;
   box-shadow: 0 0 0 5px rgba(128, 128, 128, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .gant-profilecard-avatarBox-avatar i {
   display: block;
@@ -6874,6 +6877,10 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 .gant-profilecard-avatarBox-avatar.right {
   width: 70px;
   height: 70px;
+}
+.gant-profilecard-avatarBox-avatar-user {
+  font-size: 50px;
+  color: #d7d5d5;
 }
 .gant-profilecard-fields {
   box-sizing: border-box;
