@@ -1,8 +1,12 @@
 import React, { useMemo, isValidElement, forwardRef, useState, useEffect, useCallback } from 'react';
+
 import DataCellInner from './DataCellInner';
+
 import classnames from 'classnames';
+
 import { DataCellProps } from './interface';
-import { set } from 'lodash';
+
+import { get } from 'lodash';
 
 const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
   const {
@@ -11,7 +15,6 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
     wrapperStyle,
     defaultValue,
     valuePropName = 'value',
-    [valuePropName as 'value']: propValue,
     onChange,
     ...innerProps
   } = props;
@@ -37,9 +40,13 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
 
   const hasValue = Reflect.has(props, valuePropName);
 
+  const _value = useMemo(() => {
+    return props[valuePropName];
+  }, [props]);
+
   useEffect(() => {
-    if (hasValue) setValue(propValue);
-  }, [propValue]);
+    if (hasValue) setValue(_value);
+  }, [_value]);
 
   const onValueChange = useCallback(
     (value, ...ags) => {
@@ -99,4 +106,7 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
     </div>
   );
 });
+DataCell.defaultProps = {
+  valuePropName: 'value',
+};
 export default DataCell;

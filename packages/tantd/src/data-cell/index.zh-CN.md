@@ -1,6 +1,6 @@
 ---
 title: datacell 读写分离
-order: 2
+order: 1
 nav:
   title: 组件
   path: /component
@@ -19,41 +19,17 @@ group:
 ### 基础使用
 <code src="./demo/Basic.tsx" />
 
-<!-- ### 基础使用
-
-<code src="./demo/demo1.tsx" />
-
-### 迷你尺寸
-
-<code src="./demo/demo2.tsx" />
-
-### 弹框位置
-
-<code src="./demo/demo3.tsx" />
-
-<!--
-### 读写切换
-<code src="./demo/demo4.tsx" />
-
-### 只读模式
-<code src="./demo/demo5.tsx" />
--->
-
-### 禁用模式
-
-<!-- <code src="./demo/demo6.tsx" /> -->
-
 ## API
 
-### ColorPicker props
+### DataCell props
 
 | 属性              | 说明                                               | 类型                                                            | 默认值   |
 | ----------------- | -------------------------------------------------- | --------------------------------------------------------------- | -------- |
 | value             | 值                                                 | any                                                             |          |
 | defalutValue      | 默认值                                             | any                                                             |          |
 | onChange          | change调用                                         | (value:any,...ags:any[])=>void                                  |          |
-| onConfirm         | 点击确认保存当前值并退出编辑模式,返回false则无响应 | （value:any)=>void                                              | boolean  |
-| onCancel          | 取消退出编辑模式,返回false则无响应                 | （value:any)=>void                                              | boolean  |
+| onConfirm         | 点击确认保存当前值并退出编辑模式,返回false则无响应 | （value:any)=>void                                              |          |
+| onCancel          | 取消退出编辑模式,返回false则无响应                 | （value:any)=>void                                              |          |
 | native            | 是否原生模式                                       | boolean                                                         | false    |
 | size              | 尺寸                                               | `small`、`middle` 、`large`                                     | `middle` |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值                  | (..args: any[]) => any                                          |          |
