@@ -18,27 +18,31 @@ group:
 
 ### 基本使用
 
-<code src="./demo/demo1.tsx" />
+<code src="./demo/base.tsx" />
+
+### 切换读写状态
+
+<code src="./demo/edit.tsx" />
 
 ### 最近选择
 
-<code src="./demo/demo2.tsx" />
+<code src="./demo/current.tsx" />
 
 ### 最近选择-数量限制
 
-<code src="./demo/demo3.tsx" />
+<code src="./demo/limit.tsx" />
 
 ### dataSource 数据源
 
-<code src="./demo/demo4.tsx" />
+<code src="./demo/dataSource.tsx" />
 
 ### 暴露 apiRef
 
-<code src="./demo/demo5.tsx" />
+<code src="./demo/apiRef.tsx" />
 
 ### 多选下组合使用
 
-<code src="./demo/demo6.tsx" />
+<code src="./demo/combine.tsx" />
 
 ## API
 
