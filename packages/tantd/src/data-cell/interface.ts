@@ -1,5 +1,4 @@
-export interface DataCellProps<ValueType>
-  extends DataCellCommonProps<ValueType> {
+export interface DataCellProps<ValueType> extends DataCellCommonProps<ValueType> {
   wrapperClassName?: string;
   wrapperStyle?: React.CSSProperties;
   native?: boolean;
@@ -14,12 +13,10 @@ interface DataCellCommonProps<ValueType> {
   valuePropName?: string;
   defaultValue?: ValueType;
   size?: SizeType;
-  editable?: boolean;
-  disabled?: boolean;
+  readOnly?: boolean;
   renderLabel?: (value: ValueType, ...ags: any[]) => string | React.ReactNode;
 }
-export interface DataCellInnerProps<ValueType>
-  extends DataCellCommonProps<ValueType> {
+export interface DataCellInnerProps<ValueType> extends DataCellCommonProps<ValueType> {
   innerEditable: boolean;
   setInnerEditable: React.Dispatch<React.SetStateAction<boolean>>;
   onChange: (value: ValueType, ...ags: any[]) => void;

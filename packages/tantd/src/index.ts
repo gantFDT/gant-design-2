@@ -12,6 +12,8 @@ import AutoReload from './auto-reload';
 import Loading from './loading';
 import DataCell from './data-cell';
 import ProfileCard from './profile-card';
+import DatePicker, { RangePicker } from './date-picker';
+import Icon from './icon';
 
 export {
   Toolbar,
@@ -28,4 +30,7 @@ export {
   Loading,
   ProfileCard,
   DataCell,
+  DatePicker,
+  RangePicker,
+  Icon,
 };
