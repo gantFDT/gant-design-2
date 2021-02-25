@@ -1,158 +1,30 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import { CustomPicker } from 'react-color';
-import { EditableInput } from 'react-color/lib/components/common';
-import Chrome from './Chrome';
-import SubPicker from './SubPicker';
-import { PrimaryColors, fillText } from './utils';
+import React, { forwardRef } from 'react';
+import classNames from 'classnames';
+import DataCell from '../data-cell';
+import PureColorPicker from './ColorPicker';
+import type { DataCellProps } from '../data-cell';
+import './style';
+export interface ForwardLocationSelectorProps
+  extends DataCellProps<string>,
+    Omit<any, 'defaultValue' | 'value' | 'onChange'> {}
 
-const inputStyles = {
-  input:{
-    width: 60,
-    fontSize: 13,
-    border: 'none',
-    outline: 'none',
-    height: '100%',
-    backgroundColor: 'transparent',
-  }
-};
+const ColorPicker = forwardRef<any, ForwardLocationSelectorProps>((props, ref) => {
+  const { wrapperClassName, ...restProps } = props;
 
-function ColorPicker(props) {
-  const {
-    hsl,
-    hex,
-    onChange,
-    prefixCls: customizePrefixCls = 'gant',
-    width = 'auto',
-    edit = true,
-    disabled = false,
-    placement = 'top',
-    size = 'normal'
-  } = props;
-
-  const [visibleStatus, setVisibleStatus] = useState('');
-  const [pickerVisible, setPickerVisible] = useState(false);
-  const [currentColor, setCurrentColor] = useState('');
-
-  const modifyColor = useCallback((color) => {
-    if (disabled) return undefined;
-    setCurrentColor(color);
-    if (onChange) onChange(color);
-  },[disabled, onChange]);
-
-  const inputColor = useCallback((color) => {
-    modifyColor(`#${fillText(color)}`);
-  },[modifyColor]);
-
-  useEffect(() => {
-    if(!hex){
-      setCurrentColor('#ffffff');
-    }else{
-      setCurrentColor(hex);
-    }
-  }, [hex]);
-
-  const showText = fillText(currentColor);
-  const prefixCls = customizePrefixCls + '-color-picker' + (size==='small'?'-small':'');
-  const { l } = hsl;
+  const renderLabel = (value) => {
+    return <PureColorPicker value={value} edit={false} />;
+  };
 
   return (
-    !edit?(
-      <div className={`${prefixCls}-onlypreview`} style={{backgroundColor:currentColor, width: width !== 'auto' ? width : 80}}>#{showText}</div>
-    ):(
-      <div className={`${prefixCls}-mainwrap`} style={{width}}>
-        <div className={`${prefixCls}-preview`}
-          onMouseEnter={()=>!disabled && setPickerVisible(true)}
-          onMouseLeave={()=>!disabled && setPickerVisible(false)}
-          style={{backgroundColor: currentColor, color: l < 0.8 ? '#fff' : '#000'}}>
-          {
-            disabled ? <div className={`${prefixCls}-preview-text`}>#{showText}</div> :
-            <>
-              <div
-                className={`${prefixCls}-inputlabel`}
-                style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
-              >
-                <span>#</span>
-                {
-                  pickerVisible && <div
-                    style={{
-                      position: 'absolute',
-                      left: 0,
-                      zIndex: 99,
-                      ...placement === 'top' ?
-                      { top: -172, paddingBottom: 10 } :
-                      { bottom: -172, paddingTop: 10 }
-                    }}
-                  >
-                    <Chrome
-                      prefixCls={prefixCls}
-                      color={currentColor}
-                      placement={placement}
-                      onChange={color => modifyColor(color.hex)}
-                    />
-                  </div>
-                }
-              </div>
-              <EditableInput
-                label={ null }
-                style={ inputStyles }
-                value={ showText }
-                onChange={ inputColor }
-              />
-            </>
-          }
-        </div>
-        {
-          PrimaryColors.map(({
-            id,
-            primary,
-            children
-          })=>{
-            return (
-              <div
-                className={`${prefixCls}-itemwrap`}
-                key={id}
-                onMouseEnter={()=>setVisibleStatus(id)}
-                onMouseLeave={()=>setVisibleStatus('')}
-                onClick={()=>modifyColor(primary)}
-              >
-                <div
-                  className={`${prefixCls}-mainitem`}
-                  style={{
-                    backgroundColor:primary, 
-                    cursor: disabled ? 'not-allowed' : 'pointer'
-                  }}
-                ></div>
-                {!disabled && id === visibleStatus &&(
-                  <div className={`${prefixCls}-picker`} style={
-                    placement === 'top' ? 
-                    { bottom: 29 - (size === 'small' ? 5 : 0), paddingBottom: 10 } : 
-                    { top: 27 - (size === 'small' ? 5 : 0), paddingTop: 10 }
-                  }>
-                    <SubPicker
-                      prefixCls={prefixCls}
-                      placement={placement}
-                      color={currentColor}
-                      colors={children}
-                      onChange={modifyColor}
-                      size={size}
-                    />
-                  </div>
-                )}
-              </div>
-            );
-          })
-        }
-      </div>
-    )
+    <DataCell
+      {...restProps}
+      ref={ref}
+      renderLabel={renderLabel}
+      wrapperClassName={classNames('data-cell-color-picker', wrapperClassName)}
+    >
+      <PureColorPicker />
+    </DataCell>
   );
-}
+});
 
-const WithWrap = CustomPicker(ColorPicker);
-
-export default (props) => {
-  const { value, onChange, ...restProps } = props;
-  const handlerChange = (color) => {
-    if (onChange) onChange(color.hex);
-  };
-  return <WithWrap {...restProps} onChange={handlerChange} color={value}/>;
-};
+export default ColorPicker;

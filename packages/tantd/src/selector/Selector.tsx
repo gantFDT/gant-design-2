@@ -2,8 +2,6 @@ import React, { useState, useMemo, useEffect, forwardRef, useImperativeHandle } 
 import classNames from 'classnames';
 import { Select, Tooltip } from 'antd';
 import { uniqBy } from 'lodash';
-import DataCell from '../data-cell';
-import type { DataCellProps } from '../data-cell';
 import { DeleteOutlined } from '@ant-design/icons';
 import useLocalStorage from './hooks/useLocalStorage';
 import useUpdateEffect from './hooks/useUpdateEffect';

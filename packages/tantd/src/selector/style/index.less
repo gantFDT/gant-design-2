@@ -1,14 +1,18 @@
 @import '../../../../../style/index.less';
 
-.dataCellSelector {
-    padding: 0;
+.data-cell-selector {
 
-    :global {
-        .ant-select-selector {
-            border: 0 !important;
-            border-radius: 0 !important;
-        }
+    .ant-select {
+        padding: 0px;
+        line-height: normal;
     }
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        font-size: 14px;
+        border: none;
+        border-radius: 0px;
+    }
+
 }
 
 
