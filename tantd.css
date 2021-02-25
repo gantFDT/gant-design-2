@@ -322,6 +322,176 @@
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
   --border-color-base: #d9d9d9;
 }
+.data-cell {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 32px;
+  border: 1px solid var(--border-color-base);
+}
+.data-cell > * {
+  font-size: 14px;
+  line-height: 22px;
+  padding: 4px 11px;
+  border-radius: 0px;
+  border: none;
+}
+.data-cell > *:not(.cell-setting-icon) {
+  display: inline-block;
+  width: 100%;
+}
+.data-cell.data-cell-edit {
+  padding-right: 32px;
+  border: 1px solid transparent;
+}
+.data-cell.data-cell-edit:hover {
+  border: 1px solid var(--border-color-base);
+}
+.data-cell.data-cell-inner-edit {
+  padding-right: 64px;
+  border: 1px solid var(--primary-color-5);
+}
+.data-cell.data-cell-inner-edit:hover {
+  border: 1px solid var(--primary-color-5);
+}
+.data-cell.data-cell-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border: none;
+}
+.data-cell.data-cell-disabled:hover {
+  border: none;
+}
+.data-cell.data-cell-onlyread {
+  border: none;
+  padding-right: 0px;
+}
+.data-cell.data-cell-onlyread .cell-setting-icon {
+  display: none;
+}
+.data-cell.data-cell-onlyread:hover {
+  border: none;
+}
+.data-cell .cell-setting-icon {
+  height: 30px;
+  width: 32px;
+}
+.data-cell .cell-setting-ok {
+  right: 32px;
+}
+.data-cell-sm {
+  min-height: 24px;
+}
+.data-cell-sm.data-cell-edit {
+  padding-right: 24px;
+}
+.data-cell-sm.data-cell-inner-edit {
+  padding-right: 48px;
+}
+.data-cell-sm.data-cell-read {
+  padding-right: 0px;
+}
+.data-cell-sm > * {
+  font-size: 12px;
+  padding: 0px 11px;
+}
+.data-cell-sm .cell-setting-icon {
+  width: 24px;
+  height: 22px;
+}
+.data-cell-sm .cell-setting-ok {
+  right: 24px;
+}
+.data-cell-lg {
+  min-height: 40px;
+}
+.data-cell-lg.data-cell-edit {
+  padding-right: 40px;
+}
+.data-cell-lg.data-cell-inner-edit {
+  padding-right: 80px;
+}
+.data-cell-lg.data-cell-read {
+  padding-right: 0px;
+}
+.data-cell-lg > * {
+  padding: 6px 11px;
+  font-size: 16px;
+  line-height: 26px;
+}
+.data-cell-lg .cell-setting-icon {
+  width: 40px;
+  height: 38px;
+}
+.data-cell-lg .cell-setting-ok {
+  right: 40px;
+}
+.data-cell-edit:hover .cell-setting-edit {
+  display: flex;
+}
+.cell-setting-icon {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell-setting-icon:hover {
+  color: var(--primary-color-5);
+}
+.cell-setting-edit {
+  display: none;
+}
+.cell-setting-ok {
+  right: 32px;
+}
+
+:root {
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
+}
+.data-cell-color-picker .cell-label {
+  padding: 0;
+}
+.data-cell-color-picker .cell-label .gant-color-picker-onlypreview {
+  height: 30px;
+}
+.data-cell-color-picker .gant-color-picker-mainwrap {
+  display: flex;
+  box-shadow: none;
+}
+.data-cell-color-picker .gant-color-picker-mainwrap .gant-color-picker-preview {
+  line-height: 30px;
+}
+.data-cell-color-picker .gant-color-picker-mainwrap .gant-color-picker-itemwrap .gant-color-picker-mainitem {
+  width: 24px;
+  height: 24px;
+}
+.data-cell-color-picker.data-cell-sm .cell-label {
+  padding: 0;
+}
+.data-cell-color-picker.data-cell-sm .cell-label .gant-color-picker-onlypreview {
+  height: 22px;
+}
+.data-cell-color-picker.data-cell-sm .gant-color-picker-small-mainwrap {
+  display: flex;
+  box-shadow: none;
+}
+.data-cell-color-picker.data-cell-sm .gant-color-picker-small-mainwrap .gant-color-picker-small-preview {
+  line-height: 22px;
+}
+.data-cell-color-picker.data-cell-sm .gant-color-picker-small-mainwrap .gant-color-picker-small-itemwrap .gant-color-picker-small-mainitem {
+  width: 17px;
+  height: 17px;
+}
 .gant-color-picker-mainwrap,
 .gant-color-picker-small-mainwrap {
   position: relative;
@@ -600,147 +770,11 @@
   --btn-default-border-color: rgba(0, 0, 0, 0.2);
   --border-color-base: #d9d9d9;
 }
-.data-cell {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  min-height: 32px;
-  border: 1px solid var(--border-color-base);
-}
-.data-cell > * {
-  font-size: 14px;
-  line-height: 22px;
-  padding: 4px 11px;
-  border-radius: 0px;
-  border: none;
-}
-.data-cell > *:not(.cell-setting-icon) {
-  display: inline-block;
-  width: 100%;
-}
-.data-cell.data-cell-edit {
-  padding-right: 32px;
-  border: 1px solid transparent;
-}
-.data-cell.data-cell-edit:hover {
-  border: 1px solid var(--border-color-base);
-}
-.data-cell.data-cell-inner-edit {
-  padding-right: 64px;
-  border: 1px solid var(--primary-color-5);
-}
-.data-cell.data-cell-inner-edit:hover {
-  border: 1px solid var(--primary-color-5);
-}
-.data-cell.data-cell-disabled {
-  color: rgba(0, 0, 0, 0.25);
-  background-color: #f5f5f5;
-  border: none;
-}
-.data-cell.data-cell-disabled:hover {
-  border: none;
-}
-.data-cell.data-cell-onlyread {
-  border: none;
-  padding-right: 0px;
-}
-.data-cell.data-cell-onlyread .cell-setting-icon {
-  display: none;
-}
-.data-cell.data-cell-onlyread:hover {
-  border: none;
-}
-.data-cell .cell-setting-icon {
-  height: 30px;
-  width: 32px;
-}
-.data-cell .cell-setting-ok {
-  right: 32px;
-}
-.data-cell-sm {
-  min-height: 24px;
-}
-.data-cell-sm.data-cell-edit {
-  padding-right: 24px;
-}
-.data-cell-sm.data-cell-inner-edit {
-  padding-right: 48px;
-}
-.data-cell-sm.data-cell-read {
-  padding-right: 0px;
-}
-.data-cell-sm > * {
-  font-size: 12px;
-  padding: 0px 11px;
-}
-.data-cell-sm .cell-setting-icon {
-  width: 24px;
-  height: 22px;
-}
-.data-cell-sm .cell-setting-ok {
-  right: 24px;
-}
-.data-cell-lg {
-  min-height: 40px;
-}
-.data-cell-lg.data-cell-edit {
-  padding-right: 40px;
-}
-.data-cell-lg.data-cell-inner-edit {
-  padding-right: 80px;
-}
-.data-cell-lg.data-cell-read {
-  padding-right: 0px;
-}
-.data-cell-lg > * {
-  padding: 6px 11px;
-  font-size: 16px;
-  line-height: 26px;
-}
-.data-cell-lg .cell-setting-icon {
-  width: 40px;
-  height: 38px;
-}
-.data-cell-lg .cell-setting-ok {
-  right: 40px;
-}
-.data-cell-edit:hover .cell-setting-edit {
-  display: flex;
-}
-.cell-setting-icon {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  cursor: pointer;
-  padding: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cell-setting-icon:hover {
-  color: var(--primary-color-5);
-}
-.cell-setting-edit {
-  display: none;
-}
-.cell-setting-ok {
-  right: 32px;
-}
-
-:root {
-  --primary-color: #2d2da3;
-  --primary-color-5: #40a9ff;
-  --component-background: #ffffff;
-  --text-color: rgba(0, 0, 0, 0.85);
-  --btn-default-color: rgba(0, 0, 0, 0.5);
-  --btn-default-border-color: rgba(0, 0, 0, 0.2);
-  --border-color-base: #d9d9d9;
-}
-.cellWrap :global .ant-select {
+.data-cell-selector .ant-select {
   padding: 0px;
   line-height: normal;
 }
-.cellWrap :global .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.data-cell-selector .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   font-size: 14px;
   border: none;
   border-radius: 0px;
