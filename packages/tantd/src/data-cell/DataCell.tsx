@@ -6,8 +6,6 @@ import classnames from 'classnames';
 
 import { DataCellProps } from './interface';
 
-import { get } from 'lodash';
-
 const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
   const {
     native,
@@ -18,16 +16,7 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
     onChange,
     ...innerProps
   } = props;
-  const {
-    children,
-    onCancel,
-    onConfirm,
-    getValueFromEvent,
-    size,
-    editable = true,
-    disabled,
-    ...restProps
-  } = innerProps;
+  const { children, onCancel, onConfirm, getValueFromEvent, size, readOnly, renderLabel, ...restProps } = innerProps;
 
   if (!isValidElement(children)) {
     console.error('children is not React.ReactElement!');
@@ -74,17 +63,15 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
       onChange: onValueChange,
       value,
       size,
-      disabled,
     });
-  }, [children, restProps, value, onValueChange, size, disabled]);
+  }, [children, restProps, value, onValueChange, size]);
 
   const mergeClassnames = classnames('data-cell', wrapperClassName, {
     'data-cell-sm': size === 'small',
     'data-cell-lg': size === 'large',
-    'data-cell-onlyread': !editable,
-    'data-cell-disabled': disabled,
-    'data-cell-edit': !native && editable,
-    'data-cell-inner-edit': !native && innerEditable && editable,
+    'data-cell-onlyread': !native && readOnly,
+    'data-cell-edit': !native && !readOnly,
+    'data-cell-inner-edit': !native && innerEditable && !readOnly,
   });
   return (
     <div className={mergeClassnames} style={wrapperStyle}>
@@ -98,7 +85,7 @@ const DataCell = forwardRef<any, DataCellProps<any>>(function (props, ref) {
           innerEditable={innerEditable}
           setInnerEditable={setInnerEditable}
           ref={ref}
-          disabled={disabled}
+          renderLabel={renderLabel}
         >
           {ChildrenComponet}
         </DataCellInner>

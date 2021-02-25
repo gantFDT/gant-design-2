@@ -13,8 +13,7 @@ const DataCellInner = forwardRef(function (props: DataCellInnerProps<any>, ref: 
     onCancel,
     setInnerEditable,
     innerEditable,
-    editable,
-    disabled,
+    readOnly,
     renderLabel,
     ...restProps
   } = props;
@@ -41,10 +40,8 @@ const DataCellInner = forwardRef(function (props: DataCellInnerProps<any>, ref: 
       ...restProps,
       onChange: handleChange,
       value: innerValue,
-      disabled,
-      // ref: childRef,
     });
-  }, [children, restProps, innerValue, handleChange, disabled]);
+  }, [children, restProps, innerValue, handleChange]);
 
   const onEditOver = useCallback(() => {
     setInnerValue(value);
@@ -72,10 +69,10 @@ const DataCellInner = forwardRef(function (props: DataCellInnerProps<any>, ref: 
   }, [onConfirm, innerValue, onChange, onEditOver]);
   const label = useMemo(() => {
     if (renderLabel) {
-      return renderLabel(value as any, { ...restProps, editable, disabled });
+      return renderLabel(value as any, { ...restProps, readOnly });
     }
     return value;
-  }, [editable, disabled, restProps, value, renderLabel]);
+  }, [readOnly, restProps, value, renderLabel]);
 
   return (
     <>

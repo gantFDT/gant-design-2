@@ -34,8 +34,7 @@ group:
 | size              | 尺寸                                               | `small`、`middle` 、`large`                                     | `middle` |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值                  | (..args: any[]) => any                                          |          |
 | valuePropName     | 值的属性名称，如 Switch 的是 'checked'。           | string                                                          | `value`  |
-| editable          | 是否可编辑 在读写分离模式下能否进入编辑状态        | boolean                                                         | `true`   |
-| disabled          | 是否禁用                                           | boolean                                                         | `false`  |
+| readyonly         | 是否仅读（原生模式下该属性不生效）                 | boolean                                                         | `true`   |
 | renderLabel       | 渲染状态文本（默认渲染value）                      | (value: ValueType, ...ags: any[]) => (string、 React.ReactNode) |          |
 | wrapperClassName  | wrapper class                                      | string                                                          |
 | wrapperStyle      | wrapper style                                      | CSSProperties                                                   |

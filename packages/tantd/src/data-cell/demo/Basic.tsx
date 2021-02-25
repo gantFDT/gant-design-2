@@ -26,14 +26,13 @@ export default () => {
         <Radio.Button value={true}>原生组件模式</Radio.Button>
         <Radio.Button value={false}>读写分离模式</Radio.Button>
       </Radio.Group>
-      <div style={{ marginTop: 20 }}>
+      <div style={{ marginTop: 5 }}>
         <InputDataCell native={native} defaultValue="基本使用" />
       </div>
+
       <div style={{ marginTop: 20 }}>
-        <InputDataCell disabled={true} defaultValue="disable状态" native={native} />
-      </div>
-      <div style={{ marginTop: 20 }}>
-        <InputDataCell editable={false} defaultValue="仅读模式" />
+        <div>仅读模式</div>
+        <InputDataCell readOnly defaultValue="仅读文字" />
       </div>
     </div>
   );
