@@ -15,6 +15,8 @@ import ProfileCard from './profile-card';
 import DatePicker, { RangePicker } from './date-picker';
 import InputCellphone from './input-cellphone';
 import InputTelephone from './input-telephone';
+import InputUrl from './input-url';
+import InputEmail from './input-email';
 import Icon from './icon';
 
 export {
@@ -36,5 +38,7 @@ export {
   RangePicker,
   InputCellphone,
   InputTelephone,
+  InputUrl,
+  InputEmail,
   Icon,
 };
