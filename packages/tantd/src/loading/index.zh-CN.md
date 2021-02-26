@@ -30,9 +30,10 @@ group:
 ## API
 ### Loading props
 
-| 参数      | 说明                                          | 类型      | 默认值           |
-| --------- | --------------------------------------------- | --------- | ---------------- |
-| spinType  | 内部提供的几种加载样式,具体类型已在demo中罗列 | string    | ball-clip-rotate |
-| indicator | 自定义样式                                    | ReactNode | -                |
-| spinning  | 是否加载loading                               | boolean   | true             |
-| content   | 内嵌内容                                      | ReactNode | -                |
+| 参数        | 说明                                          | 类型      | 默认值           |
+| ----------- | --------------------------------------------- | --------- | ---------------- |
+| spinType    | 内部提供的几种加载样式,具体类型已在demo中罗列 | string    | ball-clip-rotate |
+| loadingText | 自定义加载文字                                | string    | -                |
+| indicator   | 自定义样式                                    | ReactNode | -                |
+| spinning    | 是否加载loading                               | boolean   | true             |
+| content     | 内嵌内容                                      | ReactNode | -                |
