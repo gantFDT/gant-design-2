@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[14],{QXf5:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),o=n.n(a);t["default"]=()=>o.a.createElement(o.a.Fragment,null,"demo")},bjrt:function(e,t,n){"use strict";n.r(t),t["default"]={"schema-form-demo1":{component:n("QXf5").default}}}}]);
