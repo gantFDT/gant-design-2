@@ -1,4 +1,4 @@
-import TreeSelector from './treeselector';
+import TreeSelector from './TreeSelector';
 
 import './style';
 

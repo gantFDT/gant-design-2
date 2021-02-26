@@ -4,7 +4,7 @@ import { DatePicker as AntdDatePicker } from 'antd';
 
 import DataCell from '../data-cell';
 
-import RangePicker from './rangpicker';
+import RangePicker from './RangePicker';
 
 import moment from 'moment';
 

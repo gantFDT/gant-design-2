@@ -1,6 +1,12 @@
-import React from 'react'
-import { Anchor } from 'tantd';
+import React from 'react';
+import { Icon } from 'tantd';
 
 export default () => {
-  return <>demo</>
-}
+  return (
+    <>
+      <Icon size="small" />
+      <Icon />
+      <Icon size="large" />
+    </>
+  );
+};

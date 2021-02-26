@@ -1,3 +1,5 @@
-import Icon from './icon';
+import AntdIcon from './AntdIcon';
 
-export default Icon;
+import IconSelector from './IconSelector';
+
+export default IconSelector;

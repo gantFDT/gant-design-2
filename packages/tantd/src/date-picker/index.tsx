@@ -1,5 +1,5 @@
-import DatePicker from './datapicker';
+import DatePicker from './DatePicker';
 
-export { default as RangePicker } from './rangpicker';
+export { default as RangePicker } from './RangePicker';
 
 export default DatePicker;
