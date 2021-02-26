@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, forwardRef } from 'react';
 import { Input, Select } from 'antd';
 import type { InputProps } from 'antd/lib/input';
-// import codeTypes from './codes.json';
+import codeTypes from './codes.json';
 
 export interface Value {
   key?: string;
@@ -68,8 +68,7 @@ const InputCellphone = forwardRef<any, CellphoneProps>((props, ref) => {
   }, []);
 
   const options = useMemo(() => {
-    // return codeTypes.map((code) => ({ value: code, label: `+${code}` }));
-    return [];
+    return codeTypes.map((code) => ({ value: code, label: `+${code}` }));
   }, []);
 
   const onInputChange = async (e) => {

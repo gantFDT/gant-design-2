@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, forwardRef } from 'react';
 import { Input, Select } from 'antd';
 import type { InputProps } from 'antd/lib/input';
-// import codeTypes from './codes.json';
+import codeTypes from './codes.json';
 
 export interface Value {
   key?: string;
@@ -68,24 +68,23 @@ const InputTelephone = forwardRef<any, TelephoneProps>((props, ref) => {
   }, []);
 
   const options = useMemo(() => {
-    return [];
-    // return codeTypes.map((citys) => {
-    //   let renderCitys = citys;
-    //   const [[province, pCode], ...oCitys] = citys;
-    //   if (!pCode) renderCitys = oCitys;
-    //   return {
-    //     value: province,
-    //     label: province,
-    //     options: renderCitys.map((city) => {
-    //       if (city.length < 2) return;
-    //       const [name, code] = city;
-    //       return {
-    //         value: code,
-    //         label: `${code} ${name}`,
-    //       };
-    //     }),
-    //   };
-    // });
+    return codeTypes.map((citys) => {
+      let renderCitys = citys;
+      const [[province, pCode], ...oCitys] = citys;
+      if (!pCode) renderCitys = oCitys;
+      return {
+        value: province,
+        label: province,
+        options: renderCitys.map((city) => {
+          if (city.length < 2) return;
+          const [name, code] = city;
+          return {
+            value: code,
+            label: `${code} ${name}`,
+          };
+        }),
+      };
+    });
   }, []);
 
   const onInputChange = async (e) => {
