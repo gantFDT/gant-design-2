@@ -1,5 +1,5 @@
 ---
-title: InputTelephone 电话输入框
+title: InputUrl 网络地址输入框
 order: 2
 nav:
   title: 组件
@@ -10,7 +10,7 @@ group:
   order: 3
 ---
 
-# InputTelephone 电话输入框
+# InputTelephone 网络地址输入框
 
 基于 antd-select 的增强型选择器，展示最可选择项，支持传递 dataSource 作为选择器数据源。
 
