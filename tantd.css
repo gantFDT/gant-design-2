@@ -7043,5 +7043,25 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   --border-color-base: #d9d9d9;
 }
 
+:root {
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
+}
+
+:root {
+  --primary-color: #2d2da3;
+  --primary-color-5: #40a9ff;
+  --component-background: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --btn-default-color: rgba(0, 0, 0, 0.5);
+  --btn-default-border-color: rgba(0, 0, 0, 0.2);
+  --border-color-base: #d9d9d9;
+}
+
 
 /*# sourceMappingURL=tantd.css.map*/
