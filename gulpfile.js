@@ -78,6 +78,11 @@ task('less', function () {
   return src('src/**/*.less').pipe(less()).pipe(dest('es/')).pipe(dest('lib/'));
 });
 
+//拷贝json文件
+task('json', function () {
+  return src('src/**/*.json').pipe(dest('es/')).pipe(dest('lib/'));
+});
+
 //处理ts声明
 task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
@@ -92,4 +97,4 @@ task('copyReadme', async function () {
   await src('../../README.md').pipe(dest('../../packages/tantd'));
 });
 
-exports.default = series('clean', 'cjs', 'es', 'less', 'declaration', 'copyReadme');
+exports.default = series('clean', 'cjs', 'es', 'less', 'json', 'declaration', 'copyReadme');
