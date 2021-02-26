@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import DataCell from '../data-cell';
-import CellPhone from './CellPhone';
+import CellPhone from './Cellphone';
 import type { Input } from 'antd';
-import type { Value, CellPhoneProps } from './CellPhone';
+import type { Value, CellphoneProps } from './Cellphone';
 import type { DataCellProps } from '../data-cell';
 import './style';
 
@@ -22,11 +22,11 @@ const defaultOnBeforePhoneChange = (value, cb) => {
     cb(value);
   }
 };
-interface InputCellPhoneProps
-  extends Omit<CellPhoneProps, 'value' | 'defaultValue' | 'onChange' | 'children'>,
+interface InputCellphoneProps
+  extends Omit<CellphoneProps, 'value' | 'defaultValue' | 'onChange' | 'children'>,
     DataCellProps<Value> {}
 
-const InputCellPhone = forwardRef<Input, InputCellPhoneProps>(function InputCellPhone(props, ref) {
+const InputCellphone = forwardRef<Input, InputCellphoneProps>(function InputCellphone(props, ref) {
   const { wrapperClassName, validateValue, onBeforePhoneChange, ...restProps } = props;
 
   const renderLabel = (val) => {
@@ -56,4 +56,4 @@ const InputCellPhone = forwardRef<Input, InputCellPhoneProps>(function InputCell
   );
 });
 
-export default InputCellPhone;
+export default InputCellphone;

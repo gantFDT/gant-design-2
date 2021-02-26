@@ -13,6 +13,7 @@ import Loading from './loading';
 import DataCell from './data-cell';
 import ProfileCard from './profile-card';
 import DatePicker, { RangePicker } from './date-picker';
+import InputCellphone from './input-cellphone';
 import InputTelephone from './input-telephone';
 import Icon from './icon';
 
@@ -33,6 +34,7 @@ export {
   DataCell,
   DatePicker,
   RangePicker,
+  InputCellphone,
   InputTelephone,
   Icon,
 };

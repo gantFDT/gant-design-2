@@ -8,7 +8,7 @@ export interface Value {
   value?: string;
 }
 
-export interface CellPhoneProps extends Omit<InputProps, 'value' | 'defaultValue' | 'onChange'> {
+export interface CellphoneProps extends Omit<InputProps, 'value' | 'defaultValue' | 'onChange'> {
   value?: Value;
   defaultValue?: Value;
   onChange?: (val: Value) => void;
@@ -16,7 +16,7 @@ export interface CellPhoneProps extends Omit<InputProps, 'value' | 'defaultValue
   validateValue?: (value?: string) => boolean | boolean;
 }
 
-const InputCellPhone = forwardRef<any, CellPhoneProps>((props, ref) => {
+const InputCellphone = forwardRef<any, CellphoneProps>((props, ref) => {
   const {
     value,
     defaultValue,
@@ -104,4 +104,4 @@ const InputCellPhone = forwardRef<any, CellPhoneProps>((props, ref) => {
   );
 });
 
-export default InputCellPhone;
+export default InputCellphone;
