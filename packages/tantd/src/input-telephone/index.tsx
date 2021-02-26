@@ -1,38 +1,34 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import DataCell from '../data-cell';
-import CellPhone from './CellPhone';
+import Telephone from './Telephone';
 import type { Input } from 'antd';
-import type { Value, CellPhoneProps } from './CellPhone';
+import type { Value, TelephoneProps } from './Telephone';
 import type { DataCellProps } from '../data-cell';
 import './style';
 
-const reg = /^1$|^1[3-9]$|^1[3-9][0-9]\d{0,8}$/;
+const reg = /^\d{7,8}$/;
 
 const defaultValidateValue = (value?: string) => {
-  return !value || (value.length === 11 && reg.test(value));
+  return !value || reg.test(value);
 };
 
 const defaultOnBeforePhoneChange = (value, cb) => {
-  if (value) {
-    if (value.length <= 11 && reg.test(value)) {
-      cb(value);
-    }
-  } else {
+  if (!value || /^\d{0,8}$/.test(value)) {
     cb(value);
   }
 };
-interface InputCellPhoneProps
-  extends Omit<CellPhoneProps, 'value' | 'defaultValue' | 'onChange' | 'children'>,
+interface InputTelephoneProps
+  extends Omit<TelephoneProps, 'value' | 'defaultValue' | 'onChange' | 'children'>,
     DataCellProps<Value> {}
 
-const InputCellPhone = forwardRef<Input, InputCellPhoneProps>(function InputCellPhone(props, ref) {
+const InputTelephone = forwardRef<Input, InputTelephoneProps>(function InputTelephone(props, ref) {
   const { wrapperClassName, validateValue, onBeforePhoneChange, ...restProps } = props;
 
   const renderLabel = (val) => {
     if (!val) return undefined;
     const { key, value } = val;
-    return value ? `+${key} ${value}` : '';
+    return value ? `${key} - ${value}` : '';
   };
 
   const onConfirm = (val?: Value) => {
@@ -46,9 +42,9 @@ const InputCellPhone = forwardRef<Input, InputCellPhoneProps>(function InputCell
       ref={ref}
       renderLabel={renderLabel}
       onConfirm={onConfirm}
-      wrapperClassName={classNames('data-cell-input-cell-phone', wrapperClassName)}
+      wrapperClassName={classNames('data-cell-input-telephone', wrapperClassName)}
     >
-      <CellPhone
+      <Telephone
         validateValue={validateValue || defaultValidateValue}
         onBeforePhoneChange={onBeforePhoneChange || defaultOnBeforePhoneChange}
       />
@@ -56,4 +52,4 @@ const InputCellPhone = forwardRef<Input, InputCellPhoneProps>(function InputCell
   );
 });
 
-export default InputCellPhone;
+export default InputTelephone;
