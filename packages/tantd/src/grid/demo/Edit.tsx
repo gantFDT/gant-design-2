@@ -91,6 +91,7 @@ export default () => {
         editable: true,
         component: Selector,
         props: {
+          native: true,
           dataSource: types,
           dataConfig: {
             valueProp: 'value',
