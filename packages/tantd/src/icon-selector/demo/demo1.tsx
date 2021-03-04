@@ -1,10 +1,10 @@
 import React from 'react';
-import { Icon } from 'tantd';
+import { IconSelector } from 'tantd';
 
 export default () => {
   return (
     <>
-      <Icon type="StepBackwardOutlined" />
+      <IconSelector />
     </>
   );
 };

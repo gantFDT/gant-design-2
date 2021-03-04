@@ -18,6 +18,7 @@ import InputTelephone from './input-telephone';
 import InputUrl from './input-url';
 import InputEmail from './input-email';
 import Icon from './icon';
+import IconSelector from './icon-selector';
 
 export {
   Toolbar,
@@ -40,5 +41,6 @@ export {
   InputTelephone,
   InputUrl,
   InputEmail,
+  IconSelector,
   Icon,
 };

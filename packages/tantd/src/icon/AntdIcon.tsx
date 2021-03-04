@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { IconProps } from './interface';
+import { IconBaiscProps } from './interface';
 
 import * as allIcons from '@ant-design/icons';
 
@@ -20,7 +20,7 @@ export const antdIcons = omit(allIcons, [
 
 let DynamicIcon: React.FC<IconFontProps>;
 
-export default class AntdIcon extends Component<IconProps> {
+export default class AntdIcon extends Component<IconBaiscProps> {
   static updateFromIconfontCN: (options?: CustomIconOptions | undefined) => void;
   render() {
     const { type, ...restprops } = this.props;

@@ -2,7 +2,7 @@ import React, { forwardRef, useState, useEffect, Component } from 'react';
 
 import classnames from 'classnames';
 
-import AntdIcon from './AntdIcon';
+import AntdIcon from '../icon/AntdIcon';
 
 import IconSelectorDrawer from './IconSelectorDrawer';
 
@@ -26,11 +26,20 @@ export default class IconSelector extends Component<IconselectorProps> {
     visiable: false,
   };
 
-  onConfirm = (value) => {
+  onConfirm = (val) => {
+    const { value, onChange } = this.props;
+    if (Reflect.has(this.props, 'value')) {
+      onChange && onChange(val);
+      this.setState({
+        ...this.state,
+        visiable: false,
+      });
+      return;
+    }
     this.setState({
       ...this.state,
       visiable: false,
-      value,
+      value: val,
     });
   };
 
