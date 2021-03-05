@@ -8,7 +8,6 @@ const through2 = require('through2');
 //给组件中追加引入css
 const pushCss = () => {
   return through2.obj(function (file, encoding, next) {
-    console.log('file.path', file.path);
     this.push(file.clone());
     if (file.path.match(/(\/|\\)src(\/|\\)([a-z]*-[a-z]*|[a-z]*)(\/|\\)index\.js/)) {
       let content = file.contents.toString(encoding);
