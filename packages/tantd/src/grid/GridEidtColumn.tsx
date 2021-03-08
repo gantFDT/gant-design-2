@@ -6,7 +6,7 @@ import { isEqualObj } from './gridManager/utils';
 import { stopPropagationForAgGrid } from './utils';
 
 const defalutProps = {
-  // autoFocus: true,
+  autoFocus: true,
   edit: 'EDIT',
   defaultOpen: true,
   style: {

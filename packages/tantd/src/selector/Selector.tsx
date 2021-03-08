@@ -223,6 +223,7 @@ const Selector = forwardRef<RefSelectProps, SelectorProps<SelectValue>>((props, 
       onSelect={handleSelect}
       onChange={handleChange}
       onSearch={handleSearch}
+      dropdownMatchSelectWidth={false}
       onDropdownVisibleChange={handleDropdownVisibleChange}
       {...restProps}
     />
