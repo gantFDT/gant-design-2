@@ -57,6 +57,7 @@ const Selector = forwardRef<RefSelectProps, SelectorProps<SelectValue>>((props, 
     onSelect,
     onSearchValueChange,
     onDropdownVisibleChange,
+
     ...restProps
   } = props;
 
@@ -92,6 +93,10 @@ const Selector = forwardRef<RefSelectProps, SelectorProps<SelectValue>>((props, 
   const resultOptions = useMemo(() => {
     return options || (coverDataSourceToOptions(dataSource || [], mergeDataConfig, locale.otherGroup) as OptionsType);
   }, [mergeDataConfig, dataSource, options]);
+
+  useEffect(() => {
+    console.log('--->', '--->');
+  }, []);
 
   // update storageList
   useEffect(() => {

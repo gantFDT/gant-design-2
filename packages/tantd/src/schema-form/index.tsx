@@ -1,5 +1,3 @@
-import React from 'react';
+import SchemaForm from './SchemaForm';
 
-export default function () {
-  return <></>;
-}
+export default SchemaForm;

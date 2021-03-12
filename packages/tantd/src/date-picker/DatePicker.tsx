@@ -11,8 +11,11 @@ import moment from 'moment';
 import { DatePickerProps } from './interface';
 
 const defaultFormat = 'YYYY-MM-DD';
-
-const DatePicker = forwardRef<any, DatePickerProps>(function (props, ref) {
+interface ComponentWithStaticMethod
+  extends React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<any>> {
+  RangePicker: typeof RangePicker;
+}
+const DatePicker: ComponentWithStaticMethod = forwardRef<any, DatePickerProps>(function (props, ref) {
   const { value: propValue, format = defaultFormat, defaultValue, onChange, defaultPickerValue } = props;
   const [value, setValue] = useState<string | undefined>(defaultValue);
   const hasValue = Reflect.has(props, 'value');
@@ -45,6 +48,6 @@ const DatePicker = forwardRef<any, DatePickerProps>(function (props, ref) {
       <AntdDatePicker />
     </DataCell>
   );
-});
-(DatePicker as any).RangePicker = RangePicker;
+}) as ComponentWithStaticMethod;
+DatePicker.RangePicker = RangePicker;
 export default DatePicker;

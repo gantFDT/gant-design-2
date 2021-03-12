@@ -1,0 +1,27 @@
+@import '../../../../../style/index.less';
+.data-cell.gant-input {
+  .ant-input-affix-wrapper {
+    display: inline-flex;
+  }
+  &.data-cell-inner-edit {
+    .ant-input-group-wrapper {
+      padding: 0px;
+      .ant-input-wrapper {
+        > * {
+          border-right: 1px solid var(--border-color-base);
+        }
+      }
+    }
+  }
+  .ant-input-group-wrapper {
+    padding: 0px;
+    .ant-input-wrapper {
+      > * {
+        border: none;
+      }
+      > *:not(:last-child) {
+        border-right: 1px solid var(--border-color-base);
+      }
+    }
+  }
+}

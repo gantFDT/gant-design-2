@@ -13,12 +13,14 @@ import Loading from './loading';
 import DataCell from './data-cell';
 import ProfileCard from './profile-card';
 import DatePicker, { RangePicker } from './date-picker';
+import Input from './input';
 import InputCellphone from './input-cellphone';
 import InputTelephone from './input-telephone';
 import InputUrl from './input-url';
 import InputEmail from './input-email';
 import Icon from './icon';
 import IconSelector from './icon-selector';
+import SchemaForm from './schema-form';
 
 export {
   Toolbar,
@@ -43,4 +45,6 @@ export {
   InputEmail,
   IconSelector,
   Icon,
+  SchemaForm,
+  Input,
 };
