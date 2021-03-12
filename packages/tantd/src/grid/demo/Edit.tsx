@@ -6,8 +6,8 @@
 
 import React, { useCallback, useRef, useState } from 'react';
 import { Tag, Space, Button } from 'antd';
-import { Anchor, Grid, Header, Selector } from 'tantd';
-import { Input, InputNumber } from 'data-cell-g';
+import { Anchor, Grid, Header, Selector, InputUrl, InputEmail } from 'tantd';
+// import { Input, InputNumber } from 'data-cell-g';
 import { find, isEmpty } from 'lodash';
 
 const types = [
@@ -52,7 +52,10 @@ export default () => {
       width: 120,
       render: (text) => <a>{text}</a>,
       editConfig: {
-        component: Input,
+        component: InputUrl,
+        props:{
+          native:true
+        },
         editable: function (record, params) {
           return record.name !== 'Tom';
         },
@@ -71,7 +74,10 @@ export default () => {
       fieldName: 'age',
       width: 120,
       editConfig: {
-        component: InputNumber,
+        component: InputEmail,
+        props:{
+          native:true
+        },
         editable: true,
         signable: true,
       },
