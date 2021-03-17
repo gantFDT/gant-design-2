@@ -20,7 +20,7 @@ export default () => {
         </button>
       </div>
       <Modal
-        title="默认弹窗"
+        // title="默认弹窗"
         visible={visible}
         onCancel={() => {
           setVisible(false);

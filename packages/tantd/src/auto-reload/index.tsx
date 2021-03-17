@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Tooltip, Divider, Switch, InputNumber } from 'antd';
 import { RedoOutlined } from '@ant-design/icons';
-import LocaleReceiver from 'antd/lib/locale-provider/LocaleReceiver';
 import moment from 'moment';
 import classnames from 'classnames';
-import en from './locale/en-US';
-import zh from './locale/zh-CN';
+
+import LocaleReceiver from '../locale/LocaleReceiver';
+import { ComponentName } from '../locale';
+import type { Locale } from '../locale';
 
 const format = 'hh:mm:ss';
 export interface LocaleProps {
@@ -97,11 +98,9 @@ export default function (props) {
   );
 
   return (
-    <LocaleReceiver>
-      {(local, localeCode: any = 'zh-cn') => {
-        actualLocale ? (localeCode = actualLocale.locale) : localeCode;
-        const lang = langs[localeCode] || langs['zh-cn'];
-        const locale = { ...lang, ...customLocale };
+    <LocaleReceiver customLocale={customLocale} componentName={ComponentName.AutoReload}>
+      {(cmpLocale) => {
+        const locale = cmpLocale as Locale[ComponentName.AutoReload];
         return (
           <div className={classnames('ant-btn', 'ant-btn-sm', prefixCls + '-container', clsString)} style={style}>
             <Tooltip title={locale.tips}>
