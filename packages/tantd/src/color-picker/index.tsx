@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import DataCell from '../data-cell';
 import PureColorPicker from './ColorPicker';
 import type { DataCellProps } from '../data-cell';
-import './style';
+// import './style';
 export interface ForwardLocationSelectorProps
   extends DataCellProps<string>,
     Omit<any, 'defaultValue' | 'value' | 'onChange'> {}

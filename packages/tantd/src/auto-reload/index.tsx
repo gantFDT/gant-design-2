@@ -29,10 +29,10 @@ export interface Props {
   style?: object;
 }
 
-const langs = {
-  en,
-  'zh-cn': zh,
-};
+// const langs = {
+//   en,
+//   'zh-cn': zh,
+// };
 
 let playFun: any = null;
 

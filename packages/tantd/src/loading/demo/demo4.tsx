@@ -38,7 +38,7 @@ export default () => {
       <div style={{ height: '420px' }}>
         {arrType.map((item, index) => {
           return (
-            <div key={index} style={{ width: '110px', height: '110px', float: 'left' }}>
+            <div key={index} style={{ width: '100px', height: '100px', float: 'left' }}>
               <Loading spinType={item} />
             </div>
           );
