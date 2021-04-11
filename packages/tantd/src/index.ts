@@ -21,6 +21,7 @@ import InputEmail from './input-email';
 import Icon from './icon';
 import IconSelector from './icon-selector';
 import SchemaForm from './schema-form';
+import Rate from './rate';
 
 export {
   Toolbar,
@@ -47,4 +48,5 @@ export {
   Icon,
   SchemaForm,
   Input,
+  Rate
 };

@@ -5,8 +5,7 @@ import PureColorPicker from './ColorPicker';
 import type { DataCellProps } from '../data-cell';
 // import './style';
 export interface ForwardLocationSelectorProps
-  extends DataCellProps<string>,
-    Omit<any, 'defaultValue' | 'value' | 'onChange'> {}
+  extends DataCellProps<string>,Omit<any, 'defaultValue' | 'value' | 'onChange'> {}
 
 const ColorPicker = forwardRef<any, ForwardLocationSelectorProps>((props, ref) => {
   const { wrapperClassName, ...restProps } = props;
