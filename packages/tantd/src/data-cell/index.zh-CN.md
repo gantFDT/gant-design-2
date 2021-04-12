@@ -1,5 +1,5 @@
 ---
-title: datacell 读写分离
+title: DataCell 读写分离数据单元
 order: 1
 nav:
   title: 组件
@@ -10,7 +10,7 @@ group:
   order: 1
 ---
 
-# DataCell 数据单元
+# DataCell 读写分离数据单元
 
 🖍 读写分离  
 🎨 不影响原本组件属性的前提下，通过包裹 DataCell 使数据单元组件实现读写分离
