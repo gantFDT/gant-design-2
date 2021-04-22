@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import classnames from 'classnames';
 import pageLoadings from './loadings';
+import type { CSSProperties } from 'react';
 
 interface Props {
   height?: number;
@@ -13,7 +14,8 @@ interface Props {
   size?: string;
   loadingText?: string;
   spinning?: boolean;
-  content?: ReactNode;
+  children?: any;
+  style?: CSSProperties;
 }
 
 function Loading(props: Props) {
@@ -26,14 +28,15 @@ function Loading(props: Props) {
     indicator,
     loadingText,
     spinning = true,
-    content,
+    children,
     spinType = 'ball-clip-rotate',
+    style = {},
   } = props;
   const prefixCls = customizePrefixCls + '-pageloading';
   const clsString = classnames(prefixCls, 'gant-align-center', className);
   return (
-    <div style={{ position: 'relative' }}>
-      <div className={spinning ? '.showOpacity' : '.cancelOpacity'}>{content}</div>
+    <div style={{ ...style, position: 'relative' }}>
+      <div className={spinning ? 'showOpacity' : 'cancelOpacity'}>{children}</div>
       {spinning ? (
         <div className={clsString}>
           <div className="gant-loadingBox">

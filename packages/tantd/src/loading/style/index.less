@@ -2,8 +2,16 @@
 @gant-prefix: gant;
 @pageloading-prefix-cls: ~'@{gant-prefix}-pageloading';
 
+.showOpacity {
+  opacity: 0.5;
+}
+
+.cancelOpacity {
+  opacity: 1;
+}
+
 .@{pageloading-prefix-cls} {
-  background: rgba(225, 225, 225, 0.78);
+  // background: rgba(225, 225, 225, 0.78);
   text-align: center;
   z-index: 4;
   display: block;
@@ -13,13 +21,7 @@
   top: 0;
   left: 0;
 
-  .showOpacity {
-    opacity: 0.5;
-  }
-
-  .cancelOpacity {
-    opacity: 1;
-  }
+  
 
   .gant-loadingBox {
     display: flex;
