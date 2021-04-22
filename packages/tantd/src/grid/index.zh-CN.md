@@ -15,7 +15,7 @@ group:
 基于 ag-grid 的高性能表格, 在 ag-grid 基础上做了单元格编辑和其他一些增强
 
 <Alert>
-注意：如需在生产上使用此组件，需获得ag-grid-enterprise商业授权，请自行获得 LicenseKey, <a href="https://www.ag-grid.com/" target="_blank"> ag-grid 官网 </a> <a href="https://github.com/ag-grid/ag-grid/blob/master/LICENSE.txt" target="_blank"> LICENSE </a>
+注意：如需在生产上使用此组件的enterprise功能，需获得ag-grid-enterprise商业授权，请自行获得 LicenseKey, <a href="https://www.ag-grid.com/" target="_blank"> ag-grid 官网 </a> <a href="https://github.com/ag-grid/ag-grid/blob/master/LICENSE.txt" target="_blank"> LICENSE </a>
 tantd不提供LicenseKey，此文档只做演示使用
 </Alert>
 
@@ -42,7 +42,7 @@ tantd不提供LicenseKey，此文档只做演示使用
 
 ### 汇总行
 
-列头下面可以固定一行专门做前端列过滤
+可以设置固定行作为数据汇总显示
 
 <code src="./demo/Summary.tsx" />
 
