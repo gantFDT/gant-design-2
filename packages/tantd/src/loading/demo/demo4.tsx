@@ -2,16 +2,14 @@ import React from 'react';
 import { Loading } from 'tantd';
 
 const styles = {
-  wrap:{
-    overflow:'hidden'
-    // display:'flex'
+  wrap: {
+    overflow: 'hidden',
   },
-  item:{
+  item: {
     width: '100px',
     height: '100px',
-    float:'left'
-  }
-  
+    float: 'left',
+  },
 };
 
 //提供多种动态样式
@@ -50,11 +48,7 @@ export default () => {
     <>
       <div style={styles.wrap}>
         {arrType.map((item, index) => {
-          return (
-            // <div key={index} style={styles.item}>
-              <Loading spinType={item} key={index} style={styles.item}/>
-            // </div>
-          );
+          return <Loading spinType={item} key={index} style={styles.item} />;
         })}
       </div>
     </>
