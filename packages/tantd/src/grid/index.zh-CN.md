@@ -79,6 +79,12 @@ tantd不提供LicenseKey，此文档只做演示使用
 
 <code src="./demo/PageInfo.tsx" />
 
+### 嵌套表格
+
+行可以嵌套自定义内容，比如嵌套表格
+
+<code src="./demo/Nested.tsx" />
+
 ## API
 
 ### Grid Props
