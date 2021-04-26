@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[21],{p8kL:function(e,t,n){"use strict";n.r(t),t["default"]={"icon-demo1":{component:n("qCwg").default}}},qCwg:function(e,t,n){"use strict";n.r(t);var a=n("GF6P"),c=n("q1tI"),u=n.n(c);t["default"]=()=>u.a.createElement(u.a.Fragment,null,u.a.createElement(a["default"],{type:"StepBackwardOutlined"}))}}]);
