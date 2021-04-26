@@ -52,6 +52,7 @@ export default {
   headScripts: [],
   styles: [
     `
+    #root{width:100%;}
     .__dumi-default-layout-hero{
       background-image:url(https://i.loli.net/2021/02/07/D95R2L8pzy1bjCU.png)!important;
       background-size:cover;

@@ -5,7 +5,7 @@ const inject = require('gulp-inject-string');
 task('index-inject', function () {
   var target = src('../dist/index.html');
   return target
-    .pipe(inject.after('</title>', '\n<link rel="stylesheet" type="text/css" href="/gant-design-2/tantd.css">\n'))
+    .pipe(inject.after('</title>', '\n<link rel="stylesheet" type="text/css" href="/gant-design-2/tantd.css" />\n'))
     .pipe(dest('../dist'));
 });
 
