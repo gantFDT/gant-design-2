@@ -95,7 +95,8 @@ const dataSource = [
   },
 ];
 
-export default () => {
+export default ({data}) => {
+  console.log('data',data)
   return (
     <div style={{ padding: 10 }}>
       <Grid
@@ -112,9 +113,7 @@ export default () => {
         groupSuppressAutoColumn // 正常情况下会有一个分组列，可以根据需求将分组加到 grid 配置的某一个列上，开启改配置可隐藏多余的分组列
         groupDefaultExpanded={3} // 指定展开层级
         defaultColDef={{
-          flex: 1,
-          floatingFilter: true,
-          filter: true,
+          flex: 1
         }}
       />
     </div>

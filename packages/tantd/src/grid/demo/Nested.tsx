@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Grid } from 'tantd';
 import { Tabs } from 'antd';
-import DetailCellRenderer from './detailCellRender';
+import DetailCellRenderer from './DetailCellRender';
 
 const columns = [
   {
