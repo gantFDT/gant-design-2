@@ -90,7 +90,7 @@ task('declaration', function () {
       // noEmitOnError: true,
       // emitDeclarationOnly: true,
     });
-    return tsProject.src().pipe(tsProject()).pipe(less2css()).pipe(dest('es/')).pipe(dest('lib/'));
+    return tsProject.src().pipe(tsProject()).pipe(less2css()).pipe(pushCss()).pipe(dest('es/')).pipe(dest('lib/'));
   } catch (error) {
     console.log(error);
   }
