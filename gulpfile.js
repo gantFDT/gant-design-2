@@ -84,11 +84,16 @@ task('json', function () {
 
 //处理ts声明
 task('declaration', function () {
-  const tsProject = ts.createProject('tsconfig.json', {
-    declaration: true,
-    emitDeclarationOnly: true,
-  });
-  return tsProject.src().pipe(tsProject()).pipe(less2css()).pipe(dest('es/')).pipe(dest('lib/'));
+  try {
+    const tsProject = ts.createProject('tsconfig.json', {
+      declaration: true,
+      // noEmitOnError: true,
+      // emitDeclarationOnly: true,
+    });
+    return tsProject.src().pipe(tsProject()).pipe(less2css()).pipe(dest('es/')).pipe(dest('lib/'));
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //拷贝readme
