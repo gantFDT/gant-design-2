@@ -85,6 +85,18 @@ tantd不提供LicenseKey，此文档只做演示使用
 
 <code src="./demo/Nested.tsx" />
 
+
+### 已选择盒子
+
+在grid右下角悬浮了一个已选择的盒子，在超长表格或者翻页表格时可以快速查看已选择的行
+
+<code src="./demo/SelectionBox.tsx" />
+
+### 结合无遮罩抽屉
+
+<code src="./demo/Drawer.tsx" />
+
+
 ## API
 
 ### Grid Props

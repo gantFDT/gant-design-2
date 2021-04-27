@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useCallback } from 'react';
 import { Random, mock } from 'mockjs';
 import { Grid } from 'tantd';
 
@@ -42,6 +42,13 @@ const data = Array.from({ length: 1000 }).map((content, index) =>
 
 export default () => {
   const [dataSource, setdataSource] = useState([]);
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]);
+
+  const onSelect = useCallback((keys, rows) => {
+    setSelectedKeys(keys);
+    setSelectedRows(rows);
+  }, []);
 
   useLayoutEffect(() => {
     setdataSource(data);

@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { Grid } from 'tantd';
-import { Tabs } from 'antd';
 import DetailCellRenderer from './DetailCellRender';
 
 const columns = [
@@ -23,8 +22,6 @@ const columns = [
 ];
 
 export default () => {
-  const [gridApi, setGridApi] = useState(null);
-  const [gridColumnApi, setGridColumnApi] = useState(null);
   const [rowData, setRowData] = useState();
 
   const onFirstDataRendered = (params) => {
@@ -34,8 +31,6 @@ export default () => {
   };
 
   const onGridReady = (params) => {
-    setGridApi(params.api);
-    setGridColumnApi(params.columnApi);
     fetch('https://www.ag-grid.com/example-assets/master-detail-data.json')
       .then((resp) => {
         return resp.json();
@@ -46,20 +41,22 @@ export default () => {
   };
 
   return (
-    <Grid
-      rowkey="account"
-      serialNumber
-      columns={columns}
-      dataSource={rowData}
-      onReady={onGridReady}
-      defaultColDef={{
-        flex: 1,
-      }}
-      detailRowHeight={200}
-      frameworkComponents={{ myDetailCellRenderer: DetailCellRenderer }}
-      onFirstDataRendered={onFirstDataRendered}
-      masterDetail={true}
-      detailCellRenderer={'myDetailCellRenderer'}
-    />
+    <>
+      <Grid
+        rowkey="account"
+        serialNumber
+        columns={columns}
+        dataSource={rowData}
+        onReady={onGridReady}
+        defaultColDef={{
+          flex: 1,
+        }}
+        detailRowHeight={200}
+        frameworkComponents={{ myDetailCellRenderer: DetailCellRenderer }}
+        onFirstDataRendered={onFirstDataRendered}
+        masterDetail={true}
+        detailCellRenderer={'myDetailCellRenderer'}
+      />
+    </>
   );
 };
