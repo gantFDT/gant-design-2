@@ -97,6 +97,15 @@ tantd不提供LicenseKey，此文档只做演示使用
 <code src="./demo/Drawer.tsx" />
 
 
+### 合并单元格
+
+<code src="./demo/RowSpan.tsx" />
+
+### 自定义列头
+
+<code src="./demo/CustomHeader.tsx" />
+
+
 ## API
 
 ### Grid Props
